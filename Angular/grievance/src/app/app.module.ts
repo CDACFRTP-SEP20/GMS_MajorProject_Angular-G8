@@ -14,6 +14,8 @@ import { ContactComponent } from './commons/contact/contact.component';
 import { ErrorComponent } from './commons/error/error.component';
 import { CdepartmentComponent } from './commons/cdepartment/cdepartment.component';
 import { AdminModule } from './admin/admin.module';
+import { NavbarComponent } from './commons/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { AdminModule } from './admin/admin.module';
     AboutComponent,
     ContactComponent,
     ErrorComponent,
-    CdepartmentComponent
+    CdepartmentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],

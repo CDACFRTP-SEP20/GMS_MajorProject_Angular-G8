@@ -1,0 +1,19 @@
+nav{
+    background-color: #03506f;
+    box-shadow: 0 5px 5px #3b3a3b;
+    
+}
+a{
+    color: white;
+    font-weight: 500;
+}
+button{
+    background-color: #f0567a;
+    color: white;
+    margin-left: 10px;
+    
+}
+
+/* button:hover{
+    background-color: aqua
+} */
