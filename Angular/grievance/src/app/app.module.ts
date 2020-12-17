@@ -16,6 +16,7 @@ import { CdepartmentComponent } from './commons/cdepartment/cdepartment.componen
 import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './commons/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactComponent,
     ErrorComponent,
     CdepartmentComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
