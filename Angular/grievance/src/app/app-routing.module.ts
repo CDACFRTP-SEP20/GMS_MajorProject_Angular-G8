@@ -10,6 +10,13 @@ import { AdminDepartmentListComponent } from './admin/admin-department-list/admi
 import { AdminAddDepartmentComponent } from './admin/admin-add-department/admin-add-department.component';
 import { AdminAddDeptHeadComponent } from './admin/admin-add-dept-head/admin-add-dept-head.component';
 import { AdminComplaintComponent } from './admin/admin-complaint/admin-complaint.component';
+import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
+import { ReportsComponent } from './department/reports/reports.component';
+import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
+import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
+import { ProfileComponent } from './department/profile/profile.component';
+import { ComplainListComponent } from './department/complain-list/complain-list.component';
+import { DepartmentHomeComponent } from './department/department-home/department-home.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -28,6 +35,17 @@ const routes: Routes = [
 
       ]
 },
+
+{ path: 'department' , component: DepartmentHomeComponent,
+children:[
+  {path : 'department-complain-list',component : ComplainListComponent},
+  {path : 'department-profile',component : ProfileComponent},
+  {path : 'department-reminder-complain',component : ReminderComplainComponent},
+  {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
+  {path : 'department-reports',component : ReportsComponent},
+  {path : 'department-transfer-complain',component : TransferComplainComponent}
+    ]
+}
 
 
 ];

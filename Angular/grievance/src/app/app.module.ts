@@ -17,6 +17,13 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
+import { DepartmentHomeComponent } from './department/department-home/department-home.component';
+import { SidenavComponent } from './department/sidenav/sidenav.component';
+import { ComplainListComponent } from './department/complain-list/complain-list.component';
+import { ProfileComponent } from './department/profile/profile.component';
+import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
+import { ReportsComponent } from './department/reports/reports.component';
+import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +39,22 @@ import { FooterComponent } from './commons/footer/footer.component';
     ErrorComponent,
     CdepartmentComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DepartmentHomeComponent,
+    DepartmentComponent,
+    SidenavComponent,
+    ComplainListComponent,
+    ProfileComponent,
+    ReminderComplainComponent,
+    ReportsComponent,
+    TransferComplainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
     BrowserAnimationsModule,
+  
     
   ],
   providers: [],
