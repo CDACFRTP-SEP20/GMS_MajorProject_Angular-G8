@@ -17,6 +17,10 @@ import { ReminderComplainComponent } from './department/reminder-complain/remind
 import { ProfileComponent } from './department/profile/profile.component';
 import { ComplainListComponent } from './department/complain-list/complain-list.component';
 import { DepartmentHomeComponent } from './department/department-home/department-home.component';
+import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-dept-head-list.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
+import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -29,12 +33,20 @@ const routes: Routes = [
       children:[
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
-          {path:'admin-deptheadlist',component:AdminDepartmentListComponent},
+          {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
           {path:'admin-adddepthead',component:AdminAddDeptHeadComponent},
           {path:'admin-complaintlist',component:AdminComplaintComponent}
 
       ]
 },
+{path:'citizen', component:CitizenHomeComponent,
+  children:[
+    {path:'citizen-home', component:CitizenHomeComponent},
+    {path:'citizen-register', component:CitizenRegistrationComponent},
+    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
+
+  ]
+}
 
 { path: 'department' , component: DepartmentHomeComponent,
 children:[

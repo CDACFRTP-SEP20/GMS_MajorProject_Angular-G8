@@ -24,6 +24,10 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
+import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { TransferComplainComponent } from './department/transfer-complain/transf
     ReminderComplainComponent,
     ReportsComponent,
     TransferComplainComponent
+    CitizenHomeComponent,
+    CitizenRegistrationComponent,
+    CitizenComplaintRegisterComponent,
+    CsidenavComponent
   ],
   imports: [
     BrowserModule,
