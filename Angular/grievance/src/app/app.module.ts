@@ -17,6 +17,13 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
+import { DepartmentHomeComponent } from './department/department-home/department-home.component';
+import { SidenavComponent } from './department/sidenav/sidenav.component';
+import { ComplainListComponent } from './department/complain-list/complain-list.component';
+import { ProfileComponent } from './department/profile/profile.component';
+import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
+import { ReportsComponent } from './department/reports/reports.component';
+import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
@@ -37,6 +44,14 @@ import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
     CdepartmentComponent,
     NavbarComponent,
     FooterComponent,
+    DepartmentHomeComponent,
+    DepartmentComponent,
+    SidenavComponent,
+    ComplainListComponent,
+    ProfileComponent,
+    ReminderComplainComponent,
+    ReportsComponent,
+    TransferComplainComponent
     CitizenHomeComponent,
     CitizenRegistrationComponent,
     CitizenComplaintRegisterComponent,
@@ -47,6 +62,7 @@ import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
     AppRoutingModule,
     AdminModule,
     BrowserAnimationsModule,
+  
     
   ],
   providers: [],
