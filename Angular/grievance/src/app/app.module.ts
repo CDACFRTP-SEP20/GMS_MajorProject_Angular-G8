@@ -17,6 +17,10 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
+import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { FooterComponent } from './commons/footer/footer.component';
     ErrorComponent,
     CdepartmentComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CitizenHomeComponent,
+    CitizenRegistrationComponent,
+    CitizenComplaintRegisterComponent,
+    CsidenavComponent
   ],
   imports: [
     BrowserModule,
