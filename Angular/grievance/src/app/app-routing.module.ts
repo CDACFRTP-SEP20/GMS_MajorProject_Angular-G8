@@ -21,6 +21,7 @@ import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-d
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { ChangePasswordComponent } from './department/change-password/change-password.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -46,7 +47,7 @@ const routes: Routes = [
     {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
 
   ]
-}
+},
 
 { path: 'department' , component: DepartmentHomeComponent,
 children:[
@@ -55,7 +56,8 @@ children:[
   {path : 'department-reminder-complain',component : ReminderComplainComponent},
   {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
   {path : 'department-reports',component : ReportsComponent},
-  {path : 'department-transfer-complain',component : TransferComplainComponent}
+  {path : 'department-transfer-complain',component : TransferComplainComponent},
+  {path : 'department-change-password',component : ChangePasswordComponent},
     ]
 }
 

@@ -28,6 +28,7 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
 import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
+import { ChangePasswordComponent } from './department/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -51,11 +52,12 @@ import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
     ProfileComponent,
     ReminderComplainComponent,
     ReportsComponent,
-    TransferComplainComponent
+    TransferComplainComponent,
     CitizenHomeComponent,
     CitizenRegistrationComponent,
     CitizenComplaintRegisterComponent,
-    CsidenavComponent
+    CsidenavComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
