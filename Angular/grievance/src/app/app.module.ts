@@ -20,6 +20,18 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
+import { DepartmentHomeComponent } from './department/department-home/department-home.component';
+import { SidenavComponent } from './department/sidenav/sidenav.component';
+import { ComplainListComponent } from './department/complain-list/complain-list.component';
+import { ProfileComponent } from './department/profile/profile.component';
+import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
+import { ReportsComponent } from './department/reports/reports.component';
+import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
+import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
+import { ChangePasswordComponent } from './department/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +47,20 @@ import { AuthInterceptorService } from './service/auth-interceptor.service';
     ErrorComponent,
     CdepartmentComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DepartmentHomeComponent,
+    DepartmentComponent,
+    SidenavComponent,
+    ComplainListComponent,
+    ProfileComponent,
+    ReminderComplainComponent,
+    ReportsComponent,
+    TransferComplainComponent,
+    CitizenHomeComponent,
+    CitizenRegistrationComponent,
+    CitizenComplaintRegisterComponent,
+    CsidenavComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +69,7 @@ import { AuthInterceptorService } from './service/auth-interceptor.service';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule
-    
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
