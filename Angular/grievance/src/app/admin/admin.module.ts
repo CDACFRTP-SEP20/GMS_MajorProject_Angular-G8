@@ -10,6 +10,8 @@ import { AdminAddDeptHeadComponent } from './admin-add-dept-head/admin-add-dept-
 import { AdminUpdateDeptHeadComponent } from './admin-update-dept-head/admin-update-dept-head.component';
 import { AdminComplaintComponent } from './admin-complaint/admin-complaint.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { DeptiseComplaintComponent } from './deptise-complaint/deptise-complaint.component';
+import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-complaint.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
       AdminDeptHeadListComponent, 
       AdminAddDeptHeadComponent, 
       AdminUpdateDeptHeadComponent, 
-      AdminComplaintComponent, SidenavComponent
+      AdminComplaintComponent, SidenavComponent, DeptiseComplaintComponent, StatuswiseComplaintComponent
     ],
       imports: [
         BrowserModule,

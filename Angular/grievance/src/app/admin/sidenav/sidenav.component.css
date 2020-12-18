@@ -37,6 +37,22 @@ a{
   background-color: #03506f;
     margin: 20px auto;
 }
+.link:hover{
+    background-color: #06668b;
+    transform: scale(1.05)
+}
+.dp{
+    background-color: #fff;
+    
+    padding: 10px;
+}
+.dpname{
+    color: #fff;
+}
+.dp a{
+    margin: 10px;
+    color:#04384d ;
+}
 .navigation a {
     padding:0;  
     font-size: 20px;

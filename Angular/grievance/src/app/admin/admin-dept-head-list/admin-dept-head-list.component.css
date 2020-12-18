@@ -1,4 +1,21 @@
 .container{
     text-align: center;
-    margin-top: 20%;
+    margin-top: 2%;
+}
+.page-header h1{
+    font-weight: bold;
+    color: #0a5d7e;
+}
+
+th{
+    color: #fff;
+    background-color: #8a8b8b;
+    font-size: large;
+    font-weight: normal;
+}
+
+.btn{
+    background-color: #f0567a;
+    color: #fff;
+    font-size: larger;
 }

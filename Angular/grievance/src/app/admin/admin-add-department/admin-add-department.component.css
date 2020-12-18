@@ -1,0 +1,22 @@
+.container{
+    margin: 5%;
+    width: 40%;
+   
+}
+.header h1{
+    color: #03506f;
+    font-weight: bolder;
+}
+button{
+    background-color: #03506f;
+    padding: 10px 50px;
+    color: #fff;
+    font-size: large;
+    font-weight: 500;
+    box-shadow: 0 2px 5px grey;
+}
+button:hover{
+    background-color: #0a7eac;
+    color: #fff;
+    transform: scale(1.1)
+}
