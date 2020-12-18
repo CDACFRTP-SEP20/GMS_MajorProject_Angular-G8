@@ -14,6 +14,8 @@ import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-d
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
+import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -28,7 +30,10 @@ const routes: Routes = [
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
           {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
           {path:'admin-adddepthead',component:AdminAddDeptHeadComponent},
-          {path:'admin-complaintlist',component:AdminComplaintComponent}
+          {path:'admin-complaintlist',component:AdminComplaintComponent},
+          {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
+          {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
+
 
       ]
 },

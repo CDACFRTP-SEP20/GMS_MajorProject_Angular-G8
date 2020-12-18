@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{  
+    margin: 2%;
+
+}
+.header{
+   
+    border-bottom: 2px solid #0a5d7e;
+    padding: 10px;
+    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+.header h1{
+    font-weight: bold;
+    color: #0a5d7e;
+  
+}
+th{
+    color: #fff;
+    background-color: grey;
+    font-size: large;
+    font-weight: normal;
+}
+
+.btn{
+    background-color: #f0567a;
+    color: #fff;
+    font-size: larger;
+}
+.desc{
+    
+    
+}
+
+div.complaint{
+  overflow-y: scroll;
+  height: 35vw;  
+    width: 75vw;
+   
+}
