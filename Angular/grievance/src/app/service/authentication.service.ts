@@ -1,7 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
+import { Department } from '../models/department';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class AuthenticationService  {
     console.log(sessionStorage.getItem('username'));
     
   }
-
+  token:any
   constructor(private http: HttpClient) { }
   isUserLoggedIn(){
     
@@ -25,7 +26,7 @@ export class AuthenticationService  {
   userrole = new BehaviorSubject<String>(sessionStorage.getItem('userrole'))
 
   authenticate(username:any,password:any){
-
+   
     return this.http.post<any>('http://localhost:8787/auth/authenticate',
     {username,password})
     .pipe(
@@ -42,7 +43,7 @@ export class AuthenticationService  {
       )
     )
   }
-
+ 
   getRole(){
     return sessionStorage.getItem('userrole')
   }

@@ -14,31 +14,15 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td scope="row">1</td>
-                                <td>GAS</td>
+                              <tr *ngFor="let dept of deptList">
+                              <td scope="row">{{dept.deptId}}</td>
+                                <td>{{dept.departmentName}}</td>
                                 <td>
                                     <button class="btn">Delete</button>
                                 </td>
                                
                               </tr>
-                              <tr>
-                                <td scope="row">2</td>
-                                <td>WATER</td>
-                                <td>
-                                    <button class="btn">Delete</button>
-                                </td>
-                               
-                              </tr>
-                              <tr>
-                                <td scope="row">3</td>
-                                <td>LIGHT</td>
-                                <td>
-                                        <button class="btn">Delete</button>
-
-                                </td>
-                               
-                              </tr>
+                             
                             </tbody>
                           </table>
             </div>
