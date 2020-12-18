@@ -68,34 +68,7 @@ const routes: Routes = [
       },
 
       { path: 'department-change-password', component: ChangePasswordComponent },
-      
-import { AdminComponent } from './admin/admin.component';
-
-const routes: Routes = [
-  {path : '' , component : HomeComponent},
-  {path : 'home' , component : HomeComponent},
-  {path : 'about' , component : AboutComponent},
-  {path : 'contact' , component : ContactComponent},
-  {path : 'login' , component : LoginComponent}, 
-  {path : 'admin' , component : AdminHomeComponent,
-      children:[
-          {path:'admin-deptlist',component:AdminDepartmentListComponent},
-          {path:'admin-adddept',component:AdminAddDepartmentComponent},
-          {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
-          {path:'admin-adddepthead',component:AdminAddDeptHeadComponent},
-          {path:'admin-complaintlist',component:AdminComplaintComponent},
-          {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
-          {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
-
-      ]
-},
-{path:'citizen', component:CitizenHomeComponent,
-  children:[
-    {path:'citizen-home', component:CitizenHomeComponent},
-    {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
-
-      { path: 'department-reminder-complain', component: ReminderComplainComponent },
+     { path: 'department-reminder-complain', component: ReminderComplainComponent },
       { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
       { path: 'department-reports', component: ReportsComponent,
       children: [
