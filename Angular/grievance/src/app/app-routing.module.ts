@@ -46,7 +46,7 @@ const routes: Routes = [
     {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
 
   ]
-}
+},
 
 { path: 'department' , component: DepartmentHomeComponent,
 children:[

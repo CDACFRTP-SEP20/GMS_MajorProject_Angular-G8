@@ -51,7 +51,7 @@ import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
     ProfileComponent,
     ReminderComplainComponent,
     ReportsComponent,
-    TransferComplainComponent
+    TransferComplainComponent,
     CitizenHomeComponent,
     CitizenRegistrationComponent,
     CitizenComplaintRegisterComponent,
