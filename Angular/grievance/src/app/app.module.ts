@@ -27,11 +27,15 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
-import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
-import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
-import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+
+
+
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
+import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
+import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
+import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 
 @NgModule({
   declarations: [
@@ -56,11 +60,12 @@ import { ChangePasswordComponent } from './department/change-password/change-pas
     ReminderComplainComponent,
     ReportsComponent,
     TransferComplainComponent,
-    CitizenHomeComponent,
     CitizenRegistrationComponent,
-    CitizenComplaintRegisterComponent,
     CsidenavComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CitizenComplaintRegisterFormComponent,
+    CitizenComplaintComponent,
+    CitizenComplaintStatusComponent
   ],
   imports: [
     BrowserModule,

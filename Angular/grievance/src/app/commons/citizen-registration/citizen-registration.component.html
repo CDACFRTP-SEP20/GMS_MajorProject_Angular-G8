@@ -1,0 +1,76 @@
+<div class="maindiv">
+    <div class="container form">
+        <span class="font-weight-bolder"><legend >Regsiter here!</legend></span>
+        
+        <!-- <div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div> -->
+        <form>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input type="text" class="form-control " placeholder="Enter name" name="name"
+                        [(ngModel)]="citizen.name" required minlength="3" #un="ngModel">
+                </div>
+            </div>
+            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid name(min 3 char)
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input type="text" class="form-control" placeholder="Enter Username" name="username"
+                        [(ngModel)]="citizen.username" required minlength="3" #un="ngModel">
+                </div>
+            </div>
+            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid username(min 3 char)
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input type="password" class="form-control" placeholder="Enter password" name="password"
+                        [(ngModel)]="citizen.password" required minlength="3" #pwd="ngModel">
+                </div>
+            </div>
+            <div [ngStyle]="{'color': 'red'}" *ngIf="pwd?.invalid && pwd?.touched">Please enter valid password(min 3
+                char)
+            </div>
+
+
+            <div class="form-group">
+                    <label for="address">Address:</label>
+                    <div class="input-container">
+                        <i class="fa fa-address-card icon"></i>
+                        <input type="text" class="form-control" placeholder="Enter address"
+                            name="address" [(ngModel)]="citizen.address" #un="ngModel">
+                    </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="address">Address:</label>
+                <div class="input-container">
+                    <i class="fa fa-address-card icon"></i>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter address"
+                        name="address" [(ngModel)]="citizen.address" #un="ngModel"></textarea>
+                </div>
+            </div> -->
+
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input type="text" class="form-control" placeholder="Enter contact number" name="contact"
+                        [(ngModel)]="citizen.contact" #un="ngModel">
+                </div>
+            </div>
+            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid username(min 3 char)
+            </div>
+
+
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+</div>

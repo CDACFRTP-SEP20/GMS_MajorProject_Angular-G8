@@ -1,0 +1,8 @@
+.card-deck{
+    margin-top: 40px;
+     width: 110%;
+   
+}
+.card{
+    box-shadow: 0 2px 5px grey;
+}

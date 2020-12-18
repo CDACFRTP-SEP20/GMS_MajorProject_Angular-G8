@@ -20,12 +20,13 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ComplainListComponent } from './department/complain-list/complain-list.component';
 import { DepartmentHomeComponent } from './department/department-home/department-home.component';
 import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-dept-head-list.component';
-import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
-import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
-import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
+import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
+import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
+
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent},
+  {path : 'register' , component : CitizenRegistrationComponent},
   {path : 'department' , component : DepartmentComponent},
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
@@ -48,12 +50,10 @@ const routes: Routes = [
 
       ]
 },
-{path:'citizen', component:CitizenHomeComponent,
+{path:'citizen', component:CitizenComponent,
   children:[
-    {path:'citizen-home', component:CitizenHomeComponent},
-    {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
-
+    {path: 'citizen-complaint',component:CitizenComplaintComponent},
+    {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
   ]
 },
 
