@@ -17,6 +17,9 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './service/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,16 @@ import { FooterComponent } from './commons/footer/footer.component';
     AppRoutingModule,
     AdminModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
