@@ -46,8 +46,6 @@ const routes: Routes = [
           {path:'admin-complaintlist',component:AdminComplaintComponent},
           {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
           {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
-
-
       ]
 },
 {path:'citizen', component:CitizenComponent,
@@ -57,18 +55,25 @@ const routes: Routes = [
   ]
 },
 
-{ path: 'department' , component: DepartmentHomeComponent,
-children:[
-  {path : 'department-complain-list',component : ComplainListComponent},
-  {path : 'department-profile',component : ProfileComponent},
-  {path : 'department-reminder-complain',component : ReminderComplainComponent},
-  {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
-  {path : 'department-reports',component : ReportsComponent},
-  {path : 'department-transfer-complain',component : TransferComplainComponent},
-  {path : 'department-change-password',component : ChangePasswordComponent},
-    ]
-}
+  {
+    path: 'department', component: DepartmentHomeComponent,
+    children: [
+      { path: 'department-complain-list', component: ComplainListComponent },
+      {
+        path: 'department-profile', component: ProfileComponent
+      },
 
+      { path: 'department-change-password', component: ChangePasswordComponent },
+     { path: 'department-reminder-complain', component: ReminderComplainComponent },
+      { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
+      { path: 'department-reports', component: ReportsComponent,
+      children: [
+        { path: 'department-show-reports', component: ShowReportsComponent},
+      ]},
+      { path: 'department-transfer-complain', component: TransferComplainComponent },
+
+    ]
+  }
 
 ];
 

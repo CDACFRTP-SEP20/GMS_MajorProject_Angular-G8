@@ -36,7 +36,7 @@ import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complai
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
-
+import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +66,7 @@ import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-sta
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent
+    ShowReportsComponent
   ],
   imports: [
     BrowserModule,
