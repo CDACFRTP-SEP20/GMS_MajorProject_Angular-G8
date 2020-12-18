@@ -1,8 +1,23 @@
 .container{
     text-align: center;
-    margin-top: 20%;
-   
+    margin-top: 2%;
 }
-table{
-    width: 100%;
+.page-header h1{
+    font-weight: bold;
+    color: #0a5d7e;
+}
+th{
+    color: #fff;
+    background-color: #858686;
+    font-size: large;
+    font-weight: 500;
+}
+tr{
+    font-size: larger;
+}
+.btn{
+    background-color: #f0567a;
+    color: #fff;
+    font-size: larger;
+
 }

@@ -27,9 +27,15 @@
                        <span> Add Department Head</span>
                    </div>
                  </a>
-                 <a [routerLink]="['admin-complaintlist']">
-                    <div class="link">
-                         <span>View Complaints</span>
+                 <a >
+                    <div class="dropdown dropdown-toggle link"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <span class="dpname">View Complaints</span>                 
+                            <div class="dropdown-menu dp" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" routerLink="admin-complaintlist">All Complaints</a>
+                              <a class="dropdown-item" routerLink="admin-deptwisecomplaintlist">Department-wise action</a>
+                              <a class="dropdown-item" routerLink="admin-statuscomplaintlist">Status-wise Complaints</a>
+                            </div>
+                        
                      </div>
                    </a>
                    <a [routerLink]="['admin-deptlist']">

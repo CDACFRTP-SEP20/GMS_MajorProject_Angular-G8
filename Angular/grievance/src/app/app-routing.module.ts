@@ -10,6 +10,8 @@ import { AdminDepartmentListComponent } from './admin/admin-department-list/admi
 import { AdminAddDepartmentComponent } from './admin/admin-add-department/admin-add-department.component';
 import { AdminAddDeptHeadComponent } from './admin/admin-add-dept-head/admin-add-dept-head.component';
 import { AdminComplaintComponent } from './admin/admin-complaint/admin-complaint.component';
+import { DepartmentComponent } from './department/department.component';
+import { CitizenComponent } from './citizen/citizen.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
@@ -21,6 +23,9 @@ import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-d
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
+import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
+import { ChangePasswordComponent } from './department/change-password/change-password.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -28,14 +33,18 @@ const routes: Routes = [
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent},
-  {path : 'cdepartment' , component : CdepartmentComponent},
+  {path : 'department' , component : DepartmentComponent},
+  {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
       children:[
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
           {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
           {path:'admin-adddepthead',component:AdminAddDeptHeadComponent},
-          {path:'admin-complaintlist',component:AdminComplaintComponent}
+          {path:'admin-complaintlist',component:AdminComplaintComponent},
+          {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
+          {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
+
 
       ]
 },
@@ -55,7 +64,8 @@ children:[
   {path : 'department-reminder-complain',component : ReminderComplainComponent},
   {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
   {path : 'department-reports',component : ReportsComponent},
-  {path : 'department-transfer-complain',component : TransferComplainComponent}
+  {path : 'department-transfer-complain',component : TransferComplainComponent},
+  {path : 'department-change-password',component : ChangePasswordComponent},
     ]
 }
 
