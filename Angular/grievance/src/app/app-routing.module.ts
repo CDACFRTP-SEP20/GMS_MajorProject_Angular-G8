@@ -26,6 +26,49 @@ import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-r
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { ShowReportsComponent } from './department/show-reports/show-reports.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'citizen', component: CitizenComponent },
+  {
+    path: 'admin', component: AdminHomeComponent,
+    children: [
+      { path: 'admin-deptlist', component: AdminDepartmentListComponent },
+      { path: 'admin-adddept', component: AdminAddDepartmentComponent },
+      { path: 'admin-deptheadlist', component: AdminDeptHeadListComponent },
+      { path: 'admin-adddepthead', component: AdminAddDeptHeadComponent },
+      { path: 'admin-complaintlist', component: AdminComplaintComponent },
+      { path: 'admin-deptwisecomplaintlist', component: DeptiseComplaintComponent },
+      { path: 'admin-statuscomplaintlist', component: StatuswiseComplaintComponent },
+
+
+    ]
+  },
+  {
+    path: 'citizen', component: CitizenHomeComponent,
+    children: [
+      { path: 'citizen-home', component: CitizenHomeComponent },
+      { path: 'citizen-register', component: CitizenRegistrationComponent },
+      { path: 'citizen-complaint-register', component: CitizenComplaintRegisterComponent },
+
+    ]
+  },
+
+  {
+    path: 'department', component: DepartmentHomeComponent,
+    children: [
+      { path: 'department-complain-list', component: ComplainListComponent },
+      {
+        path: 'department-profile', component: ProfileComponent
+      },
+
+      { path: 'department-change-password', component: ChangePasswordComponent },
+      
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
@@ -52,20 +95,16 @@ const routes: Routes = [
     {path:'citizen-register', component:CitizenRegistrationComponent},
     {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
 
-  ]
-},
+      { path: 'department-reminder-complain', component: ReminderComplainComponent },
+      { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
+      { path: 'department-reports', component: ReportsComponent,
+      children: [
+        { path: 'department-show-reports', component: ShowReportsComponent},
+      ]},
+      { path: 'department-transfer-complain', component: TransferComplainComponent },
 
-{ path: 'department' , component: DepartmentHomeComponent,
-children:[
-  {path : 'department-complain-list',component : ComplainListComponent},
-  {path : 'department-profile',component : ProfileComponent},
-  {path : 'department-reminder-complain',component : ReminderComplainComponent},
-  {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
-  {path : 'department-reports',component : ReportsComponent},
-  {path : 'department-transfer-complain',component : TransferComplainComponent},
-  {path : 'department-change-password',component : ChangePasswordComponent},
     ]
-}
+  }
 
 
 ];

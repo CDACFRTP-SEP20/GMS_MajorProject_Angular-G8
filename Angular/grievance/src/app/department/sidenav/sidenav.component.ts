@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileComponent} from '../profile/profile.component';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
