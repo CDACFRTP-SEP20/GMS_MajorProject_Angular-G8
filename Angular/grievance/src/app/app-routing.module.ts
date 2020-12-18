@@ -10,6 +10,8 @@ import { AdminDepartmentListComponent } from './admin/admin-department-list/admi
 import { AdminAddDepartmentComponent } from './admin/admin-add-department/admin-add-department.component';
 import { AdminAddDeptHeadComponent } from './admin/admin-add-dept-head/admin-add-dept-head.component';
 import { AdminComplaintComponent } from './admin/admin-complaint/admin-complaint.component';
+import { DepartmentComponent } from './department/department.component';
+import { CitizenComponent } from './citizen/citizen.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
@@ -29,7 +31,8 @@ const routes: Routes = [
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent},
-  {path : 'cdepartment' , component : CdepartmentComponent},
+  {path : 'department' , component : DepartmentComponent},
+  {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
       children:[
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
