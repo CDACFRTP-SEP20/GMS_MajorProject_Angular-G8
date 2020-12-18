@@ -26,15 +26,14 @@ import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-r
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
   {path : 'home' , component : HomeComponent},
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
-  {path : 'login' , component : LoginComponent},
-  {path : 'department' , component : DepartmentComponent},
-  {path : 'citizen' , component : CitizenComponent},
+  {path : 'login' , component : LoginComponent}, 
   {path : 'admin' , component : AdminHomeComponent,
       children:[
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
@@ -44,7 +43,6 @@ const routes: Routes = [
           {path:'admin-complaintlist',component:AdminComplaintComponent},
           {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
           {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
-
 
       ]
 },

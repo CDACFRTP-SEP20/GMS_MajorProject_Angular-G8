@@ -12,6 +12,8 @@ import { AdminComplaintComponent } from './admin-complaint/admin-complaint.compo
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DeptiseComplaintComponent } from './deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-complaint.component';
+import { AdminEntryComponent } from './admin-entry/admin-entry.component';
+import { AdminService } from '../service/admin.service';
 
 @NgModule({
     declarations: [
@@ -21,13 +23,13 @@ import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-
       AdminDeptHeadListComponent, 
       AdminAddDeptHeadComponent, 
       AdminUpdateDeptHeadComponent, 
-      AdminComplaintComponent, SidenavComponent, DeptiseComplaintComponent, StatuswiseComplaintComponent
+      AdminComplaintComponent, SidenavComponent, DeptiseComplaintComponent, StatuswiseComplaintComponent, AdminEntryComponent
     ],
       imports: [
         BrowserModule,
         AdminRoutingModule
       ],
-      providers: [],
+      providers: [AdminService],
       bootstrap: [AdminHomeComponent]
 })
 export class AdminModule { }
