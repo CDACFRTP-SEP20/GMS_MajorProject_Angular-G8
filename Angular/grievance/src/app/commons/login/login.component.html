@@ -1,4 +1,10 @@
 <div class="maindiv">
+<div class="container form">
+   
+    <div class="loginlogo">
+      <img src="https://cdn0.iconfinder.com/data/icons/man-user-human-profile-avatar-person-business/100/10B-1User-512.png" alt="">
+      
+    </div>
   <div class="container form">
     <h2>Login Form</h2>
     <div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div>
@@ -22,7 +28,7 @@
       <div class="checkbox">
         <label><input type="checkbox" name="remember"> Remember me</label>
       </div>
-      <button type="submit" class="btn btn-success">Login</button>
+      <button type="submit" class="btn btn-info pl-4 pr-4">Login</button>
     </form>
   </div>
 </div>

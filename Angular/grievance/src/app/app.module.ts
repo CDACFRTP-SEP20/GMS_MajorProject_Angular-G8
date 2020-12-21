@@ -32,6 +32,7 @@ import { TransferComplainComponent } from './department/transfer-complain/transf
 
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
@@ -74,7 +75,8 @@ import { ShowReportsComponent } from './department/show-reports/show-reports.com
     AdminModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule
 
   ],
   providers: [{
