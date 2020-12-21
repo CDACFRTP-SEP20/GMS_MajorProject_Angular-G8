@@ -1,3 +1,4 @@
+import { CitizenService } from './../../service/citizen.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitizenComplaintComponent implements OnInit {
 
-  constructor() { }
+  constructor(private citizinService : CitizenService) { }
 
   ngOnInit(): void {
+  }
+  sendToForm(msg:string){
+this.citizinService.communicateDept(msg);
   }
 
 }
