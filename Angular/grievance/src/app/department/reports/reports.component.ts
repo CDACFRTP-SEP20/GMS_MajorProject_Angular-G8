@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter ,Output} from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-reports',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsComponent implements OnInit {
 
+  status:string = ''
+
+  
+//@Output() messageEvent = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+//  showComplains(){
+//     this.messageEvent.emit(this.status);
+   
+//   }
+
+  
 }

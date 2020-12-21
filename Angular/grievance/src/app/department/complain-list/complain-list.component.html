@@ -7,63 +7,92 @@
       <th scope="col">Description</th>
       <th scope="col">Date</th>
       <th scope="col">Remark</th>
+      <th scope="col">Transfer</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
+    <tr *ngFor = "let complain of complains let i=index">
+      <th scope="row">{{index+i}}</th>
       <td class="image">
         <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
           class="img-fluid img-thumbnail" alt="Sheep">
       </td>
-      <td>Akshay Garg</td>
-      <td>Water is not clean</td>
-      <td>17-12-2020</td>
-      <td><button class="btn btn-success">Remark</button></td>
+      <td>{{complain.name}}</td>
+      <td>{{complain.description}}</td>
+      <td>{{complain.date}}</td>
+      <td class="remark"><img src="../assets/remark.png"
+        class="img-fluid" alt="remark" (click)="openModel(complain.compId)"></td>
+        
+        <td class="transfer"><img src="../assets/transfer.png"
+          class="img-fluid" alt="remark" (click)="openTransferModel(complain.compId)"></td>
     </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td class="image">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
-          class="img-fluid img-thumbnail" alt="Sheep">
-      </td>
-      <td>Akshay Garg</td>
-      <td>Water is not clean</td>
-      <td>17-12-2020</td>
-      <td><button class="btn btn-success">Remark</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td class="image">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
-          class="img-fluid img-thumbnail" alt="Sheep">
-      </td>
-      <td>Akshay Garg</td>
-      <td>Water is not clean</td>
-      <td>17-12-2020</td>
-      <td><button class="btn btn-success">Remark</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td class="image">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
-          class="img-fluid img-thumbnail" alt="Sheep">
-      </td>
-      <td>Akshay Garg</td>
-      <td>Water is not clean</td>
-      <td>17-12-2020</td>
-      <td><button class="btn btn-success">Remark</button></td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td class="image">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
-          class="img-fluid img-thumbnail" alt="Sheep">
-      </td>
-      <td>Akshay Garg</td>
-      <td>Water is not clean</td>
-      <td>17-12-2020</td>
-      <td><button class="btn btn-success">Remark</button></td>
-    </tr>
+   
   </tbody>
 </table>
+
+<!--Remark MODEL -->
+
+<div class="modal"  tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title font-weight-bold">Remark</h3>
+        <button type="button" class="close" (click)="onClose()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="compId" class="col-form-label font-weight-bold">Complain Id:</label>
+            <input type="text" class="form-control" id="compId" value={{compId}} readonly>
+          </div>
+          <div class="form-group">
+            <label for="remark" class="col-form-label font-weight-bold">Remark:</label>
+            <textarea class="form-control" id="remark"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger" (click)="onClose()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Transfer MODEL -->
+
+<div class="modal"  tabindex="-1" role="dialog"  [ngStyle]="{'display': transferDisplay}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title font-weight-bold">Transfer Complain</h3>
+        <button type="button" class="close" (click)="onTransferClose()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class= "font-weight-bold" for="compId" class="col-form-label font-weight-bold">Complain Id:</label>
+            <input type="text" class="form-control" id="compId" value={{compId}} readonly>
+          </div>
+          <div class="form-group">
+            <label class= "font-weight-bold" for="department">Select Department</label><br>
+            <select name="department" id="dept">
+              <option value="water">Water</option>
+              <option value="road">Road</option>
+              <option value="property">Property</option>
+              <option value="electricity">Electricity</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger" (click)="onTransferClose()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
