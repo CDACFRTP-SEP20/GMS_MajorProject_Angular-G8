@@ -24,12 +24,13 @@ import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-d
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
+import { AuthGuard } from './service/auth.guard';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
-
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -42,6 +43,8 @@ const routes: Routes = [
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
       children:[
+        {path:'',component:AdminEntryComponent},
+        {path:'admin-home',component:AdminEntryComponent},
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
           {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},

@@ -26,5 +26,6 @@ export class AdminDepartmentListComponent implements OnInit {
   ngOnInit(): void {
   
   }
+  
 
 }

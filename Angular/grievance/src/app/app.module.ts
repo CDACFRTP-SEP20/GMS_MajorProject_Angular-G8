@@ -32,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
@@ -76,8 +77,11 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     AdminModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,MatCardModule,
+    HttpClientModule,
+    MatCardModule,
     ReactiveFormsModule 
+    MatSidenavModule
+
 
   ],
   providers: [{
