@@ -1,1 +1,29 @@
-<p>citizen-complaint-status works!</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">compId</th>
+    <th scope="col">status</th>
+    <th scope="col">remark</th>
+    <th scope="col">date</th>
+    <th scope="col">citizenName</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let status of complainStatus; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+        {{ status.compId }}
+    </td>
+    <td>{{ status.status}}</td>
+    <td>{{ status.remark }}</td>
+    <td>
+        {{ status.date }}
+    </td>
+    <td>
+        {{ status.citizenName }}
+    </td>
+  </tr>
+  </tbody>
+</table>
