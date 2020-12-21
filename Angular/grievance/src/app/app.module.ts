@@ -65,7 +65,7 @@ import { ShowReportsComponent } from './department/show-reports/show-reports.com
     ChangePasswordComponent,
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
-    CitizenComplaintStatusComponent
+    CitizenComplaintStatusComponent,
     ShowReportsComponent
   ],
   imports: [
