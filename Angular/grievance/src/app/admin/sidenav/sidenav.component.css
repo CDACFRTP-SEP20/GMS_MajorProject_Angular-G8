@@ -1,57 +1,85 @@
-a{
-    color: white
+.example-container {
+    width: 100%;
+    height: 46vw;
+    background-color: #fff;
+    
+
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+   height: 50px;
+     
+  }
+h5{
+    color: #fff;
+    margin-left: 12%;
+    margin-top: 15%;
+    padding: 6px 10px 
 }
-.background{
-    background-color: #16697a; 
+h5 span{
+    margin-left: 10%
+}
+ h5:hover{
+     background-color: rgb(160, 158, 158)
+ }
+  .example-sidenav {
+    padding: 0px;
+    width: 300px;
+    
+  }
+  .hamber{
+      width: 40px;
+     color: #000
+      
+  }
+  a{
+    color: #f8fbfc;
+    text-decoration: none;
+   
+}
+.background{    
+  
     padding-bottom: 36%;
     padding-top: 10%;
     text-align: center;
     margin: -18px;
+    background-color: #45494e;
+
 }
 .logo{
-    width: 50%;
+    width: 40%;
 }
+
+
 .profile{
     padding-top: 20px;
 }
 .profile img{
-    width: 10vw;
-    height: 10vw;
+    width: 8vw;
+    height: 8vw;
     border-radius: 50%;
     box-shadow: 0 5px 10px white;
 }
 .profile h2 {
-    color: white
+    color:#fff;
 }
 .line {
     height:1px;
     width:60%;
     color:gray;
-    background-color:white
+    background-color:white;
+
 }
 .link{
-    padding: 10px;
-    width:70%;
-  border: 1px solid #a8a3a4;
-  box-shadow: 0 5px 10px #d8d5d7;
-  background-color: #03506f;
-    margin: 20px auto;
+  
+    width:90%;  
+  
+    text-align: left
 }
-.link:hover{
-    background-color: #06668b;
-    transform: scale(1.05)
-}
-.dp{
-    background-color: #fff;
-    
-    padding: 10px;
-}
-.dpname{
-    color: #fff;
-}
-.dp a{
-    margin: 10px;
-    color:#04384d ;
+
+.menulist{
+    font-size: 17px;
 }
 .navigation a {
     padding:0;  

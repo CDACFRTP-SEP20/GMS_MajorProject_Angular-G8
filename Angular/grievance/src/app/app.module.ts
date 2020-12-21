@@ -32,6 +32,7 @@ import { CitizenRegistrationComponent } from './citizen/citizen-registration/cit
 import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ChangePasswordComponent } from './department/change-password/change-pas
     AdminModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule
 
   ],
   providers: [{

@@ -26,7 +26,8 @@ import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-r
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
+import { AuthGuard } from './service/auth.guard';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -34,8 +35,10 @@ const routes: Routes = [
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent}, 
-  {path : 'admin' , component : AdminHomeComponent,
+  {path : 'admin' , component : AdminHomeComponent, 
       children:[
+        {path:'',component:AdminEntryComponent},
+        {path:'admin-home',component:AdminEntryComponent},
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
           {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
