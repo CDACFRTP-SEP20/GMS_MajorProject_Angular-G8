@@ -5,3 +5,13 @@
 .table{
     border: 1px solid grey;
 }
+
+.modal{
+    background: rgba(0, 0, 0, .5)
+}
+.remark{
+    width: 1%;
+}
+.transfer{
+    width: 1%;
+}
