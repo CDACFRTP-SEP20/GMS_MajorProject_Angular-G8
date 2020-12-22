@@ -17,7 +17,7 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
 import { DepartmentHomeComponent } from './department/department-home/department-home.component';
@@ -27,12 +27,18 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
-import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
-import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
-import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
+
+import {MatCardModule} from '@angular/material/card';
+
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
+import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
+import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
+import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
+import { ShowReportsComponent } from './department/show-reports/show-reports.component';
+import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,11 +62,15 @@ import { ChangePasswordComponent } from './department/change-password/change-pas
     ReminderComplainComponent,
     ReportsComponent,
     TransferComplainComponent,
-    CitizenHomeComponent,
     CitizenRegistrationComponent,
-    CitizenComplaintRegisterComponent,
     CsidenavComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CitizenComplaintRegisterFormComponent,
+    CitizenComplaintComponent,
+    CitizenComplaintStatusComponent,
+
+    ShowReportsComponent,
+    CitizenCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +78,11 @@ import { ChangePasswordComponent } from './department/change-password/change-pas
     AdminModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    ReactiveFormsModule 
+    MatSidenavModule
+
 
   ],
   providers: [{

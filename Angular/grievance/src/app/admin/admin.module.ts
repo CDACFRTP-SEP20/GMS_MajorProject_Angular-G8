@@ -15,6 +15,8 @@ import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-
 import { AdminEntryComponent } from './admin-entry/admin-entry.component';
 import { AdminService } from '../service/admin.service';
 import { FormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 @NgModule({
     declarations: [
@@ -30,6 +32,7 @@ import { FormsModule } from '@angular/forms';
         BrowserModule,
         AdminRoutingModule,
         FormsModule
+        MatSidenavModule,
       ],
       providers: [AdminService],
       bootstrap: [AdminHomeComponent]

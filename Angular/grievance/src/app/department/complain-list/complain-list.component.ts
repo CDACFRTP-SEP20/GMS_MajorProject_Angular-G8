@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DepartmentService } from 'src/app/service/department.service';
 
 @Component({
   selector: 'app-complain-list',
@@ -7,9 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComplainListComponent implements OnInit {
 
-  constructor() { }
+
+  complains:any = [];
+  compId:string =""
+  display ="none";
+  transferDisplay ="none";
+  index:number=1;
+  remark:string='';
+
+  constructor(private departmentService:DepartmentService) {
+    this.departmentService.getComplainList().subscribe(
+      data=>this.complains=data
+      )
+   }
 
   ngOnInit(): void {
+   
   }
+
+  onClose(){
+    this.display ="none";
+  }
+  onTransferClose(){
+    this.transferDisplay = "none";
+  }
+
+  openModel(id:string){
+    this.compId = id;
+    this.display ="block";
+  }
+  openTransferModel(id:string){
+    this.compId = id;
+    this.transferDisplay ="block";
+  }
+
+
 
 }

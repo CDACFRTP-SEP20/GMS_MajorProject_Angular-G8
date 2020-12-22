@@ -1,3 +1,4 @@
+import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './commons/home/home.component';
@@ -20,25 +21,34 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ComplainListComponent } from './department/complain-list/complain-list.component';
 import { DepartmentHomeComponent } from './department/department-home/department-home.component';
 import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-dept-head-list.component';
-import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
-import { CitizenRegistrationComponent } from './citizen/citizen-registration/citizen-registration.component';
-import { CitizenComplaintRegisterComponent } from './citizen/citizen-complaint-register/citizen-complaint-register.component';
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './service/auth.guard';
+import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
+import { AuthGuard } from './service/auth.guard';
+import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
+import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
+import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
+import { ShowReportsComponent } from './department/show-reports/show-reports.component';
+import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
   {path : 'home' , component : HomeComponent},
   {path : 'about' , component : AboutComponent},
   {path : 'contact' , component : ContactComponent},
-  {path : 'login' , component : LoginComponent}, 
+  {path : 'login' , component : LoginComponent},
+  {path : 'register' , component : CitizenRegistrationComponent},
+  {path : 'department' , component : DepartmentHomeComponent},
+  {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_ADMIN"},
       children:[
+        {path:'',component:AdminEntryComponent},
+        {path:'admin-home',component:AdminEntryComponent},
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
           {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
@@ -57,25 +67,33 @@ const routes: Routes = [
     {path:'citizen-home', component:CitizenHomeComponent},
     {path:'citizen-register', component:CitizenRegistrationComponent},
     {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
+     {path: 'citizen-complaint',component:CitizenComplaintComponent},
+    {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
+    {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
+    {path: 'citizen-comment',component:CitizenCommentComponent},
     {path: '**',redirectTo: 'login', pathMatch: 'full'}
   ]
 },
 
-{ path: 'department' , component: DepartmentHomeComponent,
-    canActivate: [AuthGuard],
-    data: {role: "ROLE_DEPARTMENT"},
-children:[
-  {path : 'department-complain-list',component : ComplainListComponent},
-  {path : 'department-profile',component : ProfileComponent},
-  {path : 'department-reminder-complain',component : ReminderComplainComponent},
-  {path : 'department-reopen-complain-list',component : ReopenComplainListComponent},
-  {path : 'department-reports',component : ReportsComponent},
-  {path : 'department-transfer-complain',component : TransferComplainComponent},
-  {path : 'department-change-password',component : ChangePasswordComponent},
-  {path: '**',redirectTo: 'login', pathMatch: 'full'}  
-  ]
-}
+  {
+    path: 'department', component: DepartmentHomeComponent,
+    children: [
+      { path: 'department-complain-list', component: ComplainListComponent },
+      {
+        path: 'department-profile', component: ProfileComponent
+      },
 
+      { path: 'department-change-password', component: ChangePasswordComponent },
+     { path: 'department-reminder-complain', component: ReminderComplainComponent },
+      { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
+      { path: 'department-reports', component: ReportsComponent,
+      children: [
+        { path: 'department-show-reports', component: ShowReportsComponent},
+      ]},
+      { path: 'department-transfer-complain', component: TransferComplainComponent },
+        {path: '**',redirectTo: 'login', pathMatch: 'full'} 
+    ]
+  }
 
 ];
 
