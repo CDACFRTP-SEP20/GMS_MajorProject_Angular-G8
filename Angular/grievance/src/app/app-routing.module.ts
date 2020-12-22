@@ -27,6 +27,7 @@ import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-com
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './service/auth.guard';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -35,6 +36,8 @@ const routes: Routes = [
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent}, 
   {path : 'admin' , component : AdminHomeComponent,
+    canActivate: [AuthGuard],
+    data: {role: "ROLE_ADMIN"},
       children:[
           {path:'admin-deptlist',component:AdminDepartmentListComponent},
           {path:'admin-adddept',component:AdminAddDepartmentComponent},
@@ -43,19 +46,24 @@ const routes: Routes = [
           {path:'admin-complaintlist',component:AdminComplaintComponent},
           {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
           {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
+          {path: '**',redirectTo: 'login', pathMatch: 'full'}
 
       ]
 },
 {path:'citizen', component:CitizenHomeComponent,
+    canActivate: [AuthGuard],
+    data: {role: "ROLE_CITIZEN"},
   children:[
     {path:'citizen-home', component:CitizenHomeComponent},
     {path:'citizen-register', component:CitizenRegistrationComponent},
     {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
-
+    {path: '**',redirectTo: 'login', pathMatch: 'full'}
   ]
 },
 
 { path: 'department' , component: DepartmentHomeComponent,
+    canActivate: [AuthGuard],
+    data: {role: "ROLE_DEPARTMENT"},
 children:[
   {path : 'department-complain-list',component : ComplainListComponent},
   {path : 'department-profile',component : ProfileComponent},
@@ -64,7 +72,8 @@ children:[
   {path : 'department-reports',component : ReportsComponent},
   {path : 'department-transfer-complain',component : TransferComplainComponent},
   {path : 'department-change-password',component : ChangePasswordComponent},
-    ]
+  {path: '**',redirectTo: 'login', pathMatch: 'full'}  
+  ]
 }
 
 

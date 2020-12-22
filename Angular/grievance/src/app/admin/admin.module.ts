@@ -14,6 +14,7 @@ import { DeptiseComplaintComponent } from './deptise-complaint/deptise-complaint
 import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-complaint.component';
 import { AdminEntryComponent } from './admin-entry/admin-entry.component';
 import { AdminService } from '../service/admin.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { AdminService } from '../service/admin.service';
     ],
       imports: [
         BrowserModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        FormsModule
       ],
       providers: [AdminService],
       bootstrap: [AdminHomeComponent]
