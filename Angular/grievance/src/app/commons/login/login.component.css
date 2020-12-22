@@ -5,13 +5,17 @@
 .loginlogo img{
   width: 120px;
 }
+.container{
+  width: 50%;
+ 
+}
 .form{  
-    width:40%;
+   width: 60%;
     padding:4%; 
      position: relative;
      top:10%;
     /* border:1px solid black; */
-    box-shadow: 0 5px 10px ;
+  
     background-color: rgb(240, 240, 240);
    border-radius: 20px;
 }
