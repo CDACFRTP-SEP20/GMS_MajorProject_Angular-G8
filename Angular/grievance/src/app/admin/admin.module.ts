@@ -26,11 +26,16 @@ import {MatSidenavModule} from '@angular/material/sidenav';
       AdminDeptHeadListComponent, 
       AdminAddDeptHeadComponent, 
       AdminUpdateDeptHeadComponent, 
-      AdminComplaintComponent, SidenavComponent, DeptiseComplaintComponent, StatuswiseComplaintComponent, AdminEntryComponent
+      AdminComplaintComponent,
+       SidenavComponent, 
+       DeptiseComplaintComponent, 
+       StatuswiseComplaintComponent, 
+       AdminEntryComponent
     ],
       imports: [
         BrowserModule,
         AdminRoutingModule,
+        MatSidenavModule
         FormsModule
         MatSidenavModule,
       ],
