@@ -80,7 +80,7 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
     MatSidenavModule
 
 

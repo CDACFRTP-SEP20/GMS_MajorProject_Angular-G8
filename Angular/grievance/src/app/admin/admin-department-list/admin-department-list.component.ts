@@ -16,7 +16,7 @@ export class AdminDepartmentListComponent implements OnInit {
   //   this.deptList=this.admniservice.getDepartmentList()
   //   console.log(this.deptList)
   //  }
-  deptList:any=[]
+  deptList:Department[]
   constructor(private adminservice:AdminService) {
     this.adminservice.getDepartmentList().subscribe(
       data =>this.deptList = data

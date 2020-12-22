@@ -53,7 +53,10 @@ export class AuthenticationService  {
     sessionStorage.removeItem('userrole')
 
     this.loginStatus.next(false)
-    
+    //@ts-ignore
+    this.username.next(null)
+      //@ts-ignore
+    this.userrole.next(null)
   }
 
 

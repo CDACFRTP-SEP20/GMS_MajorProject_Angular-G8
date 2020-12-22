@@ -21,15 +21,18 @@ export class AdminService {
   getToken(){
     this.token=sessionStorage.getItem('token');
   }
-  getDepartmentList():Observable<any>{
+  getDepartmentList():Observable<Department[]>{
 
- return  this.http.get('http://localhost:8787/admin/departmentlist');
+      return  this.http.get<Department[]>('http://localhost:8787/admin/departmentlist');
   
   }
 
-  getDepartmentwiseCount(status:any){
-    return  this.http.get('http://localhost:8787/admin/complainperDepartment/'+status);
+  getDepartmentwiseCount(status:string):Observable<any>{
+    return  this.http.get<any>('http://localhost:8787/admin/complainperDepartment/'+status);
   }
 
+  getComplaintCount(){
+    return  this.http.get('http://localhost:8787/admin/statuswisecomplain');
+  }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { AdminService } from 'src/app/service/admin.service';
 @Component({
   selector: 'app-admin-complaint',
   templateUrl: './admin-complaint.component.html',
@@ -8,7 +9,17 @@ import { Chart } from 'chart.js';
 export class AdminComplaintComponent implements OnInit {
  d1=10
  d2=20
- d3=30
+ d3=30 
+ constructor(private adminservice:AdminService) {
+   this.adminservice.getComplaintCount().subscribe(data=>{
+      console.log(data)
+     
+   },
+   error=>{
+
+   })
+  }
+
   data = {
     datasets: [{
         data: [this.d1, this.d2, this.d3],
@@ -31,7 +42,7 @@ export class AdminComplaintComponent implements OnInit {
     ],
     
 };
-  constructor() { }
+ 
 
   ngOnInit(): void {
 
