@@ -32,6 +32,7 @@ import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-c
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 
+
 const routes: Routes = [
   {path : '' , component : HomeComponent},
   {path : 'home' , component : HomeComponent},
@@ -39,7 +40,7 @@ const routes: Routes = [
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'register' , component : CitizenRegistrationComponent},
-  {path : 'department' , component : DepartmentComponent},
+  {path : 'department' , component : DepartmentHomeComponent},
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
       children:[

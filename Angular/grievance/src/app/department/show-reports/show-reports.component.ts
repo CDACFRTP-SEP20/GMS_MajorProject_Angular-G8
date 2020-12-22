@@ -14,7 +14,7 @@ export class ShowReportsComponent implements OnInit{
   
  
   ngOnInit(): void {
-
+    
     this.route.queryParams.subscribe(params =>{
       this.status = params['status'];
     })

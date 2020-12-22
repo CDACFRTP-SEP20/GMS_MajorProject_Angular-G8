@@ -14,6 +14,7 @@ export class ComplainListComponent implements OnInit {
   display ="none";
   transferDisplay ="none";
   index:number=1;
+  remark:string='';
 
   constructor(private departmentService:DepartmentService) {
     this.departmentService.getComplainList().subscribe(
@@ -40,5 +41,7 @@ export class ComplainListComponent implements OnInit {
     this.compId = id;
     this.transferDisplay ="block";
   }
+
+
 
 }
