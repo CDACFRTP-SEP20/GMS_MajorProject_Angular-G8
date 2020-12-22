@@ -17,7 +17,7 @@ import { AdminModule } from './admin/admin.module';
 import { NavbarComponent } from './commons/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './commons/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
 import { DepartmentHomeComponent } from './department/department-home/department-home.component';
@@ -28,7 +28,7 @@ import { ReminderComplainComponent } from './department/reminder-complain/remind
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
 
-
+import {MatCardModule} from '@angular/material/card';
 
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
@@ -38,6 +38,7 @@ import { CitizenRegistrationComponent } from './commons/citizen-registration/cit
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
+import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,9 @@ import { ShowReportsComponent } from './department/show-reports/show-reports.com
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-    ShowReportsComponent
+
+    ShowReportsComponent,
+    CitizenCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,10 @@ import { ShowReportsComponent } from './department/show-reports/show-reports.com
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatCardModule,
+    ReactiveFormsModule 
     MatSidenavModule
+
 
   ],
   providers: [{

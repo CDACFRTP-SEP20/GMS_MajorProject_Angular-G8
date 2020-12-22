@@ -1,3 +1,4 @@
+import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './commons/home/home.component';
@@ -29,6 +30,7 @@ import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complai
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
+import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -37,7 +39,7 @@ const routes: Routes = [
   {path : 'contact' , component : ContactComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'register' , component : CitizenRegistrationComponent},
-  {path : 'department' , component : DepartmentComponent},
+  {path : 'department' , component : DepartmentHomeComponent},
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
       children:[
@@ -56,6 +58,8 @@ const routes: Routes = [
   children:[
     {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
+    {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
+    {path: 'citizen-comment',component:CitizenCommentComponent},
   ]
 },
 
