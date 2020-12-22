@@ -47,13 +47,17 @@ export class AuthenticationService  {
   getRole(){
     return sessionStorage.getItem('userrole')
   }
-  logout(){
+  logout() {
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('userrole')
 
+    //emit values
     this.loginStatus.next(false)
-    
+    //@ts-ignore
+    this.username.next(null)
+    //@ts-ignore
+    this.userrole.next(null)
   }
 
 

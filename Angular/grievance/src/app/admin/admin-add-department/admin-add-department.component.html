@@ -2,11 +2,22 @@
     <div class="header">
         <h1>Add New Department </h1>
     </div>
-        <form>
+        <form method="POST" #addDepartmentForm="ngForm" (ngSubmit)="addDepartment()">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Department Name Here">
+                  <input type="text" class="form-control"
+                  name="deptname"
+                  placeholder="Enter Department Name Here"
+                  required
+                  [(ngModel)]="department.departmentName"
+                  #deptname="ngModel"
+                  [class.is-invalid]="deptname.invalid && deptname.touched"
+                  (change)="checkDeptName()">
+                </div>
+                <div>
+                  <small class="text-danger" *ngIf="!validDeptname && deptname.touched "> Department Already Exists</small>
+                  <small class="text-danger" [class.d-none]="deptname.valid || deptname.untouched">Department Name is required</small>
                 </div>
             
-                <button type="submit" class="btn">Add Department</button>
+                <button type="submit" class="btn"  [disabled]="!validDeptname">Add Department</button>
               </form>
 </div>
