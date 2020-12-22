@@ -68,6 +68,7 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
+
     ShowReportsComponent,
     CitizenCommentComponent
   ],

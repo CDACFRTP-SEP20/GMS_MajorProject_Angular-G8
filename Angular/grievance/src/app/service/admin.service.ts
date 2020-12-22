@@ -27,5 +27,9 @@ export class AdminService {
   
   }
 
+  getDepartmentwiseCount(status:any){
+    return  this.http.get('http://localhost:8787/admin/complainperDepartment/'+status);
+  }
+
 
 }
