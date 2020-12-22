@@ -18,8 +18,6 @@ export class ShowReportsComponent implements OnInit{
     this.route.queryParams.subscribe(params =>{
       this.status = params['status'];
     })
-
-    
    
   }
   
