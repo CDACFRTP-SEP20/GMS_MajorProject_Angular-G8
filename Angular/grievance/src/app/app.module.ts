@@ -70,7 +70,6 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-
     ShowReportsComponent,
     CitizenCommentComponent,
     ReopenComplainListComponent,

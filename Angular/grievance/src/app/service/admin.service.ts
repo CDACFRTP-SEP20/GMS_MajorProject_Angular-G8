@@ -30,6 +30,7 @@ export class AdminService {
 
   getComplaintCount():Observable<any>{
     return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
+
   }
   
   registerDepartmentHead(depthead: any): Observable<any> {
