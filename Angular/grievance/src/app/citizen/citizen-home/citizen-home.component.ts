@@ -1,3 +1,4 @@
+import { CitizenService } from './../../service/citizen.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitizenHomeComponent implements OnInit {
 
-  constructor() { }
+  citizenId:string
+  constructor(private citizenService : CitizenService) { 
+    this.citizenService.getCitizenId(citizenService.getUsername()).subscribe(
+      id=>{
+        this.citizenId=id
+        localStorage.setItem('citizenId', this.citizenId);
+        console.log(this.citizenId)
+
+      }
+     
+    )
+    
+  }
 
   ngOnInit(): void {
   }

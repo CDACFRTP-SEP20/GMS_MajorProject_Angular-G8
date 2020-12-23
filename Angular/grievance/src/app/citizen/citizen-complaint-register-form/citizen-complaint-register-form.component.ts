@@ -12,6 +12,7 @@ export class CitizenComplaintRegisterFormComponent implements OnInit {
   complainForm: any;
   deptName: any = 'aaa';
   dept = localStorage.getItem('department');
+  citizenId =  localStorage.getItem('citizenId');
 
   constructor(
     private citizenService: CitizenService,
@@ -25,6 +26,7 @@ export class CitizenComplaintRegisterFormComponent implements OnInit {
   createForm() {
     this.complainForm = this.formBuilder.group({
       department: [this.dept],
+      citizenId: [this.citizenId],
       description: ['', [Validators.required, Validators.minLength(10)]],
       file: [null],
     });
@@ -43,6 +45,7 @@ export class CitizenComplaintRegisterFormComponent implements OnInit {
     formData.append('department', this.complainForm.get('department').value);
     formData.append('description', this.complainForm.get('description').value);
     formData.append('file', this.complainForm.get('file').value);
+    formData.append('citizenId', this.complainForm.get('citizenId').value);
     this.citizenService
       .submitComplain(formData)
       .subscribe((data) => console.log(data));
