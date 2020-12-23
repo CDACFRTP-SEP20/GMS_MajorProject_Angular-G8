@@ -1,76 +1,107 @@
 <div class="maindiv">
     <div class="container form">
-        <span class="font-weight-bolder"><legend >Regsiter here!</legend></span>
-        
-        <!-- <div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div> -->
-        <form>
+        <span class="font-weight-bolder text-center header">
+            <legend>Regsiter here!</legend>
+        </span>
+
+
+        <form [formGroup]="registerForm" (ngSubmit)="registerCitizen()">
 
             <div class="form-group">
                 <label for="name">Name:</label>
                 <div class="input-container">
                     <i class="fa fa-user icon"></i>
-                    <input type="text" class="form-control " placeholder="Enter name" name="name"
-                        [(ngModel)]="citizen.name" required minlength="3" #un="ngModel">
+                    <input type="text"
+                        [ngClass]="{'is-invalid': (registerForm.controls.name.touched || submitted) && (registerForm.controls.name.errors?.required ||registerForm.controls.name.errors),
+                    'is-valid': ((registerForm.controls.name.touched ) && !registerForm.controls.name.errors?.required && !registerForm.controls.name.errors)}"
+                        formControlName="name" class="form-control " placeholder="Enter name" name="name">
+                    &nbsp;
+                    <div class="invalid-feedback">
+                        name is required, minlength is 3 and only characters are allowed.
+                    </div>
                 </div>
             </div>
-            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid name(min 3 char)
-            </div>
+
 
             <div class="form-group">
                 <label for="username">Username:</label>
                 <div class="input-container">
                     <i class="fa fa-user icon"></i>
-                    <input type="text" class="form-control" placeholder="Enter Username" name="username"
-                        [(ngModel)]="citizen.username" required minlength="3" #un="ngModel">
+                    <input type="text"
+                        [ngClass]="{'is-invalid': (registerForm.controls.username.touched || submitted) && (registerForm.controls.username.errors?.required ||registerForm.controls.username.errors),
+                    'is-valid': ((registerForm.controls.username.touched ) && !registerForm.controls.username.errors?.required && !registerForm.controls.username.errors)}"
+                        formControlName="username" class="form-control" placeholder="Enter Username" name="username">
+                    &nbsp;
+                    <div class="invalid-feedback">
+                        username is required with minlength is 3.
+                    </div>
                 </div>
             </div>
-            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid username(min 3 char)
-            </div>
+
 
             <div class="form-group">
                 <label for="pwd">Password:</label>
                 <div class="input-container">
                     <i class="fa fa-key icon"></i>
-                    <input type="password" class="form-control" placeholder="Enter password" name="password"
-                        [(ngModel)]="citizen.password" required minlength="3" #pwd="ngModel">
+                    <input [type]="fieldTextType ? 'text' : 'password'"
+                        [ngClass]="{'is-invalid': (registerForm.controls.password.touched || submitted) && (registerForm.controls.password.errors?.required ||registerForm.controls.password.errors),
+                    'is-valid': ((registerForm.controls.password.touched ) && !registerForm.controls.password.errors?.required && !registerForm.controls.password.errors)}"
+                        formControlName="password" class="form-control" placeholder="Enter password" name="password">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa" [ngClass]="{
+                                      'fa-eye-slash': !fieldTextType,
+                                      'fa-eye': fieldTextType
+                                    }" (click)="toggleFieldTextType()"></i>
+                        </span>
+                    </div>
+                    &nbsp;
+                    <div class="invalid-feedback">
+                        password is required with minlegth 6.
+                        character.
+                    </div>
                 </div>
-            </div>
-            <div [ngStyle]="{'color': 'red'}" *ngIf="pwd?.invalid && pwd?.touched">Please enter valid password(min 3
-                char)
             </div>
 
 
             <div class="form-group">
-                    <label for="address">Address:</label>
-                    <div class="input-container">
-                        <i class="fa fa-address-card icon"></i>
-                        <input type="text" class="form-control" placeholder="Enter address"
-                            name="address" [(ngModel)]="citizen.address" #un="ngModel">
-                    </div>
-            </div>
-
-            <!-- <div class="form-group">
                 <label for="address">Address:</label>
                 <div class="input-container">
                     <i class="fa fa-address-card icon"></i>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter address"
-                        name="address" [(ngModel)]="citizen.address" #un="ngModel"></textarea>
+                    <input type="text"
+                        [ngClass]="{'is-invalid': (registerForm.controls.address.touched || submitted) && (registerForm.controls.address.errors?.required ||registerForm.controls.address.errors),
+                    'is-valid': ((registerForm.controls.address.touched ) && !registerForm.controls.address.errors?.required && !registerForm.controls.address.errors)}"
+                        formControlName="address" class="form-control" placeholder="Enter address" name="address">
+                    &nbsp;
+                    <div class="invalid-feedback">
+                        address is required.
+                    </div>
                 </div>
-            </div> -->
+            </div>
+
 
             <div class="form-group">
                 <label for="contact">Contact Number:</label>
                 <div class="input-container">
                     <i class="fa fa-phone icon"></i>
-                    <input type="text" class="form-control" placeholder="Enter contact number" name="contact"
-                        [(ngModel)]="citizen.contact" #un="ngModel">
+                    <input type="text"
+                        [ngClass]="{'is-invalid': (registerForm.controls.contact.touched || submitted) && (registerForm.controls.contact.errors?.required ||registerForm.controls.contact.errors),
+                    'is-valid': ((registerForm.controls.contact.touched ) && !registerForm.controls.contact.errors?.required && !registerForm.controls.contact.errors)}"
+                        formControlName="contact" class="form-control" placeholder="Enter contact number"
+                        name="contact">
+                    &nbsp;
+                    <div class="invalid-feedback">
+                        contact number is required.
+                    </div>
                 </div>
             </div>
-            <div [ngStyle]="{'color': 'red'}" *ngIf="un?.invalid && un?.touched">Please enter valid username(min 3 char)
+
+
+            <div class="form-group">
+                <button class="btn btn-success" [disabled]="!registerForm.valid">Sign up</button> &nbsp;
+                <button class="btn btn-danger" (click)="cancel()">Cancel</button>
             </div>
 
-
-            <button type="submit" class="btn btn-success">Login</button>
         </form>
     </div>
 </div>

@@ -27,7 +27,7 @@ import { ChangePasswordComponent } from './department/change-password/change-pas
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './service/auth.guard';
 import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
-import { AuthGuard } from './service/auth.guard';
+
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
@@ -60,13 +60,10 @@ const routes: Routes = [
 
       ]
 },
-{path:'citizen', component:CitizenHomeComponent,
+{path:'citizen', component:CitizenComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_CITIZEN"},
   children:[
-    {path:'citizen-home', component:CitizenHomeComponent},
-    {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
      {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
     {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},

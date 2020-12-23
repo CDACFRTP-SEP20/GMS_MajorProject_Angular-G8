@@ -43,9 +43,6 @@ export class AdminService {
   checkUsername(username: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkusername/${username}`);
   }
-  getDepartmentwiseCount(status:any){
-    return  this.http.get('http://localhost:8787/admin/complainperDepartment/'+status);
-  }
   checkDeptName(deptname: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkdepartment/${deptname}`);
   }
