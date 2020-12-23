@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CitizenService {
+
+  token:any
+  username:any
   // _deptName = new Subject();
   // deptName$ = this._deptName.asObservable();
     
@@ -24,6 +27,14 @@ return this.http.get('http://localhost:8787/citizen/getAllComment')
 submitComplain(complaint:any):Observable<any>{
    
   return this.http.post('http://localhost:8787/citizen/CompRegister',complaint, {responseType:"text"})
+}
+
+getUsername():any{
+  return this.username=sessionStorage.getItem('username');
+ }
+
+ getCitizenId(username:any):Observable<any>{  
+  return  this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
 }
 
 }
