@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepartmentService } from 'src/app/service/department.service';
+import { Department } from 'src/app/models/department';
 
 @Component({
   selector: 'app-department-home',
@@ -8,13 +9,16 @@ import { DepartmentService } from 'src/app/service/department.service';
 })
 export class DepartmentHomeComponent implements OnInit {
 
-  deptId:any=[]
+  deptId:string
   constructor(private deptService : DepartmentService) { 
     this.deptService.getDeptId(deptService.getUsername()).subscribe(
-      id=>this.deptId=id
+      id=>{
+        this.deptId=id.deptId
+      }
+     
     )
+    
   }
-
   ngOnInit(): void {
   }
 

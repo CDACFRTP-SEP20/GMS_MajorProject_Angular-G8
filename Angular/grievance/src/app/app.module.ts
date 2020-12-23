@@ -27,9 +27,7 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
-
 import {MatCardModule} from '@angular/material/card';
-
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -41,6 +39,7 @@ import { ShowReportsComponent } from './department/show-reports/show-reports.com
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
 import { GlobalErrorHandlerService } from './service/global-error-handler.service';
 import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
+import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +71,8 @@ import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
     CitizenComplaintStatusComponent,
 
     ShowReportsComponent,
-    CitizenCommentComponent
+    CitizenCommentComponent,
+    ReopenComplainListComponent
   ],
   imports: [
     BrowserModule,
