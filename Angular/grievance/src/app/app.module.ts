@@ -39,6 +39,7 @@ import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-c
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     CitizenComplaintStatusComponent,
 
     ShowReportsComponent,
-    CitizenCommentComponent
+    CitizenCommentComponent,
+    ReopenComplainListComponent
   ],
   imports: [
     BrowserModule,
