@@ -85,10 +85,8 @@ import { DepartmentEntryComponent } from './department/department-entry/departme
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     MatSidenavModule
-
-
   ],
   providers: [
     {
