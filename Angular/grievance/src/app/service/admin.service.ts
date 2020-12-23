@@ -28,8 +28,8 @@ export class AdminService {
     return  this.http.get<any>('http://localhost:8787/admin/complainperDepartment/'+status);
   }
 
-  getComplaintCount(){
-    return  this.http.get('http://localhost:8787/admin/statuswisecomplain');
+  getComplaintCount():Observable<any>{
+    return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
   }
   
   registerDepartmentHead(depthead: any): Observable<any> {
@@ -43,10 +43,10 @@ export class AdminService {
   checkUsername(username: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkusername/${username}`);
   }
-  getDepartmentwiseCount(status:any){
-    return  this.http.get('http://localhost:8787/admin/complainperDepartment/'+status);
-  }
+ 
   checkDeptName(deptname: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkdepartment/${deptname}`);
   }
+
+  
 }

@@ -25,7 +25,6 @@ import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-com
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthGuard } from './service/auth.guard';
 import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
 import { AuthGuard } from './service/auth.guard';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
@@ -60,13 +59,13 @@ const routes: Routes = [
 
       ]
 },
-{path:'citizen', component:CitizenHomeComponent,
+{path:'citizen', component:CitizenRegistrationComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_CITIZEN"},
   children:[
-    {path:'citizen-home', component:CitizenHomeComponent},
+    {path:'citizen-home', component:CitizenRegistrationComponent},
     {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
+    {path:'citizen-complaint-register', component:CitizenRegistrationComponent},
      {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
     {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
