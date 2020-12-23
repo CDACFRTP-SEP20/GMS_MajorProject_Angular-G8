@@ -24,6 +24,13 @@ export class CitizenComplaintStatusComponent implements OnInit {
   //    this.complainStatus= this.citizenService.getComplainStatus()
   // }
 
+
+
+  reopenComplain(){
+
+  }
+
+
   ngOnInit(): void {
   }
 

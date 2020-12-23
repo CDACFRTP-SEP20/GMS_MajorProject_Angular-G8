@@ -59,14 +59,13 @@ const routes: Routes = [
 
       ]
 },
+
 {path:'citizen', component:CitizenComplaintComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_CITIZEN"},
     children:[
     {path:'citizen-home', component:CitizenComplaintComponent},
-    {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenComplaintComponent},
-     {path: 'citizen-complaint',component:CitizenComplaintComponent},
+    {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
     {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
     {path: 'citizen-comment',component:CitizenCommentComponent},
