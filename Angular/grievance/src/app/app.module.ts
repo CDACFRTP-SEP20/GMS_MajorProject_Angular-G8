@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +37,11 @@ import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-c
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+import { GlobalErrorHandlerService } from './service/global-error-handler.service';
+import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
+import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +72,10 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
     ShowReportsComponent,
-    CitizenCommentComponent
+    CitizenCommentComponent,
+    ReopenComplainListComponent,
+    CitizenHomeComponent,
+    DepartmentEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -80,11 +88,21 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     ReactiveFormsModule,
     MatSidenavModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

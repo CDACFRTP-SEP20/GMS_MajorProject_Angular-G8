@@ -16,11 +16,10 @@ export class AdminDepartmentListComponent implements OnInit {
   //   this.deptList=this.admniservice.getDepartmentList()
   //   console.log(this.deptList)
   //  }
-
   index:number=1
   deptNumber?:number
 
-  deptList:any=[]
+  deptList:Department[]
   constructor(private adminservice:AdminService) {
     this.adminservice.getDepartmentList().subscribe(data =>{
       this.deptList = data}

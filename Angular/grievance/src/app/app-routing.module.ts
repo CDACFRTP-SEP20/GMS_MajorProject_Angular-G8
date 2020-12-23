@@ -1,3 +1,4 @@
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -25,24 +26,24 @@ import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-com
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthGuard } from './service/auth.guard';
 import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 
 const routes: Routes = [
-  {path : '' , component : HomeComponent},
-  {path : 'home' , component : HomeComponent},
-  {path : 'about' , component : AboutComponent},
-  {path : 'contact' , component : ContactComponent},
-  {path : 'login' , component : LoginComponent},
-  {path : 'register' , component : CitizenRegistrationComponent},
-  {path : 'department' , component : DepartmentHomeComponent},
-  {path : 'citizen' , component : CitizenComponent},
-  {path : 'admin' , component : AdminHomeComponent,
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: CitizenRegistrationComponent },
+   {
+    path: 'admin',
+    component: AdminHomeComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_ADMIN"},
       children:[
@@ -74,26 +75,32 @@ const routes: Routes = [
   ]
 },
 
+
   {
-    path: 'department', component: DepartmentHomeComponent,
+    path: 'department',
+    component: DepartmentHomeComponent,
     children: [
+      { path: '',component: DepartmentEntryComponent },
+      { path: 'department-home', component: DepartmentEntryComponent },
       { path: 'department-complain-list', component: ComplainListComponent },
-      { path: 'department-profile', component: ProfileComponent},
+      { path: 'department-profile', component: ProfileComponent },
       { path: 'department-change-password', component: ChangePasswordComponent },
       { path: 'department-reminder-complain', component: ReminderComplainComponent },
       { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
-      { path: 'department-reports', component: ReportsComponent,
-      children: [
-        { path: 'department-show-reports', component: ShowReportsComponent},
-        { path: 'department-transfer-complain', component: TransferComplainComponent },
-        {path: '**',redirectTo: 'login', pathMatch: 'full'}
-        ]},   
-    ]
-  }
+      { path: 'department-reports',
+        component: ReportsComponent,
+        children: [
+          { path: 'department-show-reports', component: ShowReportsComponent },
+        ],
+      },
+      { path: 'department-transfer-complain', component: TransferComplainComponent },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

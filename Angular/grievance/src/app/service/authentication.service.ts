@@ -54,7 +54,7 @@ export class AuthenticationService  {
     this.loginStatus.next(false)
     //@ts-ignore
     this.username.next(null)
-    //@ts-ignore
+      //@ts-ignore
     this.userrole.next(null)
   }
 

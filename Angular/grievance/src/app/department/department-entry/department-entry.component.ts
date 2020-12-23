@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
-  selector: 'app-admin-entry',
-  templateUrl: './admin-entry.component.html',
-  styleUrls: ['./admin-entry.component.css']
+  selector: 'app-department-entry',
+  templateUrl: './department-entry.component.html',
+  styleUrls: ['./department-entry.component.css']
 })
-export class AdminEntryComponent implements OnInit {
+export class DepartmentEntryComponent implements OnInit {
 
   constructor(private s:AuthenticationService) { }
 
   ngOnInit(): void {
   }
   logout(){
-      this.s.logout()
+    this.s.logout()
   }
 }
