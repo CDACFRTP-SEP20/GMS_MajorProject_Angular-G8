@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +27,7 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
-
 import {MatCardModule} from '@angular/material/card';
-
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -39,7 +37,10 @@ import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-c
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+import { GlobalErrorHandlerService } from './service/global-error-handler.service';
+import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { ReopenComplainListComponent } from './department/reopen-complain-list/r
     CitizenComplaintStatusComponent,
     ShowReportsComponent,
     CitizenCommentComponent,
-    ReopenComplainListComponent
+    ReopenComplainListComponent,
+    CitizenHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -86,11 +88,21 @@ import { ReopenComplainListComponent } from './department/reopen-complain-list/r
 
 
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

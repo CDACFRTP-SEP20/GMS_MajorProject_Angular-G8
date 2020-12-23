@@ -37,7 +37,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         AdminRoutingModule,
         MatSidenavModule,
         FormsModule,
-        MatSidenavModule,
       ],
       providers: [AdminService],
       bootstrap: [AdminHomeComponent]

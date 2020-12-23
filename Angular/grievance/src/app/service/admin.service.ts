@@ -23,8 +23,14 @@ export class AdminService {
   getDepartmentList():Observable<Department[]>{
       return  this.http.get<Department[]>('http://localhost:8787/admin/departmentlist');
   }
-  getComplaintCount(){
-    return  this.http.get('http://localhost:8787/admin/statuswisecomplain');
+
+  getDepartmentwiseCount(status:string):Observable<any>{
+    return  this.http.get<any>('http://localhost:8787/admin/complainperDepartment/'+status);
+  }
+
+  getComplaintCount():Observable<any>{
+    return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
+
   }
   
   registerDepartmentHead(depthead: any): Observable<any> {
@@ -38,10 +44,10 @@ export class AdminService {
   checkUsername(username: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkusername/${username}`);
   }
-  getDepartmentwiseCount(status:any){
-    return  this.http.get('http://localhost:8787/admin/complainperDepartment/'+status);
-  }
+ 
   checkDeptName(deptname: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkdepartment/${deptname}`);
   }
+
+  
 }
