@@ -1,15 +1,17 @@
 import { Injectable, ErrorHandler } from '@angular/core';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalErrorHandlerService implements ErrorHandler {
-
-  constructor() { }
- 
+    errormesage:any
+  constructor(private _userservice : UserService) { }
+  
     handleError(error: Error) {
+      this.errormesage=error
         console.log(' error handling with global error handler... ', error)
-        console.log("====="+error)
+        console.log("====="+this.errormesage)
         alert(error)    //need to display to end users
     }
 }
