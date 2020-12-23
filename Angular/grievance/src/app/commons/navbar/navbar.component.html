@@ -20,6 +20,7 @@
               <span>service@gms.com</span>
           </a>
         </li>
+
        </ul>   
       <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -54,6 +55,10 @@
         </ul>     
 
      
+        <button class="btn  my-2 my-sm-0 abc" *ngIf='!authService.isUserLoggedIn()'>REGISTER</button> 
+        <button class="btn  my-2 my-sm-0" *ngIf='!authService.isUserLoggedIn()' (click)='login()'>LOGIN</button>   
+        <button class="btn  my-2 my-sm-0" *ngIf='authService.isUserLoggedIn()' (click)='logout()' >LOGOUT</button>
+        
     </div>
   </nav>
 </section>
@@ -93,9 +98,11 @@
                       </svg>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item waves-effect waves-light " routerLink="/login"><span>Login</span> </a>
-                    <a class="dropdown-item waves-effect waves-light" href="#"><span>Register</span></a>
-                  </div>
+                    <a class="dropdown-item waves-effect waves-light " *ngIf='!authService.isUserLoggedIn()' (click)='login()><span>Login</span> </a>
+                    <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='!authService.isUserLoggedIn()'><span>Register</span></a>
+                     <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='authService.isUserLoggedIn()'(click)='logout()><span>Logout</span></a>
+
+                </div>
                 </li>
            </ul>
          

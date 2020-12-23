@@ -14,9 +14,10 @@ import { DeptiseComplaintComponent } from './deptise-complaint/deptise-complaint
 import { StatuswiseComplaintComponent } from './statuswise-complaint/statuswise-complaint.component';
 import { AdminEntryComponent } from './admin-entry/admin-entry.component';
 import { AdminService } from '../service/admin.service';
+import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
- // For MDB Angular Free
+
 @NgModule({
     declarations: [
       AdminHomeComponent,
@@ -25,11 +26,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
       AdminDeptHeadListComponent, 
       AdminAddDeptHeadComponent, 
       AdminUpdateDeptHeadComponent, 
-      AdminComplaintComponent, SidenavComponent, DeptiseComplaintComponent, StatuswiseComplaintComponent, AdminEntryComponent
+      AdminComplaintComponent,
+       SidenavComponent, 
+       DeptiseComplaintComponent, 
+       StatuswiseComplaintComponent, 
+       AdminEntryComponent
     ],
       imports: [
         BrowserModule,
         AdminRoutingModule,
+        MatSidenavModule
+        FormsModule
         MatSidenavModule,
       ],
       providers: [AdminService],

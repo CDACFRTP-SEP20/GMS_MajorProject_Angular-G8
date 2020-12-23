@@ -1,9 +1,8 @@
 <div class="container">
-    <button class="btn">Department-1</button>
-    <button class="btn">Department-2</button>
-    <button class="btn">Department-3</button>
-    <button class="btn">Department-4</button>
-    <button class="btn">Department-5</button>
+    <button class="btn" (click)="getComplaintCount('solved')" >Solved</button>
+    <button class="btn" (click)="getComplaintCount('pending')" >Pending</button>
+    <button class="btn" (click)="getComplaintCount('reopen')" >Reopened</button>
+   
 </div>
 <div class="chart"> 
     <canvas id="myChart"  width="400" height="400"></canvas>

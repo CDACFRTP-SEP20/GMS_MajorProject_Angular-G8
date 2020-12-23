@@ -24,6 +24,8 @@ import { AdminDeptHeadListComponent } from './admin/admin-dept-head-list/admin-d
 import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-complaint.component';
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './service/auth.guard';
 import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
 import { AuthGuard } from './service/auth.guard';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
@@ -31,7 +33,6 @@ import { CitizenRegistrationComponent } from './commons/citizen-registration/cit
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
-
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -43,6 +44,8 @@ const routes: Routes = [
   {path : 'department' , component : DepartmentHomeComponent},
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
+    canActivate: [AuthGuard],
+    data: {role: "ROLE_ADMIN"},
       children:[
         {path:'',component:AdminEntryComponent},
         {path:'admin-home',component:AdminEntryComponent},
@@ -53,14 +56,22 @@ const routes: Routes = [
           {path:'admin-complaintlist',component:AdminComplaintComponent},
           {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
           {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
+          {path: '**',redirectTo: 'login', pathMatch: 'full'}
+
       ]
 },
-{path:'citizen', component:CitizenComponent,
+{path:'citizen', component:CitizenHomeComponent,
+    canActivate: [AuthGuard],
+    data: {role: "ROLE_CITIZEN"},
   children:[
-    {path: 'citizen-complaint',component:CitizenComplaintComponent},
+    {path:'citizen-home', component:CitizenHomeComponent},
+    {path:'citizen-register', component:CitizenRegistrationComponent},
+    {path:'citizen-complaint-register', component:CitizenComplaintRegisterComponent},
+     {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
     {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
     {path: 'citizen-comment',component:CitizenCommentComponent},
+    {path: '**',redirectTo: 'login', pathMatch: 'full'}
   ]
 },
 
@@ -80,7 +91,7 @@ const routes: Routes = [
         { path: 'department-show-reports', component: ShowReportsComponent},
       ]},
       { path: 'department-transfer-complain', component: TransferComplainComponent },
-
+        {path: '**',redirectTo: 'login', pathMatch: 'full'} 
     ]
   }
 

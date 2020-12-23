@@ -1,33 +1,88 @@
+
 <div class="container">
     <div class="header">
         <h1>Add New Department Head</h1>
     </div>
-    <form>
+    <form method="POST" #RegisterForm="ngForm" (ngSubmit)="registerDepartmentHead()">
         <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Name ">
+            <input type="text" class="form-control"
+            placeholder="Enter Employee Name "
+            name="emp"
+            required
+            [(ngModel)]="depthead.name"
+            minlength="5"
+            #empname="ngModel"
+            [class.is-invalid]="empname.invalid && empname.touched">
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Email">
+        <div>
+            <small class="text-danger" [class.d-none]="empname.valid || empname.untouched">Employee Name is required</small>
         </div>
+        
         <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Contact">
+            <input type="text" class="form-control"
+            placeholder="Enter Email"
+            name="email"
+            pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
+            [(ngModel)]="depthead.email"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.untouched">
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Department name">
+        <div>
+            <small class="text-danger" [class.d-none]="email.valid || email.touched" >Email is required</small>
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Username">
-        </div>
-        <div class="form-group">
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter Password">
-            </div>
 
-        <button type="submit" class="btn">Add Department</button>
+        <div class="form-group">
+            <input type="text" class="form-control" 
+            placeholder="Enter Contact Number"
+            name="contact"
+            required
+            [(ngModel)]="depthead.phone"
+            pattern="^((\\+91-?)|0)?[0-9]{10}$"
+            minlength="10"
+            #contact="ngModel"
+            [class.is-invalid]="contact.invalid && contact.touched">
+        </div>
+        <div *ngIf="contact.errors && (contact.invalid && contact.touched)">
+            <small class="text-danger" *ngIf="contact.errors.required">Mobile Number is required</small>
+            <small class="text-danger" *ngIf="contact.errors.pattern">Enter a valid Mobile Number</small>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" 
+            placeholder="Enter Department name"
+            name="department"
+            [(ngModel)]="depthead.departmentName"
+            required
+            >
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control"
+                placeholder="Enter Username" 
+                name="username"
+                [(ngModel)]="depthead.username"
+                #username="ngModel"
+                (change)="checkUsername()">
+        </div>
+       <div class="text-danger" *ngIf="!validUsername && username.touched ">
+           Username Already Exists
+       </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control"
+                placeholder="Enter Password" 
+                name="password"
+                required
+                [(ngModel)]="depthead.password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$"
+                #password="ngModel"
+                [class.is-invalid]="password.invalid && password.touched">
+            </div>
+            <div *ngIf="password.errors && (password.invalid && password.touched)">
+                <small class="text-danger" *ngIf="password.errors.required">Password is Required</small>
+                <small class="text-danger" *ngIf="password.errors.pattern">Minimum len 5 and must contains letter(both upper and lower) and number</small>
+            </div>
+    
+        <button type="submit"  [disabled]="!validUsername" class="btn">Add Department</button>
     </form>
 </div>
