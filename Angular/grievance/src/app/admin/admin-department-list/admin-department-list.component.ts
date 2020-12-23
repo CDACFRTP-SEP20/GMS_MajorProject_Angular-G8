@@ -16,16 +16,24 @@ export class AdminDepartmentListComponent implements OnInit {
   //   this.deptList=this.admniservice.getDepartmentList()
   //   console.log(this.deptList)
   //  }
+
+  index:number=1
+  deptNumber?:number
+
   deptList:any=[]
   constructor(private adminservice:AdminService) {
-    this.adminservice.getDepartmentList().subscribe(
-      data =>this.deptList = data
+    this.adminservice.getDepartmentList().subscribe(data =>{
+      this.deptList = data}
     )
-
   }
   ngOnInit(): void {
-  
+    
   }
   
+  deleteDepartment(deptId: string,index:number){
+    this.deptNumber=index
+    this.adminservice.deleteDepartment(deptId).subscribe(data =>{})
+    this.deptList.splice(this.deptNumber, 1);
+  }
 
 }

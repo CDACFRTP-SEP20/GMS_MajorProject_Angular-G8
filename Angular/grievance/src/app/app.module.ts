@@ -27,9 +27,7 @@ import { ProfileComponent } from './department/profile/profile.component';
 import { ReminderComplainComponent } from './department/reminder-complain/reminder-complain.component';
 import { ReportsComponent } from './department/reports/reports.component';
 import { TransferComplainComponent } from './department/transfer-complain/transfer-complain.component';
-
 import {MatCardModule} from '@angular/material/card';
-
 import { CsidenavComponent } from './citizen/csidenav/csidenav.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -68,7 +66,6 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-
     ShowReportsComponent,
     CitizenCommentComponent
   ],
@@ -80,10 +77,8 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
     MatSidenavModule
-
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

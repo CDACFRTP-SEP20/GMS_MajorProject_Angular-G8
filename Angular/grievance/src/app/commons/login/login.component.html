@@ -28,7 +28,7 @@
       <div class="checkbox">
         <label><input type="checkbox" name="remember"> Remember me</label>
       </div>
-      <button type="submit" class="btn btn-info pl-4 pr-4">Login</button>
+      <button type="submit" class="btn btn-info pl-4 pr-4" [disabled]="un?.invalid">Login</button>
     </form>
   </div>
 </div>
