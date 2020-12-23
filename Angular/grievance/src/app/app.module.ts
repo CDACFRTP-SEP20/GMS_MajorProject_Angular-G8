@@ -41,6 +41,7 @@ import { GlobalErrorHandlerService } from './service/global-error-handler.servic
 import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
     ShowReportsComponent,
     CitizenCommentComponent,
     ReopenComplainListComponent,
-    CitizenHomeComponent
+    CitizenHomeComponent,
+    DepartmentEntryComponent
   ],
   imports: [
     BrowserModule,
