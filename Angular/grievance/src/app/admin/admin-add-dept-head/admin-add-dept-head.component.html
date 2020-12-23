@@ -32,19 +32,17 @@
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" 
+            <input type="number" class="form-control" 
             placeholder="Enter Contact Number"
             name="contact"
             required
             [(ngModel)]="depthead.phone"
-            pattern="^((\\+91-?)|0)?[0-9]{10}$"
             minlength="10"
             #contact="ngModel"
             [class.is-invalid]="contact.invalid && contact.touched">
         </div>
         <div *ngIf="contact.errors && (contact.invalid && contact.touched)">
-            <small class="text-danger" *ngIf="contact.errors.required">Mobile Number is required</small>
-            <small class="text-danger" *ngIf="contact.errors.pattern">Enter a valid Mobile Number</small>
+            <small class="text-danger" *ngIf="contact.errors">Enter a valid Mobile Number</small>
         </div>
 
         <div class="form-group">
@@ -79,7 +77,6 @@
                 [class.is-invalid]="password.invalid && password.touched">
             </div>
             <div *ngIf="password.errors && (password.invalid && password.touched)">
-                <small class="text-danger" *ngIf="password.errors.required">Password is Required</small>
                 <small class="text-danger" *ngIf="password.errors.pattern">Minimum len 5 and must contains letter(both upper and lower) and number</small>
             </div>
     

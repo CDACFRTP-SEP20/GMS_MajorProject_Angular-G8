@@ -37,6 +37,7 @@ export class AdminService {
   }
 
   addDepartment(department: any): Observable<any> {
+    console.log(department)
     return this.http.post('http://localhost:8787/admin/adddepartment', department);
   }
 
