@@ -69,7 +69,6 @@ import { ReopenComplainListComponent } from './department/reopen-complain-list/r
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-
     ShowReportsComponent,
     CitizenCommentComponent,
     ReopenComplainListComponent
