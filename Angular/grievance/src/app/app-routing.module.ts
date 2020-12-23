@@ -32,6 +32,7 @@ import { CitizenRegistrationComponent } from './commons/citizen-registration/cit
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: CitizenRegistrationComponent },
-  { path: 'department', component: DepartmentHomeComponent },
    {
     path: 'admin',
     component: AdminHomeComponent,
@@ -80,35 +80,20 @@ const routes: Routes = [
     path: 'department',
     component: DepartmentHomeComponent,
     children: [
+      { path: '',component: DepartmentEntryComponent },
+      { path: 'department-home', component: DepartmentEntryComponent },
       { path: 'department-complain-list', component: ComplainListComponent },
-      {
-        path: 'department-profile',
-        component: ProfileComponent,
-      },
-
-      {
-        path: 'department-change-password',
-        component: ChangePasswordComponent,
-      },
-      {
-        path: 'department-reminder-complain',
-        component: ReminderComplainComponent,
-      },
-      {
-        path: 'department-reopen-complain-list',
-        component: ReopenComplainListComponent,
-      },
-      {
-        path: 'department-reports',
+      { path: 'department-profile', component: ProfileComponent },
+      { path: 'department-change-password', component: ChangePasswordComponent },
+      { path: 'department-reminder-complain', component: ReminderComplainComponent },
+      { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
+      { path: 'department-reports',
         component: ReportsComponent,
         children: [
           { path: 'department-show-reports', component: ShowReportsComponent },
         ],
       },
-      {
-        path: 'department-transfer-complain',
-        component: TransferComplainComponent,
-      },
+      { path: 'department-transfer-complain', component: TransferComplainComponent },
       { path: '**', redirectTo: 'login', pathMatch: 'full' },
     ],
   },
