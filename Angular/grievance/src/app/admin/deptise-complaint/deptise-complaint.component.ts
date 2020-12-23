@@ -16,7 +16,7 @@ export class DeptiseComplaintComponent implements OnInit {
   constructor(private adminservice:AdminService) { }
 
   getComplaintCount(status:any){
-      //@ts-ignore
+    //@ts-ignore
     this.adminservice.getDepartmentwiseCount(status).subscribe(
         data =>{
             console.log(data)

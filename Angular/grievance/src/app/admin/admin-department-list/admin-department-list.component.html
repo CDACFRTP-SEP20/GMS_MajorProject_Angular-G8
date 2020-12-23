@@ -14,11 +14,11 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let dept of deptList">
+                              <tr *ngFor="let dept of deptList; let i=index">
                               <td scope="row">{{dept.deptId}}</td>
                                 <td>{{dept.departmentName}}</td>
                                 <td>
-                                    <button class="btn">Delete</button>
+                                    <button class="btn" (click)="deleteDepartment(dept.deptId,i)">Delete</button>
                                 </td>
                                
                               </tr>

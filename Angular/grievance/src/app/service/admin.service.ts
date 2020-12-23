@@ -20,6 +20,7 @@ export class AdminService {
   getToken() {
     this.token = sessionStorage.getItem('token');
   }
+
   getDepartmentList():Observable<Department[]>{
       return  this.http.get<Department[]>('http://localhost:8787/admin/departmentlist');
   }
@@ -30,8 +31,11 @@ export class AdminService {
 
   getComplaintCount():Observable<any>{
     return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
+
+  getDepartmentHeadList(): Observable<any>{
+    return this.http.get('http://localhost:8787/admin/departmentheadlist');
   }
-  
+
   registerDepartmentHead(depthead: any): Observable<any> {
     return this.http.post('http://localhost:8787/admin/adddepartmenthead', depthead);
   }
@@ -48,6 +52,16 @@ export class AdminService {
   checkDeptName(deptname: any): Observable<any>{
     return this.http.get(`http://localhost:8787/admin/checkdepartment/${deptname}`);
   }
+  checkEmail(email: any): Observable<any>{
+    return this.http.get(`http://localhost:8787/admin/checkemail/${email}`);
+  }
 
+  deleteDeptHead(deptHeadId: string):Observable<any>{
+    return this.http.get(`http://localhost:8787/admin/deletedepertmenthead/${deptHeadId}`)
+  }
   
+  deleteDepartment(deptId: string):Observable<any>{
+    return this.http.delete(`http://localhost:8787/admin/deletedepertment/${deptId}`)
+  }
+
 }

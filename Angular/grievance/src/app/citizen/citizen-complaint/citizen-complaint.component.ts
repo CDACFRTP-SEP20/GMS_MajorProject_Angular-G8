@@ -13,7 +13,9 @@ export class CitizenComplaintComponent implements OnInit {
   ngOnInit(): void {
   }
   sendToForm(msg:string){
-this.citizinService.communicateDept(msg);
-  }
+
+    localStorage.setItem('department', msg);
+      }
+    
 
 }

@@ -8,25 +8,25 @@ import { Department } from '../models/department';
 })
 export class AuthenticationService  {
  
+  token:any
+
   ngOnInit(){
     console.log(sessionStorage.getItem('username'));
-    
   }
-  token:any
+  
   constructor(private http: HttpClient) { }
   isUserLoggedIn(){
-    
     let username  = sessionStorage.getItem('username')
     return !(username === null)
   }
+
   loginStatus = new BehaviorSubject<boolean>(this.isUserLoggedIn())
   //@ts-ignore
   username = new BehaviorSubject<String>(sessionStorage.getItem('username'))
   //@ts-ignore
   userrole = new BehaviorSubject<String>(sessionStorage.getItem('userrole'))
 
-  authenticate(username:any,password:any){
-   
+  authenticate(username:any,password:any){ 
     return this.http.post<any>('http://localhost:8787/auth/authenticate',
     {username,password})
     .pipe(
@@ -36,8 +36,6 @@ export class AuthenticationService  {
         sessionStorage.setItem('token','Bearer' + userData.token)
 
         this.loginStatus.next(true)
-        
-        console.log('inside auth',userData)
         return userData
       })
       )

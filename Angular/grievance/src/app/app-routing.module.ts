@@ -1,3 +1,4 @@
+import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { CitizenComplaintStatusComponent } from './citizen/citizen-complaint-status/citizen-complaint-status.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,7 +24,6 @@ import { DeptiseComplaintComponent } from './admin/deptise-complaint/deptise-com
 import { StatuswiseComplaintComponent } from './admin/statuswise-complaint/statuswise-complaint.component';
 import { ChangePasswordComponent } from './department/change-password/change-password.component';
 import { AdminEntryComponent } from './admin/admin-entry/admin-entry.component';
-import { AuthGuard } from './service/auth.guard';
 import { CitizenComplaintRegisterFormComponent } from './citizen/citizen-complaint-register-form/citizen-complaint-register-form.component';
 import { CitizenRegistrationComponent } from './commons/citizen-registration/citizen-registration.component';
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
@@ -42,6 +42,7 @@ const routes: Routes = [
   {path : 'department' , component : DepartmentHomeComponent},
   {path : 'citizen' , component : CitizenComponent},
   {path : 'admin' , component : AdminHomeComponent,
+
     canActivate: [AuthGuard],
     data: {role: "ROLE_ADMIN"},
       children:[
@@ -58,13 +59,13 @@ const routes: Routes = [
 
       ]
 },
-{path:'citizen', component:CitizenRegistrationComponent,
+{path:'citizen', component:CitizenComplaintComponent,
     canActivate: [AuthGuard],
     data: {role: "ROLE_CITIZEN"},
-  children:[
-    {path:'citizen-home', component:CitizenRegistrationComponent},
+    children:[
+    {path:'citizen-home', component:CitizenComplaintComponent},
     {path:'citizen-register', component:CitizenRegistrationComponent},
-    {path:'citizen-complaint-register', component:CitizenRegistrationComponent},
+    {path:'citizen-complaint-register', component:CitizenComplaintComponent},
      {path: 'citizen-complaint',component:CitizenComplaintComponent},
     {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
     {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
@@ -73,30 +74,32 @@ const routes: Routes = [
   ]
 },
 
+
   {
-    path: 'department', component: DepartmentHomeComponent,
+    path: 'department',
+    component: DepartmentHomeComponent,
     children: [
+      { path: '',component: DepartmentEntryComponent },
+      { path: 'department-home', component: DepartmentEntryComponent },
       { path: 'department-complain-list', component: ComplainListComponent },
-      {
-        path: 'department-profile', component: ProfileComponent
-      },
-
+      { path: 'department-profile', component: ProfileComponent },
       { path: 'department-change-password', component: ChangePasswordComponent },
-     { path: 'department-reminder-complain', component: ReminderComplainComponent },
+      { path: 'department-reminder-complain', component: ReminderComplainComponent },
       { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
-      { path: 'department-reports', component: ReportsComponent,
-      children: [
-        { path: 'department-show-reports', component: ShowReportsComponent},
-      ]},
+      { path: 'department-reports',
+        component: ReportsComponent,
+        children: [
+          { path: 'department-show-reports', component: ShowReportsComponent },
+        ],
+      },
       { path: 'department-transfer-complain', component: TransferComplainComponent },
-        {path: '**',redirectTo: 'login', pathMatch: 'full'} 
-    ]
-  }
-
+      { path: '**', redirectTo: 'login', pathMatch: 'full' },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
