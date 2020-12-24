@@ -3,4 +3,5 @@ export class CommentDTO {
 	 comment:string
 	 isLiked:string
 	compId:string
+	citizenId:string
 }
