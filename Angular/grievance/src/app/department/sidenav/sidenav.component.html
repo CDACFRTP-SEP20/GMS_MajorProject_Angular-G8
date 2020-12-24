@@ -3,7 +3,7 @@
     <div class="background">
       <div class="profile">
         <img src="https://dailysuperheroes.com/wp-content/uploads/2020/02/tony-stark.jpg" alt="logo"><br><br>
-        <h2>Name of Department Head</h2>
+        <h2>Hi,{{headDetail.name }}</h2>
         <hr class="line">
       </div>
       <div class="link">
@@ -19,6 +19,15 @@
             </svg>
           </span>
           <span>Dashboard</span>
+        </h5>
+
+        <h5 class="menulist" [routerLink]="['department-profile']">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+          </span>
+          <span>Profile</span>
         </h5>
 
         <h5 class="menulist" [routerLink]="['department-complain-list']">
@@ -58,16 +67,7 @@
           <span>Reminder</span>
         </h5>
 
-        <h5 class="menulist" [routerLink]="['department-transfer-complain']">
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-            </svg>
-          </span>
-          <span>Transfer Complain</span>
-        </h5>
+        
 
         <h5 class="menulist" [routerLink]="['department-reports']">
           <span>

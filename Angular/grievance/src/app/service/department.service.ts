@@ -61,5 +61,9 @@ export class DepartmentService {
     return this.http.post<any>("http://localhost:8787/department/departmentHeadDetail", { deptId });
   }
 
+  getCountOfAllComplains(deptId: any): Observable<any>{
+    return this.http.post<any>("http://localhost:8787/department/countOfAllComplain", { deptId });
+  }
+
 
 }

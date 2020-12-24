@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { pipe } from 'rxjs';
 import { map, filter, tap } from 'rxjs/operators';
+import { Department } from 'src/app/models/department';
 
 @Component({
   selector: 'app-complain-list',
@@ -19,11 +20,14 @@ export class ComplainListComponent implements OnInit {
   index: number = 1;
   remark: string = '';
   deptId: string
-  deptList: any = []
+  deptList: Department[] = []
   msg: string = '';
   remarkNumber!: number;
 
   constructor(private departmentService: DepartmentService, private router: Router) {
+    this.departmentService.getAllDepartmentList().subscribe(data=>{
+      this.deptList=data}
+    )
     this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
       id => {
         this.deptId = id.deptId

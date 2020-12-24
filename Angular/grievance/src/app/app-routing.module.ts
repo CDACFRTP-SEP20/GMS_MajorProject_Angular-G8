@@ -32,6 +32,8 @@ import { CitizenRegistrationComponent } from './commons/citizen-registration/cit
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
+
+import { AuthGuard } from './service/auth.guard';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 
 const routes: Routes = [
