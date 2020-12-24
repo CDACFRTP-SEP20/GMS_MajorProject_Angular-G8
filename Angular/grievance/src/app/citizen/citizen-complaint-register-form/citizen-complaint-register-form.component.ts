@@ -13,6 +13,7 @@ export class CitizenComplaintRegisterFormComponent implements OnInit {
   deptName: any = 'aaa';
   dept = localStorage.getItem('department');
   citizenId =  localStorage.getItem('citizenId');
+  returnData:any
 
   constructor(
     private citizenService: CitizenService,
@@ -46,8 +47,15 @@ export class CitizenComplaintRegisterFormComponent implements OnInit {
     formData.append('description', this.complainForm.get('description').value);
     formData.append('file', this.complainForm.get('file').value);
     formData.append('citizenId', this.complainForm.get('citizenId').value);
+    this.complainForm.reset(this.complainForm.value),
+    this.complainForm.markAsPristine();
+    this.complainForm.markAsUntouched();
     this.citizenService
       .submitComplain(formData)
-      .subscribe((data) => console.log(data));
-  }
+      .subscribe((data) =>{this.returnData= data,
+        console.log(this.returnData)
+        } );
+      
+     }
+     
 }
