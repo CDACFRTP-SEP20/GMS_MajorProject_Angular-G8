@@ -27,6 +27,10 @@ export class CitizenCommentComponent implements OnInit {
   flag1: number = 0;
   submitted: Boolean = false;
   public id = 0;
+  index:number = 1;
+  showCommentIndex:number;
+  
+  
   @Output() usercomment = new EventEmitter();
   toggle() {
     this.show = !this.show;
@@ -62,36 +66,39 @@ export class CitizenCommentComponent implements OnInit {
     this.usercomment.emit(this.commentInfo);
   }
   // Increasing Like
-  countLike(): number {
-    if (this.flag === 0) {
-      if (this.flag1 === 1) {
-        this.dcount = 0;
-        this.flag1=0;
-      } 
-      this.count++;
-      this.flag = 1;
-    } else {
-      this.count--;
-      this.flag = 0;
-    }
-    return this.flag;
+  countLike(index:number) {
+    //@ts-ignore
+    this.commentDTO[index].isLiked  =parseInt(this.commentDTO[index].isLiked)+1;
+     //  this.commentDTO[index].+=1;
+    // if (this.flag === 0) {
+    //   if (this.flag1 === 1) {
+    //     this.dcount = 0;
+    //     this.flag1=0;
+    //   } 
+    //   this.count++;
+    //   this.flag = 1;
+    // } else {
+    //   this.count--;
+    //   this.flag = 0;
+    // }
+    // return this.flag;
   }
 
   // Decreasing Like
-  countDislike(): number {
-    if (this.flag1 === 0) {
-      if (this.countLike() === 1) {
-        this.count = 0;
-        this.flag=0;
-      } 
-      this.dcount++;
-      this.flag1 = 1;
-    } else {
-      this.dcount--;
-      this.flag1 = 0;
-    }
-    return this.flag1;
-  }
+  // countDislike(): number {
+  //   if (this.flag1 === 0) {
+  //     if (this.countLike() === 1) {
+  //       this.count = 0;
+  //       this.flag=0;
+  //     } 
+  //     this.dcount++;
+  //     this.flag1 = 1;
+  //   } else {
+  //     this.dcount--;
+  //     this.flag1 = 0;
+  //   }
+  //   return this.flag1;
+  // }
 
 //submitting like
 

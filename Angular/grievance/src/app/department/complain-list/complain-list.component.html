@@ -12,8 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let complain of complains; let i=index">
-      <th scope="row">{{index+i}}</th>
+    <tr *ngFor = "let complain of complains | paginate:{
+      id:'list',
+      itemsPerPage:4,
+      currentPage:page,
+      totalItems:totalRecords
+    }; let i=index">
+      <th scope="row">{{increaseCount()+i}}</th>
       <td class="image">
         <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
           class="img-fluid img-thumbnail" alt="Sheep">
@@ -29,6 +34,9 @@
    
   </tbody>
 </table>
+<div class="pagination">
+  <pagination-controls id="list" [maxSize]="5" [directionLinks] ="true"  (pageChange)="page=$event"></pagination-controls>
+</div>
 
 <!--Remark MODEL -->
 

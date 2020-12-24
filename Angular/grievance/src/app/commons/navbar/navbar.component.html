@@ -52,14 +52,6 @@
                 </svg>
             </a>
           </li>
-
-
-     
-        <button class="btn  my-2 my-sm-0 abc" *ngIf='!authService.isUserLoggedIn()'  (click)=' onRegisterClick()'>REGISTER</button> 
-        <button class="btn  my-2 my-sm-0" *ngIf='!authService.isUserLoggedIn()' (click)='login()'>LOGIN</button>   
-        <button class="btn  my-2 my-sm-0" *ngIf='authService.isUserLoggedIn()' (click)='logout()' >LOGOUT</button>
-        
-
         </ul>     
 
     </div>

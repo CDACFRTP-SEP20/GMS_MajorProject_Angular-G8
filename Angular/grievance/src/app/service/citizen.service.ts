@@ -12,23 +12,18 @@ export class CitizenService {
   token: any
   username: any
 
-  // _deptName = new Subject();
-  // deptName$ = this._deptName.asObservable();
-
-  //   communicateDept(msg:String){
-  //     this._deptName.next(msg);
-  //   }
 
   constructor(private http: HttpClient) { }
 
-  public registerCitizen(citizenDTO: CitizenDTO): Observable<any> {
-    return this.http.post("http://localhost:8787/citizen/registerCitizen", citizenDTO, { responseType: 'text' });
-  }
-  public getCitizen(citizenId:any): Observable<any> {
+   public getCitizen(citizenId:any): Observable<any> {
     return this.http.get(`http://localhost:8787/citizen/getCitizen/1`)
   }
   getComplainStatus(): Observable<any> {
     return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
+
+  public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
+    return this.http.post("http://localhost:8787/registerCitizen",citizenDTO, {responseType: 'text' });
+
   }
   getAllComment(): Observable<any> {
     return this.http.get('http://localhost:8787/citizen/getAllComment')

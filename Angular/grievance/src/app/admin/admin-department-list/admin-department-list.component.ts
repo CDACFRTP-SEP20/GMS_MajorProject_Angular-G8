@@ -29,7 +29,7 @@ export class AdminDepartmentListComponent implements OnInit {
     
   }
   
-  deleteDepartment(deptId: string,index:number){
+  deleteDepartment(deptId:any,index:number){
     this.deptNumber=index
     this.adminservice.deleteDepartment(deptId).subscribe(data =>{})
     this.deptList.splice(this.deptNumber, 1);

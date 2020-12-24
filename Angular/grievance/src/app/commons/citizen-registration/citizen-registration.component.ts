@@ -55,11 +55,13 @@ export class CitizenRegistrationComponent implements OnInit {
 
     this.citizenService.registerCitizen(citizenDTO).subscribe(
       data => {
-        alert("You have successfully registered");
-        this.router.navigate(['login']);
-      },
+        console.log(data)
+          },
       error => console.log(error)
     )
+  }
+  transfer(){
+    this.router.navigate(['login']);
   }
 }
 

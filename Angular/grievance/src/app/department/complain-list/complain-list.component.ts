@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { pipe } from 'rxjs';
 import { map, filter, tap } from 'rxjs/operators';
 import { Department } from 'src/app/models/department';
+import { GlobalErrorHandlerService } from 'src/app/service/global-error-handler.service';
 
 @Component({
   selector: 'app-complain-list',
@@ -23,8 +24,14 @@ export class ComplainListComponent implements OnInit {
   deptList: Department[] = []
   msg: string = '';
   remarkNumber!: number;
+  totalRecords:number
+  page:number=1
+  errorMsg:any
 
-  constructor(private departmentService: DepartmentService, private router: Router) {
+  increaseCount():number{
+    return this.index+(this.page-1)*4
+  }
+  constructor(private departmentService: DepartmentService, private router: Router,private errorHandler:GlobalErrorHandlerService) {
     this.departmentService.getAllDepartmentList().subscribe(data=>{
       this.deptList=data}
     )
@@ -32,12 +39,11 @@ export class ComplainListComponent implements OnInit {
       id => {
         this.deptId = id.deptId
         this.departmentService.getComplainList(this.deptId).pipe(
-          tap(data => console.log(data)),
           map(dataList => dataList.filter((data: { status: string; }) => data.status === "PENDING"))
         ).subscribe(
           data => {
             this.complains = data
-            console.log(data)
+            this.totalRecords=data.length
           }
         )
       })
@@ -54,6 +60,7 @@ export class ComplainListComponent implements OnInit {
   onTransferClose() {
     this.transferDisplay = "none";
   }
+
 
   openModel(id: string, index: number) {
     this.compId = id;
@@ -78,8 +85,10 @@ export class ComplainListComponent implements OnInit {
         }
       }
     )
+    this.totalRecords=this.complains.length
     form.reset();
     this.onClose();
+    //this.router.navigate(['department/department-complain-list'])
 
   }
 
