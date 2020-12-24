@@ -41,6 +41,7 @@ import { GlobalErrorHandlerService } from './service/global-error-handler.servic
 import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,6 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-
     ShowReportsComponent,
     CitizenCommentComponent,
     ReopenComplainListComponent,

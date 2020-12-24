@@ -44,13 +44,13 @@ export class CitizenCommentComponent implements OnInit {
     console.log();
     this.createForm();
   }
-
+// craeting form
   createForm() {
     this.commentForm = this.formBuilder.group({
       comment: [''],
     });
   }
-
+// Posting comment
   onSubmit() {
     this.commentInfo.push({
       commentId: this.id++,
@@ -61,6 +61,7 @@ export class CitizenCommentComponent implements OnInit {
     this.commentTxt = '';
     this.usercomment.emit(this.commentInfo);
   }
+  // Increasing Like
   countLike(): number {
     if (this.flag === 0) {
       if (this.flag1 === 1) {
@@ -75,6 +76,8 @@ export class CitizenCommentComponent implements OnInit {
     }
     return this.flag;
   }
+
+  // Decreasing Like
   countDislike(): number {
     if (this.flag1 === 0) {
       if (this.countLike() === 1) {
@@ -89,6 +92,10 @@ export class CitizenCommentComponent implements OnInit {
     }
     return this.flag1;
   }
+
+//submitting like
+
+
   
 }
 

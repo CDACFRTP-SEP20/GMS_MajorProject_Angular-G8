@@ -1,8 +1,10 @@
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { ComplaintStatusDto } from './../../models/complaint-status-dto';
 import { CitizenService } from './../../service/citizen.service';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-citizen-complaint-status',
@@ -23,6 +25,7 @@ export class CitizenComplaintStatusComponent implements OnInit {
       
     )
    }
+      
   // setting reminder
    reminder(compId:any) {
      this.compId=compId
@@ -42,5 +45,7 @@ export class CitizenComplaintStatusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
 }
+
+

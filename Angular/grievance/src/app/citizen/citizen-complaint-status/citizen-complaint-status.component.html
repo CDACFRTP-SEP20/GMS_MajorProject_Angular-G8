@@ -1,30 +1,123 @@
-
 <table class="table table-striped">
   <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">compId</th>
-    <th scope="col">citizenName</th>
-    <th scope="col">remark</th>
-    <th scope="col">date</th>
-    <th scope="col">status</th>
-    <th scope="col">Action</th>
-  
-  </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">compId</th>
+      <th scope="col">citizenName</th>
+      <th scope="col">remark</th>
+      <th scope="col">date</th>
+      <th scope="col">status</th>
+      <th scope="col">Action</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let status of complainStatus; index as i">
-    <th scope="row">{{ i + 1 }}</th>
-    <td>{{ status.compId }}</td>
-    <td>{{ status.citizenName }}</td>
-    <td>{{ status.remark }}</td>
-    <td>{{ status.date }}</td>
-    <td>{{ status.status}}</td>
-    <td>
-     <button (click)="reminder(status.compId)">Reminder </button>
-     &nbsp;
-     <button (click)="reopen(status.compId)">Reopen</button>
-</td>
-  </tr>
+    <tr *ngFor="let status of complainStatus; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ status.compId }}</td>
+      <td>{{ status.citizenName }}</td>
+      <td>{{ status.remark }}</td>
+      <td>{{ status.date }}</td>
+      <td>{{ status.status }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          <i
+            (click)="reminder(status.compId)"
+            class="fa fa-1x fa-bell"
+            aria-hidden="true"
+          ></i>
+          <!-- Button trigger modal -->
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Reminder</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body ">Confirm Remind!</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success">Remind</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        &nbsp;
+        <button
+          (click)="reopen(status.compId)"
+          type="button"
+          class="btn btn-outline-warning"
+          data-toggle="modal"
+          data-target="#example"
+        >
+          Reopen
+        </button>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="example"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Reopen</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body  ">Are you sure want to Reopen?</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-warning">
+                  Reopen
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
   </tbody>
 </table>
