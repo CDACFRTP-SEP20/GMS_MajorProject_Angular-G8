@@ -1,12 +1,12 @@
 <button class="btn btn-danger mt-3 mr-3" (click)="changePass()" >Change Password</button>
       
-<div class="container" >
+<div class="container">
     <div class="row justify-content-center">
-        <div class="card text-center">
+        <div class="card text-center border-secondary">
             <div class="card-header">
                 <img src="../assets\UserLogo.png" alt="LoGo">
                 <div class="row justify-content-center">
-                    <h2>{{headDetail.name}}</h2>
+                    <h2>{{headDetail.name | uppercase }}</h2>
                 </div>
             </div>
             <div class="row mt-3">
