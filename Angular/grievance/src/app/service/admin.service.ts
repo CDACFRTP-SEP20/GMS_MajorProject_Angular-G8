@@ -31,7 +31,7 @@ export class AdminService {
 
   getComplaintCount():Observable<any>{
     return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
-
+  }
   getDepartmentHeadList(): Observable<any>{
     return this.http.get('http://localhost:8787/admin/departmentheadlist');
   }

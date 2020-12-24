@@ -32,62 +32,66 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
 import { AuthGuard } from './service/auth.guard';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword.component';
+import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
 
 const routes: Routes = [
-  {path : '' , component : HomeComponent},
-  {path : 'home' , component : HomeComponent},
-  {path : 'about' , component : AboutComponent},
-  {path : 'contact' , component : ContactComponent},
-  {path : 'login' , component : LoginComponent},
-  {path : 'forgetpassword' , component : ForgetpasswordComponent},
-  {path : 'register' , component : CitizenRegistrationComponent},
-  {path : 'department' , component : DepartmentHomeComponent},
-  {path : 'citizen' , component : CitizenComponent},
-  {path : 'admin' , component : AdminHomeComponent,
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
+  { path: 'register', component: CitizenRegistrationComponent },
+  { path: 'department', component: DepartmentHomeComponent },
+   {
+    path: 'admin', component: AdminHomeComponent,
 
     canActivate: [AuthGuard],
-    data: {role: "ROLE_ADMIN"},
-      children:[
-        {path:'',component:AdminEntryComponent},
-        {path:'admin-home',component:AdminEntryComponent},
-          {path:'admin-deptlist',component:AdminDepartmentListComponent},
-          {path:'admin-adddept',component:AdminAddDepartmentComponent},
-          {path:'admin-deptheadlist',component:AdminDeptHeadListComponent},
-          {path:'admin-adddepthead',component:AdminAddDeptHeadComponent},
-          {path:'admin-complaintlist',component:AdminComplaintComponent},
-          {path:'admin-deptwisecomplaintlist',component:DeptiseComplaintComponent},
-          {path:'admin-statuscomplaintlist',component:StatuswiseComplaintComponent},
-          {path: '**',redirectTo: 'login', pathMatch: 'full'}
+    data: { role: "ROLE_ADMIN" },
+    children: [
+      { path: '', component: AdminEntryComponent },
+      { path: 'admin-home', component: AdminEntryComponent },
+      { path: 'admin-deptlist', component: AdminDepartmentListComponent },
+      { path: 'admin-adddept', component: AdminAddDepartmentComponent },
+      { path: 'admin-deptheadlist', component: AdminDeptHeadListComponent },
+      { path: 'admin-adddepthead', component: AdminAddDeptHeadComponent },
+      { path: 'admin-complaintlist', component: AdminComplaintComponent },
+      { path: 'admin-deptwisecomplaintlist', component: DeptiseComplaintComponent },
+      { path: 'admin-statuscomplaintlist', component: StatuswiseComplaintComponent },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' }
 
-      ]
-},
+    ]
+  },
 
-{path:'citizen', component:CitizenComplaintComponent,
+  {
+    path: 'citizen', component: CitizenHomeComponent,
     canActivate: [AuthGuard],
-    data: {role: "ROLE_CITIZEN"},
-    children:[
-    {path:'citizen-home', component:CitizenComplaintComponent},
-    {path: 'citizen-complaint',component:CitizenComplaintComponent},
-    {path:'citizen-complaint-register-form', component:CitizenComplaintRegisterFormComponent},
-    {path: 'citizen-complaint-status',component:CitizenComplaintStatusComponent},
-    {path: 'citizen-comment',component:CitizenCommentComponent},
-    {path: '**',redirectTo: 'login', pathMatch: 'full'}
-  ]
-},
+    data: { role: "ROLE_CITIZEN" },
+    children: [
+      { path: '', component: CitizenProfileComponent },      
+      { path: 'citizen-profile', component: CitizenProfileComponent },
+      { path: 'citizen-complaint', component: CitizenComplaintComponent },
+      { path: 'citizen-complaint-register-form', component: CitizenComplaintRegisterFormComponent },
+      { path: 'citizen-complaint-status', component: CitizenComplaintStatusComponent },
+      { path: 'citizen-comment', component: CitizenCommentComponent },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' }
+    ]
+  },
 
 
   {
     path: 'department',
     component: DepartmentHomeComponent,
     children: [
-      { path: '',component: DepartmentEntryComponent },
+      { path: '', component: DepartmentEntryComponent },
       { path: 'department-home', component: DepartmentEntryComponent },
       { path: 'department-complain-list', component: ComplainListComponent },
       { path: 'department-profile', component: ProfileComponent },
       { path: 'department-change-password', component: ChangePasswordComponent },
       { path: 'department-reminder-complain', component: ReminderComplainComponent },
       { path: 'department-reopen-complain-list', component: ReopenComplainListComponent },
-      { path: 'department-reports',
+      {
+        path: 'department-reports',
         component: ReportsComponent,
         children: [
           { path: 'department-show-reports', component: ShowReportsComponent },
@@ -103,4 +107,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

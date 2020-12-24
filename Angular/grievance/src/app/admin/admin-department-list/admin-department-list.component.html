@@ -1,29 +1,29 @@
 <section class="container">
-        <div class="page-header">
-                <h1>List Of Department</h1>      
-            </div>
-            <div>
-                    <table class="table table-bordered">
-                          
-                            <thead>
-                              <tr>
-                                <th scope="col">Department Id</th>
-                                <th scope="col">Department Name</th>
-                                <th scope="col">Action</th>
-                              
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let dept of deptList; let i=index">
-                              <td scope="row">{{dept.deptId}}</td>
-                                <td>{{dept.departmentName}}</td>
-                                <td>
-                                    <button class="btn" (click)="deleteDepartment(dept.deptId,i)">Delete</button>
-                                </td>
-                               
-                              </tr>
-                             
-                            </tbody>
-                          </table>
-            </div>
+  <div class="page-header">
+    <h1>List Of Department</h1>
+  </div>
+  <div>
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th scope="col">Department Id</th>
+          <th scope="col">Department Name</th>
+          <th scope="col">Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dept of deptList; let i=index">
+          <td scope="row">{{dept.deptId}}</td>
+          <td>{{dept.departmentName}}</td>
+          <td>
+            <button class="btn" (click)="deleteDepartment(dept.deptId,i)">Delete</button>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
 </section>
