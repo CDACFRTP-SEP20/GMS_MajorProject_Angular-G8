@@ -46,6 +46,7 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 
 import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
+import { CitizenChangePasswordComponent } from './citizen/citizen-change-password/citizen-change-password.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profi
     TimerPipe,
     CitizenHomeComponent,
     DepartmentEntryComponent,
-    CitizenProfileComponent
+    CitizenProfileComponent,
+    CitizenChangePasswordComponent
   ],
   imports: [
     BrowserModule,

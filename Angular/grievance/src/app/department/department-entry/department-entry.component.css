@@ -32,6 +32,8 @@
     width: 50%;
     margin-top: 10%
 }
+
+
 .tasklist{
     display: flex;
     flex-wrap: wrap

@@ -1,8 +1,17 @@
 .card-deck{
     margin-top: 40px;
-     width: 110%;
+    margin-left: 20px;
+     width: 80%;  
+     margin-bottom: 20px
+}
+
+
+.card{
+    box-shadow: 0 2px 5px grey; 
    
 }
-.card{
-    box-shadow: 0 2px 5px grey;
+
+.card-title{
+    font-weight: bolder;
+    font-size: 120%;
 }

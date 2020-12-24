@@ -1,4 +1,8 @@
+
 <div class="maindiv">
+        <!-- <div class="registerlogo">
+                <img src="https://www.iconspng.com/images/memo-pictogram/memo-pictogram.jpg" alt="">
+              </div> -->
     <div class="container form">
         <span class="font-weight-bolder text-center header">
             <legend>Regsiter here!</legend>
@@ -81,17 +85,17 @@
 
 
             <div class="form-group">
-                <label for="contact">Contact Number:</label>
+                <label for="email">EmailID:</label>
                 <div class="input-container">
-                    <i class="fa fa-phone icon"></i>
-                    <input type="text"
-                        [ngClass]="{'is-invalid': (registerForm.controls.contact.touched || submitted) && (registerForm.controls.contact.errors?.required ||registerForm.controls.contact.errors),
-                    'is-valid': ((registerForm.controls.contact.touched ) && !registerForm.controls.contact.errors?.required && !registerForm.controls.contact.errors)}"
-                        formControlName="contact" class="form-control" placeholder="Enter contact number"
-                        name="contact">
+                    <i class="fa fa-at icon"></i>
+                    <input type="email"
+                        [ngClass]="{'is-invalid': (registerForm.controls.email.touched || submitted) && (registerForm.controls.email.errors?.required ||registerForm.controls.email.errors),
+                    'is-valid': ((registerForm.controls.email.touched ) && !registerForm.controls.email.errors?.required && !registerForm.controls.email.errors)}"
+                        formControlName="email" class="form-control" placeholder="Enter email address"
+                        name="email">
                     &nbsp;
                     <div class="invalid-feedback">
-                        contact number is required.
+                        email is required.
                     </div>
                 </div>
             </div>
