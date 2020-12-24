@@ -1,4 +1,4 @@
-<h2>{{msg}}</h2>
+<h2 *ngIf="msg != ''" class="alert alert-success">{{msg}}</h2>
 <table class="table table-striped mt-3">
   <thead>
     <tr>
@@ -21,11 +21,10 @@
       <td>{{complain.name}}</td>
       <td>{{complain.description}}</td>
       <td>{{complain.date}}</td>
-      <td class="remark"><img src="../assets/remark.png"
-        class="img-fluid" alt="remark" (click)="openModel(complain.compId,i)"></td>
-        
-        <td class="transfer"><img src="../assets/transfer.png"
-          class="img-fluid" alt="remark" (click)="openTransferModel(complain.compId)"></td>
+        <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true"(click)="openModel(complain.compId,i)"></i>
+         </td>
+        <td><i class="fa fa-exchange fa-2x" aria-hidden="true" (click)="openTransferModel(complain.compId,i)"></i>
+        </td>
     </tr>
    
   </tbody>

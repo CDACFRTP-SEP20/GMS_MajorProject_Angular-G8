@@ -40,7 +40,10 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
 import { GlobalErrorHandlerService } from './service/global-error-handler.service';
 import { HttpErrorInterceptor } from './service/http-error-interceptor.service';
 import { ReopenComplainListComponent } from './department/reopen-complain-list/reopen-complain-list.component';
+import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword.component';
+import { TimerPipe } from './pipe/timer.pipe';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,11 +73,13 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
     CitizenComplaintRegisterFormComponent,
     CitizenComplaintComponent,
     CitizenComplaintStatusComponent,
-
     ShowReportsComponent,
     CitizenCommentComponent,
     ReopenComplainListComponent,
-    CitizenHomeComponent
+    ForgetpasswordComponent,
+    TimerPipe
+    CitizenHomeComponent,
+    DepartmentEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -84,10 +89,8 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     MatSidenavModule
-
-
   ],
   providers: [
     {

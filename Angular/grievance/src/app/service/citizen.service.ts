@@ -2,6 +2,7 @@ import { ReopenComplainListComponent } from './../department/reopen-complain-lis
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CitizenDTO } from '../models/citizen-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class CitizenService {
   //     this._deptName.next(msg);
   //   }
   constructor(private http :HttpClient) { }
+
+  public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
+    return this.httpclient.post("http://localhost:8787/citizen/registerCitizen",citizenDTO, {responseType: 'text' });
+  }
 
   getComplainStatus(): Observable<any>{
    return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')

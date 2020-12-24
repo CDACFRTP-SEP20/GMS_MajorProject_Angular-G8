@@ -40,6 +40,13 @@ export class CitizenComplaintStatusComponent implements OnInit {
     })
   }
 
+
+
+  reopenComplain(){
+
+  }
+
+
   ngOnInit(): void {
   }
 
