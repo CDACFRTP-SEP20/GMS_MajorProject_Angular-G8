@@ -44,6 +44,7 @@ import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword
 import { TimerPipe } from './pipe/timer.pipe';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
+import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,9 +78,10 @@ import { DepartmentEntryComponent } from './department/department-entry/departme
     CitizenCommentComponent,
     ReopenComplainListComponent,
     ForgetpasswordComponent,
-    TimerPipe
+    TimerPipe,
     CitizenHomeComponent,
-    DepartmentEntryComponent
+    DepartmentEntryComponent,
+    CitizenProfileComponent
   ],
   imports: [
     BrowserModule,

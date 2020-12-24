@@ -20,7 +20,7 @@ export class CitizenService {
   constructor(private http :HttpClient) { }
 
   public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
-    return this.httpclient.post("http://localhost:8787/citizen/registerCitizen",citizenDTO, {responseType: 'text' });
+    return this.http.post("http://localhost:8787/citizen/registerCitizen",citizenDTO, {responseType: 'text' });
   }
 
   getComplainStatus(): Observable<any>{
