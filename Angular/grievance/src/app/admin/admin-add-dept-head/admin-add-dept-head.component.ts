@@ -17,6 +17,7 @@ export class AdminAddDeptHeadComponent implements OnInit {
   //depthead: Departmenthead()
   depthead: Departmenthead = new Departmenthead();
   validUsername:boolean = false;
+  validEmail:boolean = false;
   constructor(
     private http: HttpClient,
     private adminservice: AdminService) { }
@@ -35,6 +36,13 @@ export class AdminAddDeptHeadComponent implements OnInit {
       console.log(this.validUsername);
       
     });
+  }
+
+  checkEmail(){
+    this.adminservice.checkEmail(this.depthead.email).subscribe(data => {
+      this.validEmail= data;
+      console.log(this.validEmail);
+    })
   }
 
 }

@@ -1,6 +1,8 @@
+import { ReopenComplainListComponent } from './../department/reopen-complain-list/reopen-complain-list.component';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CitizenDTO } from '../models/citizen-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,10 @@ export class CitizenService {
   //     this._deptName.next(msg);
   //   }
   constructor(private http :HttpClient) { }
+
+  public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
+    return this.httpclient.post("http://localhost:8787/citizen/registerCitizen",citizenDTO, {responseType: 'text' });
+  }
 
   getComplainStatus(): Observable<any>{
    return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
@@ -36,5 +42,10 @@ getUsername():any{
  getCitizenId(username:any):Observable<any>{  
   return  this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
 }
-
+reminder(compId:any):Observable<any>{  
+  return  this.http.get(`http://localhost:8787/citizen/reminder/${compId}`)
+}
+reopen(compId:any):Observable<any>{  
+  return  this.http.get(`http://localhost:8787/citizen/reopen/${compId}`)
+}
 }

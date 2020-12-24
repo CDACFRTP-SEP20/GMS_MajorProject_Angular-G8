@@ -1,45 +1,46 @@
-a{
-    color: white
-}
-.background{
-    background-color: #16697a; 
-    padding-bottom: 36%;
-    padding-top: 10%;
-    text-align: center;
-    margin-top: 1px;
-}
-.logo{
-    width: 50%;
-}
-.profile{
-    padding-top: 20px;
-}
-.profile img{
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    box-shadow: 0 5px 10px white;
-}
-.profile h2 {
-    color: white
-}
-.line {
-    height:1px;
-    width:60%;
-    color:gray;
-    background-color:white
-}
-.link{
-    padding: 10px;
-    width:70%;
-  border: 1px solid #a8a3a4;
-  box-shadow: 0 5px 10px #d8d5d7;
-  background-color: #03506f;
-    margin: 20px auto;
-}
-.navigation a {
-    padding:0;  
-    font-size: 20px;
-    text-decoration: none
 
+
+.upper nav{
+    background-color: #fff;   
+    height: 50px;
+}
+.upper a{
+    color: rgb(99, 96, 96);
+    font-weight: 500;
+}
+.upper span{
+   margin-left: 10px;
+}
+.upper li{
+    margin-left: 20px;
+ }
+ 
+
+.lower nav{
+    background-color: #45494e;  
+    height: 70px;
+}
+.lower a{
+    color: white;
+    font-weight: 500;
+}
+.lower a span{ 
+    color: #03506f;
+    font-weight: 500;
+}
+.lower button{
+    background-color: #f0567a;
+    color: white;
+    margin-left: 10px;    
+}
+.lower li{
+    margin-left:10vw;
+}
+
+.loginlink{
+    color: #03506f
+}
+.lower .logo{
+    width: 100px;
+    height: auto;
 }
