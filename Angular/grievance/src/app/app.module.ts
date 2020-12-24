@@ -86,7 +86,7 @@ import { CitizenChangePasswordComponent } from './citizen/citizen-change-passwor
     CitizenHomeComponent,
     DepartmentEntryComponent,
     CitizenProfileComponent,
-    CitizenChangePasswordComponent
+    CitizenChangePasswordComponent,
     PasswordValidatorDirective,
   ],
   imports: [
