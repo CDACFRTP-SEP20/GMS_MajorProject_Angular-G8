@@ -20,6 +20,12 @@ export class ReopenComplainListComponent implements OnInit {
   deptList: any = []
   msg: string = '';
   remarkNumber!: number;
+  totalRecords:number
+  page:number=1
+
+  increaseCount():number{
+    return this.index+(this.page-1)*4
+  }
 
 
   constructor(private departmentService: DepartmentService, private router: Router) {
@@ -65,6 +71,7 @@ export class ReopenComplainListComponent implements OnInit {
         }
       }
     )
+    this.totalRecords=this.complains.length
     form.reset();
     this.onClose();
 

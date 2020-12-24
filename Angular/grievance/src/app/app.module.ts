@@ -44,6 +44,8 @@ import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword
 import { TimerPipe } from './pipe/timer.pipe';
 import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.component';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { PasswordValidatorDirective } from './directive/password-validator.directive' 
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,9 +79,10 @@ import { DepartmentEntryComponent } from './department/department-entry/departme
     CitizenCommentComponent,
     ReopenComplainListComponent,
     ForgetpasswordComponent,
-    TimerPipe
+    TimerPipe,
     CitizenHomeComponent,
-    DepartmentEntryComponent
+    DepartmentEntryComponent,
+    PasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { DepartmentEntryComponent } from './department/department-entry/departme
     HttpClientModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    NgxPaginationModule
   ],
   providers: [
     {
