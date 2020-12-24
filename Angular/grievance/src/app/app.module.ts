@@ -46,6 +46,8 @@ import { CitizenHomeComponent } from './citizen/citizen-home/citizen-home.compon
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { PasswordValidatorDirective } from './directive/password-validator.directive' 
+import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +84,11 @@ import { PasswordValidatorDirective } from './directive/password-validator.direc
     TimerPipe,
     CitizenHomeComponent,
     DepartmentEntryComponent,
-    PasswordValidatorDirective
+
+    PasswordValidatorDirective,
+
+    CitizenProfileComponent
+
   ],
   imports: [
     BrowserModule,

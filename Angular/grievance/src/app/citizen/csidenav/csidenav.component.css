@@ -1,46 +1,89 @@
+.example-container {
+    width: 100%;
+    height: 46vw;
+    background-color: #fff;
+    
 
-
-.upper nav{
-    background-color: #fff;   
-    height: 50px;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+   height: 50px;
+     
+  }
+h5{
+    color: #fff;
+    margin-left: 12%;
+    margin-top: 15%;
+    padding: 6px 10px 
 }
-.upper a{
-    color: rgb(99, 96, 96);
-    font-weight: 500;
+h5 span{
+    margin-left: 10%
 }
-.upper span{
-   margin-left: 10px;
-}
-.upper li{
-    margin-left: 20px;
+ h5:hover{
+     background-color: rgb(160, 158, 158)
  }
- 
+  .example-sidenav {
+    padding: 0px;
+    width: 300px;
+    
+  }
+  .hamber{
+      width: 40px;
+     color: #000
+      
+  }
+  a{
+    color: #f8fbfc;
+    text-decoration: none;
+   
+}
+.background{    
+  
+    padding-bottom: 36%;
+    padding-top: 10%;
+    text-align: center;
+    margin: -18px;
+    background-color: #45494e;
 
-.lower nav{
-    background-color: #45494e;  
-    height: 70px;
 }
-.lower a{
-    color: white;
-    font-weight: 500;
-}
-.lower a span{ 
-    color: #03506f;
-    font-weight: 500;
-}
-.lower button{
-    background-color: #f0567a;
-    color: white;
-    margin-left: 10px;    
-}
-.lower li{
-    margin-left:10vw;
+.logo{
+    width: 40%;
 }
 
-.loginlink{
-    color: #03506f
+
+.profile{
+    padding-top: 20px;
 }
-.lower .logo{
-    width: 100px;
-    height: auto;
+.profile img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px white;
+}
+.profile h2 {
+    color:#fff;
+}
+.line {
+    height:1px;
+    width:60%;
+    color:gray;
+    background-color:white;
+
+}
+.link{
+  
+    width:90%;  
+  
+    text-align: left
+}
+
+.menulist{
+    font-size: 17px;
+}
+.navigation a {
+    padding:0;  
+    font-size: 20px;
+    text-decoration: none
+
 }

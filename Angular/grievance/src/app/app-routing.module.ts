@@ -32,6 +32,7 @@ import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comme
 import { AuthGuard } from './service/auth.guard';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword.component';
+import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +43,7 @@ const routes: Routes = [
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'register', component: CitizenRegistrationComponent },
   { path: 'citizen', component: CitizenComponent },
-  {
+ 
     path: 'admin', component: AdminHomeComponent,
 
     canActivate: [AuthGuard],
@@ -63,11 +64,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'citizen', component: CitizenComplaintComponent,
+
+    path: 'citizen', component: CitizenHomeComponent,
     canActivate: [AuthGuard],
     data: { role: "ROLE_CITIZEN" },
     children: [
-      { path: 'citizen-home', component: CitizenComplaintComponent },
+      { path: '', component: CitizenProfileComponent },      
+      { path: 'citizen-profile', component: CitizenProfileComponent },
       { path: 'citizen-complaint', component: CitizenComplaintComponent },
       { path: 'citizen-complaint-register-form', component: CitizenComplaintRegisterFormComponent },
       { path: 'citizen-complaint-status', component: CitizenComplaintStatusComponent },
