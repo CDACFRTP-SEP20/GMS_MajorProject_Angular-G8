@@ -10,49 +10,60 @@ import { map } from 'rxjs/operators';
 })
 export class DepartmentService {
 
-  token:any
-  username:any
+  token: any
+  username: any
 
-  
-  constructor(private http:HttpClient,private intercept:AuthInterceptorService) {
-    
-   }
-   getUsername():any{
-    return this.username=sessionStorage.getItem('username');
-   }
-  
-  getToken(){
-    this.token=sessionStorage.getItem('token');
+
+  constructor(private http: HttpClient, private intercept: AuthInterceptorService) {
+
   }
-  getComplainList(deptId:any):Observable<any>{
-
- return  this.http.get(`http://localhost:8787/department/complain/${deptId}`);
-  
+  getUsername(): any {
+    return this.username = sessionStorage.getItem('username');
   }
 
-  getReopenComplainList(deptId:any):Observable<any>{
-console.log("innnnn");
+  getToken() {
+    this.token = sessionStorage.getItem('token');
+  }
+  getComplainList(deptId: any): Observable<any> {
 
-    return  this.http.get(`http://localhost:8787/department/reopenComplain/${deptId}`);
-     
-     }
-
-  getDeptId(username:any):Observable<any>{  
-    return  this.http.get(`http://localhost:8787/department/deptId/${username}`);
+    return this.http.get(`http://localhost:8787/department/complain/${deptId}`);
   }
 
-  getAllDepartmentList():Observable<any>{
-    return  this.http.get("http://localhost:8787/department/departmentList");
+  getreminderComplain(deptId: any): Observable<any> {
+    return this.http.get<any>(`http://localhost:8787/department/reminderComplain/${deptId}`);
   }
 
-  submitRemark(compId:any , remark:any):Observable<any>{
-    return  this.http.put<any>("http://localhost:8787/department/submitRemark",{compId,remark});
-   
+  getDeptId(username: any): Observable<any> {
+    return this.http.get(`http://localhost:8787/department/deptId/${username}`);
   }
 
-  transferComplain(compId:any , deptName:any):Observable<any>{
-    return  this.http.post<any>("http://localhost:8787/department/transferComplain",{compId,deptName});
-   
+  getAllDepartmentList(): Observable<any> {
+    return this.http.get("http://localhost:8787/department/departmentList");
   }
+
+  submitRemark(compId: any, remark: any): Observable<any> {
+    return this.http.put<any>("http://localhost:8787/department/submitRemark", { compId, remark });
+
+  }
+
+  transferComplain(compId: any, deptName: any): Observable<any> {
+    return this.http.post<any>("http://localhost:8787/department/transferComplain", { compId, deptName });
+
+  }
+
+  changePassword(username: any, oldPassword: any, newPassword: any): Observable<any> {
+    return this.http.post<any>("http://localhost:8787/department/changePassword", { username, oldPassword, newPassword });
+
+  }
+
+  getDepartmentHeadDetail(deptId: any): Observable<any> {
+    console.log('in service')
+    return this.http.post<any>("http://localhost:8787/department/departmentHeadDetail", { deptId });
+  }
+
+  getCountOfAllComplains(deptId: any): Observable<any>{
+    return this.http.post<any>("http://localhost:8787/department/countOfAllComplain", { deptId });
+  }
+
 
 }

@@ -27,7 +27,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                       console.log("aaaaaaaaaaa"+error.error.status)
                       switch (error.error.status) {
                           case 404:
-                              errorMessage = 'this is 404 status code' + error.error.message
+                              errorMessage = 'List is not present ' + error.error.message
                               break;
                           case 401:
                               errorMessage = 'this is 401 status code'

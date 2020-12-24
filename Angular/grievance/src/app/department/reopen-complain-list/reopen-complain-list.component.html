@@ -1,7 +1,7 @@
 <h2>{{msg}}</h2>
 <table class="table table-striped mt-3">
   <thead>
-    <tr>
+    <tr class="heading">
       <th scope="col">S.No</th>
       <th scope="col">Image</th>
       <th scope="col">Name</th>
@@ -20,8 +20,8 @@
       <td>{{complain.name}}</td>
       <td>{{complain.description}}</td>
       <td>{{complain.date}}</td>
-      <td class="remark"><img src="../assets/remark.png"
-        class="img-fluid" alt="remark" (click)="openModel(complain.compId,i)"></td>
+      <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true"(click)="openModel(complain.compId,i)"></i>
+      </td>
     </tr>
    
   </tbody>

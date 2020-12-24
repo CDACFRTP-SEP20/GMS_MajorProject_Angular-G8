@@ -1,41 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CitizenDTO } from 'src/app/models/citizen-dto';
+import { CitizenService } from 'src/app/service/citizen.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-citizen-registration',
   templateUrl: './citizen-registration.component.html',
   styleUrls: ['./citizen-registration.component.css']
 })
 export class CitizenRegistrationComponent implements OnInit {
-  registerForm: FormGroup;
-  loading = false;
   submitted = false;
-  citizen:CitizenDTO
-  constructor(
-     ) { 
-    
+  registerForm: FormGroup;
+  fieldTextType: boolean;
+
+  constructor(private citizenService: CitizenService,
+    private router: Router,
+    private fb: FormBuilder) {
+      this.createForm();
+   
   }
 
   ngOnInit() {
-    //   this.registerForm = this.formBuilder.group({
-    //       firstName: ['', Validators.required],
-    //       lastName: ['', Validators.required],
-    //       username: ['', Validators.required],
-    //       password: ['', [Validators.required, Validators.minLength(6)]]
-    //   });
+    this.createForm();
   }
 
-  // convenience getter for easy access to form fields
-//   get f() { return this.registerForm.controls; }
+  createForm(){
+    this.registerForm = this.fb.group({
+      name: ['', [Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z]*(?:\s+[a-zA-Z][a-zA-Z]+)?$")]],
+      username: ['', [Validators.required,Validators.minLength(3)]],
+      password: ['', [Validators.required,Validators.minLength(6)]], 
+      address: ['', Validators.required],
+      contact: ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]]
+    });
+  }
 
-//   onSubmit() {
-//       this.submitted = true;
+  cancel(){
+    this.router.navigate(['home']);
+  }
 
-//       // stop here if form is invalid
-//       if (this.registerForm.invalid) {
-//           return;
-//       }
- 
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 
-// }
+  registerCitizen() {
+    this.submitted = true;
+    let citizen: any = this.registerForm.value;
+    let citizenDTO = new CitizenDTO();
+    citizenDTO.name = citizen.name;
+    citizenDTO.username = citizen.username;
+    citizenDTO.password = citizen.password;
+    citizenDTO.address = citizen.address;
+    citizenDTO.contact = citizen.contact;
+
+    this.citizenService.registerCitizen(citizenDTO).subscribe(
+      data => {
+        alert("You have successfully registered");
+        this.router.navigate(['login']);
+      },
+      error => console.log(error)
+    )
+  }
 }
+
+
+

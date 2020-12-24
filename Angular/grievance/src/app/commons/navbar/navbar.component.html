@@ -52,9 +52,16 @@
                 </svg>
             </a>
           </li>
-        </ul>     
-   
+
+
+     
+        <button class="btn  my-2 my-sm-0 abc" *ngIf='!authService.isUserLoggedIn()'  (click)=' onRegisterClick()'>REGISTER</button> 
+        <button class="btn  my-2 my-sm-0" *ngIf='!authService.isUserLoggedIn()' (click)='login()'>LOGIN</button>   
+        <button class="btn  my-2 my-sm-0" *ngIf='authService.isUserLoggedIn()' (click)='logout()' >LOGOUT</button>
         
+
+        </ul>     
+
     </div>
   </nav>
 </section>
@@ -95,8 +102,12 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item waves-effect waves-light " *ngIf='!authService.isUserLoggedIn()' (click)='login()'><span>Login</span> </a>
-                    <a class="dropdown-item waves-effect waves-light" *ngIf='!authService.isUserLoggedIn()' (click)='onRegisterClick()'><span>Register</span></a>
-                     <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='authService.isUserLoggedIn()' (click)='logout()'><span>Logout</span></a>
+
+                    <a class="dropdown-item waves-effect waves-light"  *ngIf='!authService.isUserLoggedIn()' (click)=' onRegisterClick()'><span>Register</span></a>
+
+                    <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='!authService.isUserLoggedIn()'><span>Register</span></a>
+
+                     <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='authService.isUserLoggedIn()'(click)='logout()'><span>Logout</span></a>
 
                 </div>
                 </li>

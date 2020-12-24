@@ -20,14 +20,12 @@ export class AdminAddDepartmentComponent implements OnInit {
   addDepartment(){
     this.adminservice.addDepartment(this.department).subscribe(
       data => {
-        console.log(this.department)
     })
   }
 
   checkDeptName(){
     this.adminservice.checkDeptName(this.department.departmentName).subscribe(data=>{
       this.validDeptname = data;
-      console.log(this.validDeptname);
     })
   }
 
