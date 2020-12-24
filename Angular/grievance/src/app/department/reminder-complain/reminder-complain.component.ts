@@ -19,7 +19,12 @@ export class ReminderComplainComponent implements OnInit {
   deptList:any=[]
   msg:string='';
   remarkNumber!:number;
+  totalRecords:number
+  page:number=1
 
+  increaseCount():number{
+    return this.index+(this.page-1)*4
+  }
 
   constructor(private departmentService:DepartmentService,private router:Router) {
     this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
@@ -61,6 +66,7 @@ export class ReminderComplainComponent implements OnInit {
        }
       }
     )
+    this.totalRecords=this.complains.length
     form.reset();
     this.onClose();
     

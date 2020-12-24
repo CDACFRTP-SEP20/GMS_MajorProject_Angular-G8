@@ -13,3 +13,6 @@
 .heading{
     background-color: cadetblue;
 }
+ .pagination{
+    justify-content: center
+} 

@@ -42,8 +42,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'register', component: CitizenRegistrationComponent },
-  { path: 'department', component: DepartmentHomeComponent },
-   {
+  { path: 'citizen', component: CitizenComponent },
+ 
     path: 'admin', component: AdminHomeComponent,
 
     canActivate: [AuthGuard],
@@ -64,6 +64,7 @@ const routes: Routes = [
   },
 
   {
+
     path: 'citizen', component: CitizenHomeComponent,
     canActivate: [AuthGuard],
     data: { role: "ROLE_CITIZEN" },
@@ -80,8 +81,9 @@ const routes: Routes = [
 
 
   {
-    path: 'department',
-    component: DepartmentHomeComponent,
+    path: 'department', component: DepartmentHomeComponent,
+    canActivate: [AuthGuard],
+    data: { role: "ROLE_DEPARTMENT" },
     children: [
       { path: '', component: DepartmentEntryComponent },
       { path: 'department-home', component: DepartmentEntryComponent },
