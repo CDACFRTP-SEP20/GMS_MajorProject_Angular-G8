@@ -11,7 +11,10 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     handleError(error: Error) {
       this.errormesage=error
         console.log(' error handling with global error handler... ', error)
-        console.log("====="+this.errormesage)
-        alert(error)    //need to display to end users
+
+        console.log(error)
+       // alert(error)    //need to display to end users
+
+
     }
 }
