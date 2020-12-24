@@ -9,43 +9,44 @@ import { CitizenDTO } from '../models/citizen-dto';
 })
 export class CitizenService {
 
-  token:any
-  username:any
-  // _deptName = new Subject();
-  // deptName$ = this._deptName.asObservable();
-    
-  //   communicateDept(msg:String){
-  //     this._deptName.next(msg);
-  //   }
-  constructor(private http :HttpClient) { }
+  token: any
+  username: any
+
+
+  constructor(private http: HttpClient) { }
+
+   public getCitizen(citizenId:any): Observable<any> {
+    return this.http.get(`http://localhost:8787/citizen/getCitizen/1`)
+  }
+  getComplainStatus(): Observable<any> {
+    return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
 
   public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
     return this.http.post("http://localhost:8787/registerCitizen",citizenDTO, {responseType: 'text' });
+
+  }
+  getAllComment(): Observable<any> {
+    return this.http.get('http://localhost:8787/citizen/getAllComment')
   }
 
-  getComplainStatus(): Observable<any>{
-   return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
+  submitComplain(complaint: any): Observable<any> {
+
+    return this.http.post('http://localhost:8787/citizen/CompRegister', complaint, { responseType: "text" })
   }
-getAllComment():Observable<any>{
-return this.http.get('http://localhost:8787/citizen/getAllComment')
-}
 
-submitComplain(complaint:any):Observable<any>{
-   
-  return this.http.post('http://localhost:8787/citizen/CompRegister',complaint, {responseType:"text"})
-}
+  getUsername(): any {
+    return this.username = sessionStorage.getItem('username');
+  }
 
-getUsername():any{
-  return this.username=sessionStorage.getItem('username');
- }
+  getCitizenId(username: any): Observable<any> {
+    return this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
+  }
+  reminder(compId: any): Observable<any> {
+    return this.http.get(`http://localhost:8787/citizen/reminder/${compId}`)
+  }
+  reopen(compId: any): Observable<any> {
+    return this.http.get(`http://localhost:8787/citizen/reopen/${compId}`)
+  }
 
- getCitizenId(username:any):Observable<any>{  
-  return  this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
-}
-reminder(compId:any):Observable<any>{  
-  return  this.http.get(`http://localhost:8787/citizen/reminder/${compId}`)
-}
-reopen(compId:any):Observable<any>{  
-  return  this.http.get(`http://localhost:8787/citizen/reopen/${compId}`)
-}
+
 }

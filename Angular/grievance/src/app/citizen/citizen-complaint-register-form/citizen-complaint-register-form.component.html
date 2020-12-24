@@ -3,9 +3,9 @@
         <h2>Register Complain</h2>
         <!-- <div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div> -->
         <form [formGroup]="complainForm" (ngSubmit)="submitForm()" >
-            {{complainForm.value | json}}
+           
             <div class="form-group">
-                <label for="username">Department:{{deptName}}</label>
+                <label for="username">Department:</label>
                 <input  type="text"  formControlName="department" class="form-control" readonly name="department"   placeholder="{{deptName}}">
             </div>
 
