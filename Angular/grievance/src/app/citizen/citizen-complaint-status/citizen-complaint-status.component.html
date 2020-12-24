@@ -4,26 +4,27 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">compId</th>
-    <th scope="col">status</th>
+    <th scope="col">citizenName</th>
     <th scope="col">remark</th>
     <th scope="col">date</th>
-    <th scope="col">citizenName</th>
+    <th scope="col">status</th>
+    <th scope="col">Action</th>
+  
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let status of complainStatus; index as i">
     <th scope="row">{{ i + 1 }}</th>
-    <td>
-        {{ status.compId }}
-    </td>
-    <td>{{ status.status}}</td>
+    <td>{{ status.compId }}</td>
+    <td>{{ status.citizenName }}</td>
     <td>{{ status.remark }}</td>
+    <td>{{ status.date }}</td>
+    <td>{{ status.status}}</td>
     <td>
-        {{ status.date }}
-    </td>
-    <td>
-        {{ status.citizenName }}
-    </td>
+     <button (click)="reminder(status.compId)">Reminder </button>
+     &nbsp;
+     <button (click)="reopen(status.compId)">Reopen</button>
+</td>
   </tr>
   </tbody>
 </table>

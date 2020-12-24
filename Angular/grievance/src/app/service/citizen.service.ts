@@ -1,3 +1,4 @@
+import { ReopenComplainListComponent } from './../department/reopen-complain-list/reopen-complain-list.component';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -36,5 +37,10 @@ getUsername():any{
  getCitizenId(username:any):Observable<any>{  
   return  this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
 }
-
+reminder(compId:any):Observable<any>{  
+  return  this.http.get(`http://localhost:8787/citizen/reminder/${compId}`)
+}
+reopen(compId:any):Observable<any>{  
+  return  this.http.get(`http://localhost:8787/citizen/reopen/${compId}`)
+}
 }

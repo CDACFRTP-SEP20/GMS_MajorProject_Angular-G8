@@ -9,7 +9,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
  
     handleError(error: Error) {
         console.log(' error handling with global error handler... ', error)
-        console.log("====="+error)
-        alert(error)    //need to display to end users
+        console.log(error)
+       // alert(error)    //need to display to end users
     }
 }
