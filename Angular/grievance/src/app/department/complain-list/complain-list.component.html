@@ -1,6 +1,7 @@
 <h2 *ngIf="msg != ''" class="alert alert-success">{{msg}}</h2>
-
+<input type="text" class="form-control mt-3" [(ngModel)]="compId" placeholder="Search By Name and Complain Id"/>
 <table class="table table-hover mt-3">
+
   <thead>
     <tr class="heading">
       <th scope="col">S.No</th>
@@ -13,12 +14,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let complain of complains | paginate:{
+    <tr *ngFor = "let complain of complains | search:compId | paginate:{
       id:'list',
       itemsPerPage:10,
       currentPage:page,
       totalItems:totalRecords
-    }; let i=index">
+    } ; let i=index">
       <th scope="row">{{increaseCount()+i}}</th>
       <td>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16" (click) = "show(complain.file)">
