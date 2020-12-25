@@ -3,9 +3,9 @@
         <h2>Register Complain</h2>
         <!-- <div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div> -->
         <form [formGroup]="complainForm" (ngSubmit)="submitForm()" >
-            {{complainForm.value | json}}
+           
             <div class="form-group">
-                <label for="username">Department:{{deptName}}</label>
+                <label for="username">Department:</label>
                 <input  type="text"  formControlName="department" class="form-control" readonly name="department"   placeholder="{{deptName}}">
             </div>
 
@@ -23,8 +23,25 @@
                 <input type="file" name="file"  class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelect($event)">
             </div>
 
+<button type="submit" [disabled]='!complainForm.valid' class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    Submit Complaint  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          You have successfully registered complain!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="transfer()" data-dismiss="modal" >Okay</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <button type="submit" class="btn btn-success">Submit Complain</button>
         </form>
     </div>
 </div>

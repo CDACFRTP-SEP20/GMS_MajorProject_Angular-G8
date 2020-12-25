@@ -1,13 +1,12 @@
 <table class="table table-striped">
-
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">compId</th>
-      <th scope="col">citizenName</th>
-      <th scope="col">remark</th>
-      <th scope="col">date</th>
-      <th scope="col">status</th>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">Complaint Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Complaint Status</th>
+      <th scope="col">Remark</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -16,29 +15,27 @@
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ status.compId }}</td>
       <td>{{ status.citizenName }}</td>
-      <td>{{ status.remark }}</td>
       <td>{{ status.date }}</td>
       <td>{{ status.status }}</td>
+      <td>{{ status.remark }}</td>
       <td>
         <button
           type="button"
           class="btn btn-primary"
           data-toggle="modal"
-          data-target="#exampleModal"
+          [attr.data-target]="'#myModal' + status.compId"
+          
         >
-          <i
-            (click)="reminder(status.compId)"
-            class="fa fa-1x fa-bell"
-            aria-hidden="true"
-          ></i>
+          <i class="fa fa-1x fa-bell" aria-hidden="true"></i>
           <!-- Button trigger modal -->
         </button>
 
         <!-- Modal -->
         <div
           class="modal fade"
-          id="exampleModal"
+          
           tabindex="-1"
+          [attr.id]="'myModal' + status.compId"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -46,7 +43,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Reminder</h5>
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                  Reminder
+                </h5>
                 <button
                   type="button"
                   class="close"
@@ -56,7 +55,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body ">Confirm Remind!</div>
+              <div class="modal-body">Confirm Remind!{{status.compId}}</div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -65,25 +64,32 @@
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-success">Remind</button>
+                <button
+                  type="button"
+                  (click)="reminder(status.compId)"
+                  class="btn btn-success"
+                >
+                  Remind
+                </button>
               </div>
             </div>
           </div>
         </div>
-        &nbsp;
+      </td>
+      &nbsp;
+      <td>
         <button
-          (click)="reopen(status.compId)"
           type="button"
           class="btn btn-outline-warning"
           data-toggle="modal"
-          data-target="#example"
+          [attr.data-target]="'#myModal1' + status.compId"
         >
           Reopen
         </button>
         <!-- Modal -->
         <div
           class="modal fade"
-          id="example"
+          [attr.id]="'myModal1' + status.compId"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -92,7 +98,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Reopen</h5>
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                  Reopen
+                </h5>
                 <button
                   type="button"
                   class="close"
@@ -102,7 +110,9 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body  ">Are you sure want to Reopen?</div>
+              <div class="modal-body">
+                Are you sure want to Reopen?{{ status.compId }}
+              </div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -111,7 +121,11 @@
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-warning">
+                <button
+                  (click)="reopen(status.compId)"
+                  type="button"
+                  class="btn btn-warning"
+                >
                   Reopen
                 </button>
               </div>
@@ -122,5 +136,3 @@
     </tr>
   </tbody>
 </table>
-
-  

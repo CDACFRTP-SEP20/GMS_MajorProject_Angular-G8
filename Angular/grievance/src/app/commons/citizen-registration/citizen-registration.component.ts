@@ -31,7 +31,7 @@ export class CitizenRegistrationComponent implements OnInit {
       username: ['', [Validators.required,Validators.minLength(3)]],
       password: ['', [Validators.required,Validators.minLength(6)]], 
       address: ['', Validators.required],
-      contact: ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]]
+      email: ['',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
     });
   }
 
@@ -51,15 +51,17 @@ export class CitizenRegistrationComponent implements OnInit {
     citizenDTO.username = citizen.username;
     citizenDTO.password = citizen.password;
     citizenDTO.address = citizen.address;
-    citizenDTO.contact = citizen.contact;
+    citizenDTO.email = citizen.email;
 
     this.citizenService.registerCitizen(citizenDTO).subscribe(
       data => {
-        alert("You have successfully registered");
-        this.router.navigate(['login']);
-      },
+        console.log(data)
+          },
       error => console.log(error)
     )
+  }
+  transfer(){
+    this.router.navigate(['login']);
   }
 }
 

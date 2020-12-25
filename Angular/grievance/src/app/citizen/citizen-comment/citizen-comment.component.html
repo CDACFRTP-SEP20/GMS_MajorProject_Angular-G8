@@ -1,5 +1,5 @@
-<div *ngFor="let comment of commentDTO">
-<mat-card class="example-card">
+<div *ngFor="let comment of commentDTO; let i = index">
+  <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>U*er*A*ME</mat-card-title>
@@ -8,27 +8,39 @@
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <mat-card-content>
       <p>
-        {{comment.comment}}
+        {{ comment.comment }}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button class="button button1"  (click) = countLike()>Like {{count}}</button>
-      <button class="button button3"  (click) = countDislike()>Dislike{{dcount}}</button>
-    
-      <button class="button button4" (click) = toggle()>COMMENT</button>
+      <button class="button button1" (click)="countLike(i)">
+        Like {{ comment.isLiked }}
+      </button>
+      <button class="button button3" >
+        Dislike{{ dcount }}
+      </button>
+
+      <button class="button button4" (click)="this.showCommentIndex=i">COMMENT</button>
     </mat-card-actions>
-    <form  *ngIf="show" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
-     <div *ngFor = "let comments of commentInfo" class="col-12 col-sm-12 comment-container">
-      <p>{{comments.currentDate | date: 'dd/MM/yyyy'}}</p> 
-      <p>{{comments.commentTxt}}</p>
-     </div>
+    <form *ngIf="showCommentIndex==i" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <div
+        *ngFor="let comments of commentInfo"
+        class="col-12 col-sm-12 comment-container"
+      >
+        <p>{{ comments.currentDate | date: "dd/MM/yyyy" }}</p>
+        <p>{{ comments.commentTxt }}</p>
+      </div>
       <div class="form-group">
-        <textarea class="form-control" placeholder="Leave a comment" formControlName="comment" [(ngModel)]="commentTxt" >
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment"
+          formControlName="comment"
+          [(ngModel)]="commentTxt"
+        >
         </textarea>
-    
-        </div>
-        <div class="form-group"> <button class="button button2">Post Comment</button></div>
-    </form> 
-  
+      </div>
+      <div class="form-group">
+        <button class="button button2">Post Comment</button>
+      </div>
+    </form>
   </mat-card>
 </div>

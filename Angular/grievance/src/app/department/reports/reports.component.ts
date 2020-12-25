@@ -12,17 +12,12 @@ export class ReportsComponent implements OnInit {
   status:string = ''
 
   
-//@Output() messageEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-//  showComplains(){
-//     this.messageEvent.emit(this.status);
-   
-//   }
 
   
 }
