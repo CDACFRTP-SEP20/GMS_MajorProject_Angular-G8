@@ -22,6 +22,8 @@ export class ReopenComplainListComponent implements OnInit {
   remarkNumber!: number;
   totalRecords:number
   page:number=1
+  showModal: boolean;
+  file:any
 
   increaseCount():number{
     return this.index+(this.page-1)*4
@@ -75,6 +77,17 @@ export class ReopenComplainListComponent implements OnInit {
     form.reset();
     this.onClose();
 
+  }
+  
+  show(file:any)
+  {
+    this.file=file
+    this.showModal = true; 
+    
+  }
+  hide()
+  {
+    this.showModal = false;
   }
 
 }

@@ -27,6 +27,8 @@ export class ComplainListComponent implements OnInit {
   totalRecords:number
   page:number=1
   errorMsg:any
+  showModal: boolean;
+  file:any
 
   increaseCount():number{
     return this.index+(this.page-1)*4
@@ -106,5 +108,17 @@ export class ComplainListComponent implements OnInit {
     )
     form.reset();
     this.onTransferClose();
+  }
+
+ 
+  show(file:any)
+  {
+    this.file=file
+    this.showModal = true; 
+    
+  }
+  hide()
+  {
+    this.showModal = false;
   }
 }

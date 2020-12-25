@@ -1,4 +1,4 @@
-<table class="table table-striped mt-3">
+<table class="table table-striped mt-5">
   <thead>
     <tr class="heading">
       <th scope="col">S.No</th>
@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor = "let complain of complains | paginate:{
       id:'list',
-      itemsPerPage:4,
+      itemsPerPage:10,
       currentPage:page,
       totalItems:totalRecords
     }; let i=index">
