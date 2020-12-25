@@ -13,6 +13,7 @@ export class CitizenHomeComponent implements OnInit {
     this.citizenService.getCitizenId(citizenService.getUsername()).subscribe(
       id=>{
         this.citizenId=id
+        console.log("id"+ id)
         localStorage.setItem('citizenId', this.citizenId);
         console.log(this.citizenId)
 

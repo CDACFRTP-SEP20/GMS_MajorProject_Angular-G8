@@ -4,4 +4,8 @@
 }
 .table{
     border: 1px solid grey;
+    font-size: 18px;
+}
+.pagination{
+    justify-content: center
 }
