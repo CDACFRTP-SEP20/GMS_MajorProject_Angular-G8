@@ -7,6 +7,7 @@ import { map, filter, tap } from 'rxjs/operators';
 import { Department } from 'src/app/models/department';
 import { GlobalErrorHandlerService } from 'src/app/service/global-error-handler.service';
 
+
 @Component({
   selector: 'app-complain-list',
   templateUrl: './complain-list.component.html',
@@ -27,6 +28,7 @@ export class ComplainListComponent implements OnInit {
   totalRecords:number
   page:number=1
   errorMsg:any
+  name:any
 
   increaseCount():number{
     return this.index+(this.page-1)*4
@@ -39,7 +41,7 @@ export class ComplainListComponent implements OnInit {
       id => {
         this.deptId = id.deptId
         this.departmentService.getComplainList(this.deptId).pipe(
-          map(dataList => dataList.filter((data: { status: string; }) => data.status === "PENDING"))
+          map(dataList => dataList.filter((data: { status: string; }) => data.status === "PENDING" ))
         ).subscribe(
           data => {
             this.complains = data
@@ -50,7 +52,7 @@ export class ComplainListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
 
 
