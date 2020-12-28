@@ -1,15 +1,18 @@
 <div class="container">
-<div class="row">
-    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-        <button class="btn btn-danger" [routerLink] = "['department-show-reports']" [queryParams]="{status :'solved'}">All Solved Complains</button>
-    </div>
-    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-            <button class="btn btn-danger"  [routerLink] = "['department-show-reports']" [queryParams]="{status :'pending'}">All Pending Complains</button>
+    <div class="row mt-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <button class="btn btn-danger" [routerLink]="['department-show-reports']"
+                [queryParams]="{status :'SOLVED'}">All Solved Complains</button>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                <button class="btn btn-danger"  [routerLink] = "['department-show-reports']" [queryParams]="{status :'reopened'}">All Reopened Complains</button>
-            </div>
+            <button class="btn btn-danger" [routerLink]="['department-show-reports']"
+                [queryParams]="{status :'PENDING'}">All Pending Complains</button>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <button class="btn btn-danger" [routerLink]="['department-show-reports']"
+                [queryParams]="{status :'REOPEN'}">All Reopened Complains</button>
+        </div>
 
-</div>
+    </div>
 </div>
 <router-outlet></router-outlet>

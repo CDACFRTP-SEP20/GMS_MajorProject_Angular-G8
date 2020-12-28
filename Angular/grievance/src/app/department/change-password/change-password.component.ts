@@ -8,11 +8,43 @@ import { DepartmentService } from 'src/app/service/department.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+  oldPassword: string = ''
+  newPassword: string = ''
+  confirmPassword: string = ''
+  msg: any = ''
+  user: any
+
+  constructor(private departmentService: DepartmentService) {
+
   }
 
- 
+  ngOnInit(): void {
+
+  }
+
+
+  onSubmit(form: NgForm) {
+    this.oldPassword = form.value.oldpassword;
+    this.newPassword = form.value.newPassword
+    this.confirmPassword = form.value.confirmpassword
+    this.departmentService.changePassword(this.departmentService.getUsername(), this.oldPassword, this.newPassword).subscribe(
+      data => {
+        this.user = data
+        console.log(this.user)
+        this.msg = 'Password Changed Successfully';
+      }, () => {
+
+        this.msg = "Current Password is Incorrect";
+      }
+    )
+    form.reset()
+  }
+
+  showpassword() {
+    return 'text'
+  }
+
+
+
 }
 

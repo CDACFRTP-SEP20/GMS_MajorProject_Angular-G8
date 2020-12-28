@@ -17,7 +17,7 @@
 .sub{
     width: 240px;
     height: 180px;
-   box-shadow: 5px 5px 5px 5px grey;
+   box-shadow: 2px 2px 2px 2px rgb(184, 176, 176);
     margin: 3%;
     text-align: center;
     
@@ -29,8 +29,8 @@
     transform: scale(1.05)
 }
 .sub img{
-    width: 50%;
-    margin-top: 10%
+    width: 90%;
+    margin-top: 5%
 }
 
 
@@ -49,10 +49,10 @@
     cursor: pointer;
 }
 .user{
-    box-shadow: 2px 2px 2px 2px grey;
+    box-shadow: 1px 2px 1px 2px rgb(199, 193, 193);
   margin-top: 1.2%;
    margin-left: -3%;
-   height: 23vw;
+   height: 21vw;
 
 }
 .circle{
@@ -71,3 +71,12 @@
    top: 44%;
     font-size: 4vw;
 }
+
+/* .chart{
+    display: block;
+    width: 400px;
+    height: 200px;
+    margin-top: 40px;
+    margin-left: 35px
+   
+} */

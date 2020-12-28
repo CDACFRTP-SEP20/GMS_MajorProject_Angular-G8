@@ -29,10 +29,11 @@ import { CitizenRegistrationComponent } from './commons/citizen-registration/cit
 import { CitizenComplaintComponent } from './citizen/citizen-complaint/citizen-complaint.component';
 import { ShowReportsComponent } from './department/show-reports/show-reports.component';
 import { CitizenCommentComponent } from './citizen/citizen-comment/citizen-comment.component';
-import { AuthGuard } from './service/auth.guard';
-import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { ForgetpasswordComponent } from './commons/forgetpassword/forgetpassword.component';
 import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
+import { AuthGuard } from './service/auth.guard';
+import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
+import { ComplaintReportComponent } from './admin/complaint-report/complaint-report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +44,7 @@ const routes: Routes = [
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'register', component: CitizenRegistrationComponent },
   { path: 'citizen', component: CitizenComponent },
- 
+
    { path: 'admin', component: AdminHomeComponent,
 
     canActivate: [AuthGuard],
@@ -63,9 +64,7 @@ const routes: Routes = [
     ]
   },
 
-  {
-
-    path: 'citizen', component: CitizenHomeComponent,
+  {  path: 'citizen', component: CitizenHomeComponent,
     canActivate: [AuthGuard],
     data: { role: "ROLE_CITIZEN" },
     children: [

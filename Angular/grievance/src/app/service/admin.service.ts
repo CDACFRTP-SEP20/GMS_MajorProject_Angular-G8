@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Department } from '../models/department';
 import { AuthInterceptorService } from './auth-interceptor.service';
 import { map, tap } from 'rxjs/operators';
@@ -15,8 +15,11 @@ export class AdminService {
   token: any
   options: any
   headerForDeptList: any
-  constructor(private http: HttpClient, private intercept: AuthInterceptorService) { }
-
+ 
+  constructor(private http: HttpClient, private intercept: AuthInterceptorService) { 
+   
+  }
+ 
   getToken() {
     this.token = sessionStorage.getItem('token');
   }
@@ -32,7 +35,6 @@ export class AdminService {
   getComplaintCount():Observable<any>{
     return  this.http.get<any>('http://localhost:8787/admin/statuswisecomplain');
   }
-
   getDepartmentHeadList(): Observable<any>{
     return this.http.get('http://localhost:8787/admin/departmentheadlist');
   }
@@ -64,5 +66,10 @@ export class AdminService {
   deleteDepartment(deptId: string):Observable<any>{
     return this.http.delete(`http://localhost:8787/admin/deletedepertment/${deptId}`)
   }
-
+  getCountOfCitizen():Observable<number>{
+    return this.http.get<number>('http://localhost:8787/admin/citizencount');
+  }
+  getAllComplaints():Observable<any>{
+    return this.http.get<number>('http://localhost:8787/admin/viewcomplaints');
+  }
 }

@@ -16,6 +16,7 @@ import { AdminEntryComponent } from './admin-entry/admin-entry.component';
 import { AdminService } from '../service/admin.service';
 import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ComplaintReportComponent } from './complaint-report/complaint-report.component';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
        SidenavComponent, 
        DeptiseComplaintComponent, 
        StatuswiseComplaintComponent, 
-       AdminEntryComponent
+       AdminEntryComponent, ComplaintReportComponent
     ],
       imports: [
         BrowserModule,

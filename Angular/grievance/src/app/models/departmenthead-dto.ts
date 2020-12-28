@@ -1,6 +1,6 @@
 export class DepartmentheadDTO {
     deptHeadId?: string
     name?: string
-    email?: string
+    phone?: string
     dept?: string
 }

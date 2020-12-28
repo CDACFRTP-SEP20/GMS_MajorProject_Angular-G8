@@ -1,12 +1,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">compId</th>
-      <th scope="col">citizenName</th>
-      <th scope="col">remark</th>
-      <th scope="col">date</th>
-      <th scope="col">status</th>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">Complaint Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Complaint Status</th>
+      <th scope="col">Remark</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ status.compId }}</td>
       <td>{{ status.citizenName }}</td>
-      <td>{{ status.remark }}</td>
       <td>{{ status.date }}</td>
       <td>{{ status.status }}</td>
+      <td>{{ status.remark }}</td>
       <td>
         <button
           type="button"

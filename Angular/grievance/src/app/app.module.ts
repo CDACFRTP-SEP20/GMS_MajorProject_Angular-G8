@@ -48,7 +48,8 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { PasswordValidatorDirective } from './directive/password-validator.directive' 
 import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
 import { CitizenChangePasswordComponent } from './citizen/citizen-change-password/citizen-change-password.component';
-
+import { SearchPipe } from './pipe/search.pipe';
+import { LanguageModule } from './language/language.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +89,7 @@ import { CitizenChangePasswordComponent } from './citizen/citizen-change-passwor
     CitizenProfileComponent,
     CitizenChangePasswordComponent,
     PasswordValidatorDirective,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { CitizenChangePasswordComponent } from './citizen/citizen-change-passwor
     MatCardModule,
     ReactiveFormsModule,
     MatSidenavModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+   LanguageModule
   ],
   providers: [
     {
