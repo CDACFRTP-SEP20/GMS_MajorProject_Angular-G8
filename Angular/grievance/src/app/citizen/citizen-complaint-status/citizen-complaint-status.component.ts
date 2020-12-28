@@ -14,13 +14,14 @@ import {MatDialog} from '@angular/material/dialog';
 export class CitizenComplaintStatusComponent implements OnInit {
   
   compId:any
+  citizenId =  localStorage.getItem('citizenId');
   //without async pipe
   complainStatus:Array<ComplaintStatusDto> = []
 
   
  
   constructor(private citizenService : CitizenService, private router : Router) {
-    this.citizenService.getComplainStatus().subscribe(
+    this.citizenService.getComplainStatus(this.citizenId).subscribe(
       res => this.complainStatus = res
       
     )
@@ -29,7 +30,7 @@ export class CitizenComplaintStatusComponent implements OnInit {
   // setting reminder
    reminder(compId:any) {
      this.compId=compId
-    this.citizenService.reminder(this.compId).subscribe(msg=>
+    this.citizenService.reminder(this.citizenId).subscribe(msg=>
       console.log(msg)
      )
    }
@@ -41,12 +42,6 @@ export class CitizenComplaintStatusComponent implements OnInit {
     this.router.navigate(['citizen-complaint-status']); 
      console.log(msg)
     })
-  }
-
-
-
-  reopenComplain(){
-
   }
 
 
