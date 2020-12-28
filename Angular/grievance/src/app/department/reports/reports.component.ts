@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter ,Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ReportsComponent implements OnInit {
 
-  status:string = ''
+  status: string = ''
 
-  
+
 
   constructor() { }
 
@@ -19,5 +19,5 @@ export class ReportsComponent implements OnInit {
   }
 
 
-  
+
 }

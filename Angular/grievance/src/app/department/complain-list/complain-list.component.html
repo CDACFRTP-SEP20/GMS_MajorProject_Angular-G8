@@ -1,5 +1,6 @@
-<h2 *ngIf="msg != ''" class="alert alert-success">{{msg}}</h2>
-<input type="text" class="form-control mt-3" [(ngModel)]="compId" placeholder="Search By Name and Complain Id"/>
+<div class="container">
+  <h2 *ngIf="msg != ''" class="alert alert-success">{{msg}}</h2>
+ <!-- <input type="text" class="form-control mt-3" [(ngModel)]="name" placeholder="Search By Name and Complain Id"/>  -->
 <table class="table table-hover mt-3">
 
   <thead>
@@ -14,56 +15,60 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let complain of complains | search:compId | paginate:{
+    <tr *ngFor="let complain of complains | paginate:{
       id:'list',
       itemsPerPage:10,
       currentPage:page,
       totalItems:totalRecords
-    } ; let i=index">
+    }; let i=index">
       <th scope="row">{{increaseCount()+i}}</th>
       <td>
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16" (click) = "show(complain.file)">
-            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-            <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
-          </svg>
-          <span>&nbsp;Click to see Image</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="blue" class="bi bi-images"
+          viewBox="0 0 16 16" (click)="show(complain.file)">
+          <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+          <path
+            d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+        </svg>
+        <span style="font-size:small">&nbsp;Click to see Image</span>
       </td>
       <td>{{complain.name}}</td>
-      <td>{{complain.description}}</td>
+      <td style="width: 40%">{{complain.description}}</td>
       <td>{{complain.date}}</td>
-        <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true"(click)="openModel(complain.compId,i)"></i>
-         </td>
-        <td><i class="fa fa-exchange fa-2x" aria-hidden="true" (click)="openTransferModel(complain.compId,i)"></i>
-        </td>
+      <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true" (click)="openModel(complain.compId,i)"></i>
+      </td>
+      <td><i class="fa fa-exchange fa-2x" style="color: brown" aria-hidden="true"
+          (click)="openTransferModel(complain.compId,i)"></i>
+      </td>
     </tr>
-   
+
   </tbody>
 </table>
 <div class="pagination">
-  <pagination-controls id="list" [maxSize]="5" [directionLinks] ="true"  (pageChange)="page=$event"></pagination-controls>
+  <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
 </div>
 
 <!-- Image Model -->
-  <!-- Creates the bootstrap modal where the image will appear -->
-  <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Creates the bootstrap modal where the image will appear -->
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Image</h4>
       </div>
       <div class="modal-body">
-        <img src="../assets/departmentImages/{{file}}.jpg" id="imagepreview" style="width: 425px; height: 425px;" >
+        <img src="../assets/departmentImages/{{file}}.jpg" id="imagepreview" style="width: 470px; height: 425px;">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "hide()">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 <!--Remark MODEL -->
 
-<div class="modal"  tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -73,14 +78,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #myform ="ngForm" (ngSubmit)="onRemarkSubmit(myform)">
+        <form #myform="ngForm" (ngSubmit)="onRemarkSubmit(myform)">
           <div class="form-group">
             <label for="compId" class="col-form-label font-weight-bold">Complain Id:</label>
             <input type="text" class="form-control" name="compId" value={{compId}} readonly ngModel>
           </div>
           <div class="form-group">
             <label for="remark" class="col-form-label font-weight-bold">Remark:</label>
-            <textarea class="form-control" name="remark"  ngModel></textarea>
+            <textarea class="form-control" name="remark" ngModel></textarea>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -88,14 +93,14 @@
           </div>
         </form>
       </div>
-     
+
     </div>
   </div>
 </div>
 
 <!--Transfer MODEL -->
 
-<div class="modal"  tabindex="-1" role="dialog"  [ngStyle]="{'display': transferDisplay}">
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': transferDisplay}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,15 +110,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #myform2= "ngForm"  (ngSubmit)="onTransferComplain(myform2)">
+        <form #myform2="ngForm" (ngSubmit)="onTransferComplain(myform2)">
           <div class="form-group">
-            <label class= "font-weight-bold" for="compId" class="col-form-label font-weight-bold">Complain Id:</label>
+            <label class="font-weight-bold" for="compId" class="col-form-label font-weight-bold">Complain Id:</label>
             <input type="text" class="form-control" name="compId" value={{compId}} readonly ngModel>
           </div>
           <div class="form-group">
-            <label class= "font-weight-bold" for="department">Select Department</label><br>
+            <label class="font-weight-bold" for="department">Select Department</label><br>
             <select name="department" ngModel>
-                <option *ngFor="let list of deptList" value={{list.departmentName}}>{{list.departmentName}}</option> 
+              <option *ngFor="let list of deptList" value={{list.departmentName}}>{{list.departmentName}}</option>
             </select>
           </div>
           <div class="modal-footer">
@@ -122,7 +127,8 @@
           </div>
         </form>
       </div>
-    
+
     </div>
   </div>
+</div>
 </div>

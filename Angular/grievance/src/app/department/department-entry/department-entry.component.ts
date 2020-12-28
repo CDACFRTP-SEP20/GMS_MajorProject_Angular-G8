@@ -10,74 +10,77 @@ import * as Chart from 'chart.js';
 })
 export class DepartmentEntryComponent implements OnInit {
 
-  deptId:any
-  count:any[]=[]
-  total:any=this.count[0]+this.count[1]+this.count[2]
- 
+  deptId: any
+  count: any[] = []
+  total: any = this.count[0] + this.count[1] + this.count[2]
+  chart: any = []
 
-  constructor(private s:AuthenticationService,private departmentService:DepartmentService) {
-    this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
+
+  constructor(private s: AuthenticationService, private departmentService: DepartmentService) {
+   
+
+  }
+
+  totalComplain() {
+    return this.count[0] + this.count[1] + this.count[2]
+  }
+  ngOnInit(): void {
+     this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
       id => {
         this.deptId = id.deptId
         this.departmentService.getCountOfAllComplains(this.deptId).subscribe(
           data => {
             this.count = data
+
+            this.chart = new Chart("mychart", {
+              type: 'doughnut',
+              data: {
+                labels: ["Solved", "Pending", "Reopen"],
+                datasets: [{
+                  label: 'Total Complaints',
+                  backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                  ],
+                  hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                  ],
+                  borderColor: "#FF6384",
+                  borderWidth: 2,
+                  fill: false,
+                  // data: [30,40,12]
+                  data: this.count
+
+                }
+                ]
+              },
+              options: {
+                responsive: true,
+                title: {
+                  display: true,
+                  text: 'Report of Complaints'
+                },
+                tooltips: {
+                  mode: 'index',
+                  intersect: true
+                },
+
+              }
+            })
           }
+
         )
       })
 
-      var myChart = new Chart("mychart", {
-        type: 'doughnut',
-        data: {
-          labels: ["Solved", "Pending", "Reopen"],
-          datasets: [{
-            label: 'Total Complaints',
-            backgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-              "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-              "#FF6384",
-              "#36A2EB",
-              "#FFCE56"
-            ],
-           borderColor:"#FF6384",
-            borderWidth: 2,
-            fill: false,
-           // data: [30,40,12]
-           data: this.count
-           
-          }
-        ]
-        },
-        options: {
-          responsive: true,
-          title: {
-            display: true,
-            text: 'Monthly Report of Complaints'
-          },
-          tooltips: {
-            mode: 'index',
-            intersect: true
-          },
-        
-        }
-      });
-    
-   }
-
-   totalComplain(){
-     return this.count[0]+this.count[1]+this.count[2]
-   }
-  ngOnInit(): void {
-   
   }
- 
-    
-  logout(){
+
+
+  logout() {
     this.s.logout()
   }
 
-  
+
 }

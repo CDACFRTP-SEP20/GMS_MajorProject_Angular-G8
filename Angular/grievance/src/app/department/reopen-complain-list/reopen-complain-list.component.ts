@@ -20,21 +20,26 @@ export class ReopenComplainListComponent implements OnInit {
   deptList: any = []
   msg: string = '';
   remarkNumber!: number;
-  totalRecords:number
-  page:number=1
+  totalRecords: number
+  page: number = 1
   showModal: boolean;
-  file:any
+  file: any
 
-  increaseCount():number{
-    return this.index+(this.page-1)*4
+  increaseCount(): number {
+    return this.index + (this.page - 1) * 10
   }
 
 
   constructor(private departmentService: DepartmentService, private router: Router) {
+   
+  }
+
+  ngOnInit() {
+
     this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
       id => {
         this.deptId = id.deptId
-        this.departmentService.getComplainList(this.deptId).pipe(
+        this.departmentService.getReopenComplainList(this.deptId).pipe(
           tap(data => console.log(data)),
           map(dataList => dataList.filter((data: { status: string; }) => data.status === "REOPEN"))
         ).subscribe(
@@ -44,9 +49,6 @@ export class ReopenComplainListComponent implements OnInit {
           }
         )
       })
-  }
-
-  ngOnInit() {
   }
 
 
@@ -73,20 +75,18 @@ export class ReopenComplainListComponent implements OnInit {
         }
       }
     )
-    this.totalRecords=this.complains.length
+    this.totalRecords = this.complains.length
     form.reset();
     this.onClose();
 
   }
-  
-  show(file:any)
-  {
-    this.file=file
-    this.showModal = true; 
-    
+
+  show(file: any) {
+    this.file = file
+    this.showModal = true;
+
   }
-  hide()
-  {
+  hide() {
     this.showModal = false;
   }
 

@@ -9,3 +9,7 @@
 .pagination{
     justify-content: center
 }
+.container{
+    height: 40vw;
+    overflow-y: scroll
+}
