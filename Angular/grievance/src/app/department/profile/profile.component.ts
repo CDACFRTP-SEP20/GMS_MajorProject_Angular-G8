@@ -11,27 +11,28 @@ import { Departmenthead } from 'src/app/models/departmenthead';
 })
 export class ProfileComponent implements OnInit {
 
-  deptId:string
-  headDetail:Departmenthead=new Departmenthead()
- username:any
- name:any
-  constructor(private route:Router,private departmentService:DepartmentService) {
-    this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
-      id=>{
-        this.deptId=id.deptId
-        this.departmentService.getDepartmentHeadDetail(this.deptId).subscribe(
-          data=>{
-            this.headDetail=data
-            this.username=this.departmentService.getUsername();
-          }
-          )
-      }
-    )
-   }
+  deptId: string
+  headDetail: Departmenthead = new Departmenthead()
+  username: any
+  name: any
+  constructor(private route: Router, private departmentService: DepartmentService) {
+   
+  }
 
   ngOnInit(): void {
+    this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
+      id => {
+        this.deptId = id.deptId
+        this.departmentService.getDepartmentHeadDetail(this.deptId).subscribe(
+          data => {
+            this.headDetail = data
+            this.username = this.departmentService.getUsername();
+          }
+        )
+      }
+    )
   }
-  changePass(){
-      this.route.navigate(['department/department-change-password'])
+  changePass() {
+    this.route.navigate(['department/department-change-password'])
   }
 }

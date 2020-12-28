@@ -24,8 +24,16 @@ export class DepartmentService {
   getToken() {
     this.token = sessionStorage.getItem('token');
   }
-  getComplainList(deptId: any): Observable<any> {
 
+  getPendingComplainList(deptId: any): Observable<any> {
+
+    return this.http.get(`http://localhost:8787/department/pendingComplain/${deptId}`);
+  }
+  getReopenComplainList(deptId: any): Observable<any> {
+
+    return this.http.get(`http://localhost:8787/department/reopenComplain/${deptId}`);
+  }
+  getComplainList(deptId: any): Observable<any> {
     return this.http.get(`http://localhost:8787/department/complain/${deptId}`);
   }
 
