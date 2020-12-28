@@ -13,9 +13,8 @@ export class GlobalErrorHandlerService implements ErrorHandler {
       this.errormesage=error
         console.log(' error handling with global error handler... ', error)
 
-        console.log(error)
-        alert(error)    //need to display to end users
-
-
+        console.log("====="+this.errormesage)
+        //alert(error)    //need to display to end users
+        this._userservice.errormessage.next(error)
     }
 }

@@ -1,0 +1,33 @@
+{
+    "nav" :{
+        "home" : "HOME",
+        "about" : "ABOUT",
+        "department" : "DEPARTMENT",
+        "contact" :"CONTACT"
+    },
+    "home":{
+        "slogan1" : " A good government may, indeed, redress the grievances of an injured people; but a strong people can alone build up a great nation.",
+        "slogan2" : " Let your grievance solve by our overshadow.",
+        "register" : "Register",
+        "about" : "About GMS",
+        "p1" : "A grievance is a formal complaint that is raised by an employee towards an employer within the workplace. There are many reasons as to why a grievance can be raised, and also many ways to go about dealing with such a scenario. Reasons for filing a grievance in the workplace can be as a result of, but not limited to, a breach of the terms and conditions of an employment contract,raises and promotions, or lack thereof, as well as harassment and employment discrimination.",
+        "p2" : " A grievance between an employee and employer can be dealt with either informally or formally, and sometimes both approaches are taken in search of a resolution. In the informal approach, an employee can informally bring forth a concern promptly to his or her employer. Here a discussion or similar between the two parties can result in a mutually agreed upon resolution. In the case that this step fails or is skipped altogether, a grievance can be raised formally, where formal meetings and options for appeals become available",
+        "p3" : "As for the union, a grievance procedure can act as a way to nurture trust and loyalty between employee and the union. Since a grievance is usually a process that is supported by both employee and employer, there is always an understanding that this will be the route taken for conflict resolution within the workplace. When action must be taken, the union can play a significant role in the grievance process, and for this reason, it is important that they achieve a fair settlement for their clients, who are the employees, in order to gain further support and in some cases, re-election for company union representation",
+        "water" : " Water Department",
+        "waterdesc" : "The water industry provides drinking water and wastewater services (including sewage treatment) to residential, commercial, and industrial sectors of the economy.",
+        "gas": "Gas Department" ,
+        "gasdesc": " Gas service technicians are the people who work in the homes of customers to install and service their appliances and gas-powered heating systems, which can include boilers and cookers." ,
+        "road" : "Road Department ",
+        "roaddesc" : "  These roadside workers patrol highways and major roadways, ready to assist stranded motorists, call towing services for disabled vehicles or remove debris and other hazards from the road.",
+        "garbage" : "Garbage Department",
+        "garbagedesc" : "Garbage Collectors are in charge for collecting and removing waste and recyclable materials for further processing. Typical job duties listed on a Garbage Collector example resume are operating waste collection vehicles.",
+        "property": " Property Department",
+        "propertydesc": " The Restatement (First) of Property defines property as anything, tangible or intangible whereby a legal relationship between persons and the state enforces a possessory interest or legal title in that thing.",
+        "health" :" Health Department ",
+        "healthdesc" :" Healthcare refers to the organized provision of medical care to people and communities. By that definition, healthcare careers do not just include doctors, nurses, and other frontline clinicians who often come to mind first when people think of healthcare jobs",
+        "electricity" : " Electricity Department",
+        "electricitydesc" : " Electricity is the set of physical phenomena associated with the presence and motion of matter that has a property of electric charge. Electricity is related to magnetism, both being part of the phenomenon of electromagnetism, as described by Maxwell's equations.",
+        "pension" : " Pension Department",
+        "pensiondesc" : " A pension created by an employer for the benefit of an employee is commonly referred to as an occupational or employer pension. Labor unions, the government, or other organizations may also fund pensions. Occupational pensions are a form of deferred compensation, usually advantageous to employee and employer for tax reasons."
+    }
+}

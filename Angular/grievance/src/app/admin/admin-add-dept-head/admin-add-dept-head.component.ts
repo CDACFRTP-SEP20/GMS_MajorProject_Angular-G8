@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map, switchMap } from 'rxjs/operators';
 import { Departmenthead } from 'src/app/models/departmenthead';
 import { AdminService } from 'src/app/service/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-add-dept-head',
@@ -20,13 +21,15 @@ export class AdminAddDeptHeadComponent implements OnInit {
   validEmail:boolean = false;
   constructor(
     private http: HttpClient,
-    private adminservice: AdminService) { }
+    private adminservice: AdminService,
+    private route:Router) { }
 
   ngOnInit(): void {
   }
   
   registerDepartmentHead() {
     this.adminservice.registerDepartmentHead(this.depthead).subscribe(data => {  });
+    this.route.navigate(['/admin-deptheadlist'])
 
   }
 

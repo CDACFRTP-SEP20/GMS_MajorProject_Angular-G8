@@ -1,6 +1,7 @@
 .container{
     text-align: center;
     margin-top: 2%;
+    margin-left: -4%;
 }
 .page-header h1{
     font-weight: bold;
@@ -13,7 +14,9 @@ th{
     font-size: large;
     font-weight: normal;
 }
-
+td{
+    text-align: center;
+}
 .btn{
     background-color: #f0567a;
     color: #fff;

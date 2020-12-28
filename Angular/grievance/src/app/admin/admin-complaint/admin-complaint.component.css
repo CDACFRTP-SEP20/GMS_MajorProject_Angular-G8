@@ -1,8 +1,7 @@
 .left{
     width: 65%;
-    padding: 5%;
-    
-    box-shadow: 2px 5px 5px 3px grey;
+    padding: 5%;    
+    box-shadow:  0 2px 3px grey;
 
 }
 .chart{
@@ -38,4 +37,10 @@ li{
 .reopend{
     background-color: #FFCE56;
 
+}
+.details{
+    height: 50px;
+    width: 200px;
+    background-color: #FF6384;
+    font-size: large;
 }
