@@ -1,7 +1,9 @@
 
-
+.upper{
+  width: 100%;
+}
 .upper nav{
-    background-color: #fff;   
+  
     height: 50px;
 }
 .upper a{
@@ -17,12 +19,14 @@
  
 
 .lower nav{
-    background-color: #45494e;  
+   
     height: 70px;
+    box-shadow: 0 2px 3px ;
 }
 .lower a{
     color: white;
     font-weight: 500;
+    font-size: larger
 }
 .lower a span{ 
     color: #03506f;
@@ -34,7 +38,7 @@
     margin-left: 10px;    
 }
 .lower li{
-    margin-left:10vw;
+    margin-left:2vw;
 }
 
 .loginlink{
@@ -44,3 +48,71 @@
     width: 100px;
     height: auto;
 }
+.theme-content{
+   background-color: #22a3b9;
+  
+}
+.dropdown-menu{
+    background-color: rgb(253, 249, 249);
+    width: 20px;
+}
+.theme-options {
+    display: -webkit-box;
+    display: -ms-flexbox;
+        
+  }
+  
+  .theme-options div {
+    width: 20px;
+    height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+      border: 2px solid black;
+    opacity: 0.5;
+  }
+  
+  .theme-options div.active {
+    opacity: 1;
+  }
+  
+  .theme-options #theme-1 {
+    background-color: #45494e;
+       
+  }
+  
+  .theme-options #theme-2 {
+    background-color: #22a3b9;
+  }
+  
+  .theme-options #theme-3 {
+    background-color: #2f997d;
+  }
+  
+  .theme-options #theme-4 {
+    background-color: #ec5858;
+  }
+  
+  
+  
+  .content.theme-1 {
+    background-color: #474646;
+  }
+  
+  .content.theme-2 {
+    background-color: #22a3b9;
+  }
+  
+  .content.theme-3 {
+    background-color: #39a085;
+  }
+  
+  .content.theme-4 {
+    background-color: #ec5858;
+  }
+  
+  .active {
+    color: rgb(20, 19, 19);
+   
+  }
+  /*# sourceMappingURL=app.component.css.map */

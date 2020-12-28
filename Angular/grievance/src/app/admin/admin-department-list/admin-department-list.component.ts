@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/service/admin.service';
 import { Department } from 'src/app/models/department';
 import { Observable } from 'rxjs';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-admin-department-list',
@@ -18,12 +19,17 @@ export class AdminDepartmentListComponent implements OnInit {
   //  }
   index:number=1
   deptNumber?:number
+  errormessage:any
 
   deptList:Department[]
-  constructor(private adminservice:AdminService) {
+  constructor(private adminservice:AdminService ,private _userservice:UserService) {
     this.adminservice.getDepartmentList().subscribe(data =>{
       this.deptList = data}
     )
+
+    this._userservice.errormessage.subscribe(error=>{
+      this.errormessage=error
+    })
   }
   ngOnInit(): void {
     

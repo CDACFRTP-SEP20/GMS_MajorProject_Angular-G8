@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/service/admin.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-admin-dept-head-list',
@@ -11,10 +12,15 @@ export class AdminDeptHeadListComponent implements OnInit {
   index:number=1
   deptHeadNumber?:number
   deptHeadList: any = []
-  constructor(private adminservice: AdminService) {
+  errormessage:string=""
+  constructor(private adminservice: AdminService,private _userservice:UserService) {
     this.adminservice.getDepartmentHeadList().subscribe(
       data => this.deptHeadList = data
     )
+    this._userservice.errormessage.subscribe(error=>{
+      this.errormessage=error
+      console.log("error mesage ============"+this.errormessage)
+    })
   }
   ngOnInit(): void {
   }
