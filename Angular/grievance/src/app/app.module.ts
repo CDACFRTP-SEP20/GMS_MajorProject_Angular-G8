@@ -49,7 +49,7 @@ import { PasswordValidatorDirective } from './directive/password-validator.direc
 import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profile.component';
 import { CitizenChangePasswordComponent } from './citizen/citizen-change-password/citizen-change-password.component';
 import { SearchPipe } from './pipe/search.pipe';
-
+import { LanguageModule } from './language/language.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +101,8 @@ import { SearchPipe } from './pipe/search.pipe';
     MatCardModule,
     ReactiveFormsModule,
     MatSidenavModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+   LanguageModule
   ],
   providers: [
     {

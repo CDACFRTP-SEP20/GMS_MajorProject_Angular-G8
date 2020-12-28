@@ -18,11 +18,14 @@ export class ForgetpasswordComponent implements OnInit {
   checkotp:any
   otp:any
   newpassword:any
+  message:string
   constructor(private _userservice:UserService) { }
 
   ngOnInit(): void {
   }
   sendOTP(){
+    this.counter=180;
+    this.users.otp=''
     console.log("inside send otp"+this.users.email)
     this._userservice.sendOTP(this.users.email).subscribe(data=>{
       this.checkotp=data
@@ -35,18 +38,28 @@ export class ForgetpasswordComponent implements OnInit {
   }
   confirmpass(){
     console.log("inside send otp"+this.users.email)
-    this._userservice.sendOTP(this.users.email).subscribe(data=>{})
-    
-    console.log(this.checkotp)
-    console.log(this.users.otp)
-    if(this.users.otp==this.checkotp){
-      this.otpstatus=true
+      console.log("counter "+this.counter)
+   if(this.counter>170)  
+   {
+      if(this.checkotp==this.users.otp){
+        this.otpstatus=true
+        this.confirmstatus=false
+      }
+      else{
+        this.otpstatus=false
       this.confirmstatus=false
-    }
-    else{
+      this.timerstop()
+      this.message="OTP does't match"
+      }
+   }
+   else
+   {
+      this.message="Session timeout"
+      this.timerstop()
       this.otpstatus=false
-    this.confirmstatus=false
-    }
+      this.confirmstatus=false
+   }
+  
   }
   resetPassword(){
       console.log(this.users)
@@ -57,5 +70,9 @@ export class ForgetpasswordComponent implements OnInit {
   timerstart(){
     this.countDown = this._userservice.getCounter(this.tick).subscribe(() => this.counter--);
 
+  }
+  timerstop(){
+    this.countDown.unsubscribe()
+   
   }
 }

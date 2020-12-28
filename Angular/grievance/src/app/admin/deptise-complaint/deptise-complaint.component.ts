@@ -10,7 +10,7 @@ import { count } from 'rxjs/operators';
 })
 export class DeptiseComplaintComponent implements OnInit {
     //@ts-ignore
-    counts:any[]=[];
+    counts:any[]=[]; 
    
     d1=1
   constructor(private adminservice:AdminService) { }
@@ -27,16 +27,16 @@ export class DeptiseComplaintComponent implements OnInit {
           console.log(typeof(this.d1))
         }
       )
-
+        
       var myChart = new Chart('myChart', {
         type: 'bar',
         data: {
             labels: ['Gas', 'Water', 'Light', 'Garbage', 'Health'],
             datasets: [{
-                label: '# of Votes',
-                data:[this.counts[0],this.counts[1],1,1],
+                label: 'Number of complaints',
+                data:[this.counts[0],this.counts[1],this.counts[2],this.counts[3],this.counts[4]],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(241, 68, 56, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',

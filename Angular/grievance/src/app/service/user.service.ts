@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, timer, Subject } from 'rxjs';
+import { Observable, timer, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,8 @@ import { Observable, timer, Subject } from 'rxjs';
 export class UserService {
 
   errormessage = new Subject<any>()
+
+  theme=new BehaviorSubject(localStorage.getItem('theme'))
   constructor(private http: HttpClient) { }
 
 
@@ -21,3 +23,4 @@ export class UserService {
     return  this.http.post<string[]>('http://localhost:8787/resetpassword',users);
   }
 }
+ 

@@ -1,8 +1,8 @@
-<section class="upper">
+<section class="upper" id="start">
   
-<nav class="navbar navbar-expand-lg  color">
+<nav class="navbar navbar-expand-sm  color ">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="">
       <ul class="navbar-nav mr-auto">
       <li class="nav-item">
           <a class="nav-link">
@@ -45,12 +45,29 @@
                 </svg>
             </a>
           </li>
+          <li class="nav-item">            
+              <button [class.active]="selectedlang1==='en'" (click)="changelang('en')">EN</button>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+              <button [class.active]="selectedlang1==='hindi'" (click)="changelang('hindi')">HIN</button>
+          </li>
+          <li class="theme-content">
+            <div class="dropdown ">
+              <button type="button" class="btn  dropdown-toggle content {{theme}}" data-toggle="dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                  <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
                 </svg>
-            </a>
+              </button>
+              <div class="">
+                <div class="dropdown-menu theme-options">
+                  <div id="theme-1" [ngClass]="(theme === 'theme-1')  ? 'active' : '' " (click)="setTheme('theme-1')"></div>
+                  <div id="theme-2" [ngClass]="(theme === 'theme-2')  ? 'active' : '' " (click)="setTheme('theme-2')"></div>
+                  <div id="theme-3" [ngClass]="(theme === 'theme-3')  ? 'active' : '' " (click)="setTheme('theme-3')"></div>
+                  <div id="theme-4" [ngClass]="(theme === 'theme-4')  ? 'active' : '' " (click)="setTheme('theme-4')"></div>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>     
 
@@ -59,7 +76,7 @@
 </section>
 
 <section class="lower">
-    <nav class="navbar navbar-expand-lg  color">
+    <nav class="navbar navbar-expand-md  color content {{theme}}">
         <a class="navbar-brand" href="#">
           <img src="../../../assets/images/gmslogo.png" class="logo" alt="">
         </a>
@@ -68,23 +85,20 @@
         </button>
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav m-auto">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+              <a class="nav-link" routerLink="home"> {{'nav.home' | translate}}  <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ABOUT</a>
+              <a class="nav-link" href="#about">{{'nav.about' | translate}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">DEPARTMENTS</a>
+              <a class="nav-link" href="#dept">{{'nav.department' | translate}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACT</a>
+              <a class="nav-link" href="#contact">{{'nav.contact' | translate}}</a>
             </li>
-          </ul>
-         
-           
-           <ul class="navbar-nav ml-auto">
+        
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16" >
@@ -94,11 +108,9 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item waves-effect waves-light " *ngIf='!authService.isUserLoggedIn()' (click)='login()'><span>Login</span> </a>
-
                     <a class="dropdown-item waves-effect waves-light"  *ngIf='!authService.isUserLoggedIn()' (click)=' onRegisterClick()'><span>Register</span></a>
-
-                     <a class="dropdown-item waves-effect waves-light" href="#" *ngIf='authService.isUserLoggedIn()'(click)='logout()'><span>Logout</span></a>
-
+                    <a class="dropdown-item waves-effect waves-light"  *ngIf='authService.isUserLoggedIn()'(click)='dashboard()'><span>Dashboard</span></a>
+                    <a class="dropdown-item waves-effect waves-light"  *ngIf='authService.isUserLoggedIn()'(click)='logout()'><span>Logout</span></a>
                 </div>
                 </li>
            </ul>
