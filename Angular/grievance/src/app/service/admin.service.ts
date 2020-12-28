@@ -69,5 +69,7 @@ export class AdminService {
   getCountOfCitizen():Observable<number>{
     return this.http.get<number>('http://localhost:8787/admin/citizencount');
   }
-
+  getAllComplaints():Observable<any>{
+    return this.http.get<number>('http://localhost:8787/admin/viewcomplaints');
+  }
 }
