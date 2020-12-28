@@ -1,3 +1,6 @@
+import { count } from 'rxjs/operators';
+import { LikeDislikeDTO } from './../../models/like-dislike-dto';
+import { ComplaintStatusDto } from './../../models/complaint-status-dto';
 import { CommentDTO } from './../../models/comment-dto';
 import { CitizenService } from './../../service/citizen.service';
 import { Comment } from './../../models/comment';
@@ -12,34 +15,30 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CitizenCommentComponent implements OnInit {
   public show: boolean = false;
-  // count:Observable<any>
-  // // constructor(private service : CitizenService){
-  // //   this.count = this.service.getCount()
-
-  // // }
+  compStatus:Array<any>=[]
+  citizenId =  localStorage.getItem('citizenId');
   commentForm: FormGroup;
   commentInfo: Array<Comment> = [];
   commentDTO: Array<CommentDTO> = [];
-  commentTxt: String;
-  count: number = 0;
+  commentTxt: Array<any>=[];
+  likeDislikeInfo:Array<LikeDislikeDTO>=[];
+  count=0;
   dcount: number = 0;
   flag: number = 0;
   flag1: number = 0;
   submitted: Boolean = false;
-  public id = 0;
-  index:number = 1;
   showCommentIndex:number;
-  
-  
-  @Output() usercomment = new EventEmitter();
-  toggle() {
-    this.show = !this.show;
-  }
+  LikeDislikeDTO: Array<LikeDislikeDTO> = [];
+  index:number = 1;
 
   constructor(private formBuilder: FormBuilder, private citizenService : CitizenService) {
     this.citizenService.getAllComment().subscribe( res => {
       this.commentDTO = res;
       console.log(this.commentDTO);
+    })
+    this.citizenService.getAllComplain().subscribe( res => {
+      this.compStatus = res;
+      console.log(this.compStatus);
     })
 
   }
@@ -55,20 +54,50 @@ export class CitizenCommentComponent implements OnInit {
     });
   }
 // Posting comment
-  onSubmit() {
+  onSubmit(i:any,complainId:any) {
     this.commentInfo.push({
-      commentId: this.id++,
-      currentDate: new Date(),
+      citizenId : this.citizenId,
+      compId:complainId,
+      commentId: i,
       commentTxt: this.commentForm.controls['comment'].value,
-      replyComment: [],
-    });
-    this.commentTxt = '';
-    this.usercomment.emit(this.commentInfo);
+     });
+     console.log(this.commentInfo)
+     this.citizenService.postComment(this.commentInfo).subscribe(data=> console.log(data))
+
+    this.commentTxt = [];
+    
+    
   }
   // Increasing Like
-  countLike(index:number) {
-    //@ts-ignore
-    this.commentDTO[index].isLiked  =parseInt(this.commentDTO[index].isLiked)+1;
+  countLike(index:number,complainId:any) {
+ 
+    this.likeDislikeInfo.push({
+      citizenId : this.citizenId,
+      like: this.Like(index),
+      dislike: this.dcount ,
+      compId: complainId
+     });
+    }
+
+
+    Like(index:number) : number {
+      console.log(index)
+      console.log(this.commentDTO[index].like)
+      //@ts-ignore
+      this.commentDTO[index].like  = parseInt(this.commentDTO[index].like)+1;
+      console.log(this.commentDTO[index].like)
+      //@ts-ignore
+      return this.commentDTO[index].like ;
+       
+    }
+
+
+
+
+
+
+    
+  //   this.commentDTO[index].isLiked  =0;
      //  this.commentDTO[index].+=1;
     // if (this.flag === 0) {
     //   if (this.flag1 === 1) {
@@ -81,8 +110,8 @@ export class CitizenCommentComponent implements OnInit {
     //   this.count--;
     //   this.flag = 0;
     // }
-    // return this.flag;
-  }
+  //   // return this.flag;
+  // }
 
   // Decreasing Like
   // countDislike(): number {

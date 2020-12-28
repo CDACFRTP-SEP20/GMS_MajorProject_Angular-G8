@@ -14,7 +14,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
         console.log(' error handling with global error handler... ', error)
 
         console.log(error)
-        alert(error)    //need to display to end users
+        // alert(error)    //need to display to end users
 
 
     }
