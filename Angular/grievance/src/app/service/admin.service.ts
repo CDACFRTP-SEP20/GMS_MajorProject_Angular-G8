@@ -5,6 +5,7 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpResponse, HttpRequest } from '@angular/common/http';
 import { Departmenthead } from '../models/departmenthead';
+import { ComplaintsDetails } from '../models/complaintDetails';
 
 
 @Injectable({
@@ -69,7 +70,10 @@ export class AdminService {
   getCountOfCitizen():Observable<number>{
     return this.http.get<number>('http://localhost:8787/admin/citizencount');
   }
-  getAllComplaints():Observable<any>{
-    return this.http.get<number>('http://localhost:8787/admin/viewcomplaints');
+  getAllComplaints():Observable<ComplaintsDetails[]>{
+    return this.http.get<ComplaintsDetails[]>('http://localhost:8787/admin/viewcomplaints');
+  }
+  getComplaintsByStatus(status:string):Observable<ComplaintsDetails[]>{
+    return this.http.get<ComplaintsDetails[]>(`http://localhost:8787/admin/viewcomplaints/${status}`);
   }
 }
