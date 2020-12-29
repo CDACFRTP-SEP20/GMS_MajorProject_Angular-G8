@@ -9,17 +9,19 @@ import { Department } from 'src/app/models/department';
 })
 export class DepartmentHomeComponent implements OnInit {
 
-  deptId:string
-  constructor(private deptService : DepartmentService) { 
-    this.deptService.getDeptId(deptService.getUsername()).subscribe(
-      id=>{
-        this.deptId=id.deptId
-      }
-     
-    )
-    
+  deptId: string
+  constructor(private deptService: DepartmentService) {
+   
   }
   ngOnInit(): void {
+
+    this.deptService.getDeptId(this.deptService.getUsername()).subscribe(
+      id => {
+        this.deptId = id.deptId
+      }
+
+    )
+
   }
 
 }

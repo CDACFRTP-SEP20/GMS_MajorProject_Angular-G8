@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { ReportsComponent} from '../reports/reports.component'
+import { ReportsComponent } from '../reports/reports.component'
 import { ActivatedRoute } from '@angular/router';
 import { DepartmentService } from 'src/app/service/department.service';
 import { map, filter, tap } from 'rxjs/operators';
@@ -8,24 +8,20 @@ import { map, filter, tap } from 'rxjs/operators';
   templateUrl: './show-reports.component.html',
   styleUrls: ['./show-reports.component.css']
 })
-export class ShowReportsComponent implements OnInit{
+export class ShowReportsComponent implements OnInit {
 
-  status:string = ''
-  deptId:any
-  complains:any=[]
-  totalRecords:number
-  page:number=1
+  status: string = ''
+  deptId: any
+  complains: any = []
+  totalRecords: number
+  page: number = 1
   index: number = 1;
 
-  constructor(private route:ActivatedRoute,private departmentService:DepartmentService) {
-    
-    
-   }
- 
+  constructor(private route: ActivatedRoute, private departmentService: DepartmentService) {
+  }
   
- 
-  ngOnInit(): void { 
-    this.route.queryParams.subscribe(params =>{
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
       this.status = params['status'];
       this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
         id => {
@@ -35,21 +31,21 @@ export class ShowReportsComponent implements OnInit{
           ).subscribe(
             data => {
               this.complains = data
-              this.totalRecords=data.length
+              this.totalRecords = data.length
             }
           )
         })
-      
+
     })
 
-  
-   
+
+
   }
 
-  increaseCount():number{
-    return this.index+(this.page-1)*4
+  increaseCount(): number {
+    return this.index + (this.page - 1) * 10
   }
-  
-  
+
+
 
 }
