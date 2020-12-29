@@ -33,7 +33,7 @@
         *ngFor="let comm of commentDTO"
         class="col-12 col-sm-12 comment-container"
       >
-        <p *ngIf="comment.compId == comm.compId.compId">
+        <p *ngIf="comment.compId == comm.compId">
           {{ comm.comment }}
         </p>
       </div>

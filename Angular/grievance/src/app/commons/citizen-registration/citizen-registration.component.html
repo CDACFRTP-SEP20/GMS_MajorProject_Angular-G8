@@ -1,6 +1,5 @@
-
 <div class="maindiv">
-        <!-- <div class="registerlogo">
+    <!-- <div class="registerlogo">
                 <img src="https://www.iconspng.com/images/memo-pictogram/memo-pictogram.jpg" alt="">
               </div> -->
     <div class="container form">
@@ -33,9 +32,13 @@
                     <i class="fa fa-user icon"></i>
                     <input type="text"
                         [ngClass]="{'is-invalid': (registerForm.controls.username.touched || submitted) && (registerForm.controls.username.errors?.required ||registerForm.controls.username.errors),
-                    'is-valid': ((registerForm.controls.username.touched ) && !registerForm.controls.username.errors?.required && !registerForm.controls.username.errors)}"
-                        formControlName="username" class="form-control" placeholder="Enter Username" name="username">
+                    'is-valid': ((registerForm.controls.username.touched ) && !registerForm.controls.username.errors?.required && !registerForm.controls.username.errors) && !(validUsername && registerForm.controls.username.touched) }"
+                        formControlName="username" class="form-control" placeholder="Enter Username" name="username"
+                        (change)="checkUsername()">
                     &nbsp;
+                    <div class="text-danger" *ngIf="validUsername && registerForm.controls.username.touched ">
+                        Username Already Exists
+                    </div>
                     <div class="invalid-feedback">
                         username is required with minlength is 3.
                     </div>
@@ -91,8 +94,7 @@
                     <input type="email"
                         [ngClass]="{'is-invalid': (registerForm.controls.email.touched || submitted) && (registerForm.controls.email.errors?.required ||registerForm.controls.email.errors),
                     'is-valid': ((registerForm.controls.email.touched ) && !registerForm.controls.email.errors?.required && !registerForm.controls.email.errors)}"
-                        formControlName="email" class="form-control" placeholder="Enter email address"
-                        name="email">
+                        formControlName="email" class="form-control" placeholder="Enter email address" name="email">
                     &nbsp;
                     <div class="invalid-feedback">
                         email is required.
@@ -102,22 +104,25 @@
 
 
             <div class="form-group">
-                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" data-toggle="modal" data-target="#exampleModal">Sign up</button> &nbsp;
-                  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <div class="modal-body">
-          You have successfully registered!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="transfer()" >Okay</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" data-toggle="modal"
+                    data-target="#exampleModal">Sign up</button> &nbsp;
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+                                You have successfully registered!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    (click)="transfer()">Okay</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <button class="btn btn-danger" (click)="cancel()">Cancel</button>
             </div>

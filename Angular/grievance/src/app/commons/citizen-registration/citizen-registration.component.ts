@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./citizen-registration.component.css']
 })
 export class CitizenRegistrationComponent implements OnInit {
+  citizendto: CitizenDTO = new CitizenDTO();
+  validUsername:boolean = false;
+
   submitted = false;
   registerForm: FormGroup;
   fieldTextType: boolean;
@@ -27,7 +30,7 @@ export class CitizenRegistrationComponent implements OnInit {
 
   createForm(){
     this.registerForm = this.fb.group({
-      name: ['', [Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z]*(?:\s+[a-zA-Z][a-zA-Z]+)?$")]],
+      name: ['', [Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z\\s]*$")]],
       username: ['', [Validators.required,Validators.minLength(3)]],
       password: ['', [Validators.required,Validators.minLength(6)]], 
       address: ['', Validators.required],
@@ -62,6 +65,14 @@ export class CitizenRegistrationComponent implements OnInit {
   }
   transfer(){
     this.router.navigate(['login']);
+  }
+
+  checkUsername(){
+    this.citizenService.checkUsername(this.registerForm.get('username').value).subscribe(data => { 
+      this.validUsername = data;
+      console.log(this.validUsername);
+      
+    });
   }
 }
 
