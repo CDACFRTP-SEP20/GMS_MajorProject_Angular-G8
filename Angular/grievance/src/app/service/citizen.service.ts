@@ -21,9 +21,9 @@ export class CitizenService {
     });
   }
 
-  getComplainStatus(): Observable<any> {
-    return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
-  }
+  // getComplainStatus(): Observable<any> {
+  //   return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
+  // }
   public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
     return this.http.post("http://localhost:8787/registerCitizen",citizenDTO, {responseType: 'text' });
 
@@ -62,4 +62,18 @@ export class CitizenService {
     return this.http.get(`http://localhost:8787/citizen/compList`);
   }
 
+  submitLike(likeDislikeInfo:any):  Observable<any> {
+    return this.http.post(`http://localhost:8787/citizen/postLike`, likeDislikeInfo);
+  }
+  submitDislike(likeDislikeInfo:any):  Observable<any> {
+    return this.http.post(`http://localhost:8787/citizen/postDislike`, likeDislikeInfo);
+  }
+
+  deleteLike(likeInfo:any) : Observable<any> {
+    return this.http.post(`http://localhost:8787/citizen/deleteLike`, likeInfo);
+  }
+
+  deleteDislike(likeInfo:any) : Observable<any> {
+    return this.http.post(`http://localhost:8787/citizen/deleteDislike`, likeInfo);
+  }
 }
