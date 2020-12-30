@@ -33,12 +33,13 @@
         *ngFor="let comm of commentDTO"
         class="col-12 col-sm-12 comment-container"
       >
+
       <p  class="font-weight-bold text-uppercase" *ngIf="comment.compId == comm.compId.compId">
         {{ comm.citizenId.name }}
       </p>
         <p *ngIf="comment.compId == comm.compId.compId">
           {{ comm.comment }}
-        </p>
+        </p> -->
       </div>
       <div
         *ngFor="let comments of commentInfo"

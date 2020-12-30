@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Department } from '../models/department';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,11 +14,20 @@ export class AuthenticationService  {
   ngOnInit(){
     console.log(sessionStorage.getItem('username'));
   }
-  
-  constructor(private http: HttpClient) { }
+  //username:string
+  constructor(private http: HttpClient, private route:Router) { }
   isUserLoggedIn(){
-    let username  = sessionStorage.getItem('username')
-    return !(username === null)
+  //  if( sessionStorage.getItem('username')!=null)
+  //  {
+  //    this.username=sessionStorage.getItem("username")
+  //    return !(this.username === null)
+  //  }
+  //  else {
+  //   this.username=localStorage.getItem("username")
+  //   return !(this.username === null)
+  // }
+  let username= sessionStorage.getItem('username')
+  return !(username === null)
   }
 
   loginStatus = new BehaviorSubject<boolean>(this.isUserLoggedIn())
@@ -50,12 +60,17 @@ export class AuthenticationService  {
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('userrole')
 
+    localStorage.removeItem('token')
+    localStorage.removeItem('username')
+    localStorage.removeItem('userrole')
+
     //emit values
     this.loginStatus.next(false)
     //@ts-ignore
     this.username.next(null)
       //@ts-ignore
     this.userrole.next(null)
+    
   }
 
 

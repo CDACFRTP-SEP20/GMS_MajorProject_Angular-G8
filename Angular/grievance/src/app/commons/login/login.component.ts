@@ -1,6 +1,7 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,48 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router,private as: AuthenticationService) { }
+  remember:boolean=false
+  errormesg:any
+  constructor(private router:Router,private as: AuthenticationService,private userservice:UserService) {
+   
+   }
 
   ngOnInit(): void {
+    this.userservice.errormessage.subscribe(data=>{
+      this.errormesg=data
+    })
+    console.log(this.errormesg)
   }
 
  errorMessage:string | undefined
   username:string | undefined
   password:string | undefined
-
+  lockstatus:boolean=true
   onLogin(){
+    console.log("***************************"+this.username)
+    this.userservice.getStatus(this.username).subscribe(data=>{
+      console.log("***************************"+data)
+      this.lockstatus=data
+ 
+})
+   
     this.as.authenticate(this.username, this.password)
     .subscribe(
       data =>{
+
+        // if(this.remember===true){
+        //     localStorage.setItem('username',sessionStorage.getItem('username'))
+        //      localStorage.setItem('userrole', sessionStorage.getItem('userrole'))
+        //       localStorage.setItem('token',sessionStorage.getItem('token'))
+
+        //       console.log(localStorage.getItem('username'))
+        // }
+    
         if(data.roles[0] === "ROLE_CITIZEN"){
           this.router.navigate(['citizen'])
         }
         if(data.roles[0] === "ROLE_ADMIN"){
+          console.log("----------------admin")
           this.router.navigate(['admin'])
         }
         if(data.roles[0] === "ROLE_DEPARTMENT"){
@@ -39,15 +65,7 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  admin(){
-    this.router.navigate(['admin'])
-  }
   isChecked(){
-    //store userData details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem('1','username')
-      localStorage.setItem('2','role')
-      localStorage.setItem('3','token')
-      //localStorage.setItem('currentUser', JSON.stringify({ token: 1, name: username }));
-      localStorage.getItem('1')
+  //    this.remember=true
     }
 }

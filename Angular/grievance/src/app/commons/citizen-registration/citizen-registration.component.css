@@ -45,6 +45,12 @@ label{
 .input-container{
   display: flex;
 }
+.input-container  input{
+  display: block;
+}
+.invalid-feedbac{
+display: block;
+}
 .form-control{
   width: 100%;
   padding: 10px;

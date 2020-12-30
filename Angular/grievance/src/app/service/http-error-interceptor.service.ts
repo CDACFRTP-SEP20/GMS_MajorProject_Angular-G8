@@ -26,14 +26,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                       ///you can modify message based on status code
                       console.log("aaaaaaaaaaa"+error.error.status)
                       switch (error.error.status) {
+                          
                           case 404:
                               errorMessage = 'List is not present ' + error.error.message
                               break;
                           case 401:
-                              errorMessage = 'this is 401 status code'
+                              errorMessage= 'Account is Locked please contact '+error.error.message
+                              console.log("error message "+errorMessage)
                               break;
                          case 500:
                               errorMessage = 'this is 401 status code'
+                              break;
+                        case 423:
+                              errorMessage = 'Account is locked' + error.error.message
                               break;
                               
 

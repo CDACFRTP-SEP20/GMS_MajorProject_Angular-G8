@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ignoreElements } from 'rxjs/operators';
 import { Department } from 'src/app/models/department';
 import { AdminService } from 'src/app/service/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-add-department',
@@ -12,7 +13,7 @@ export class AdminAddDepartmentComponent implements OnInit {
  
   validDeptname:boolean = false;
   department:Department = new Department();
-  constructor(private adminservice:AdminService) { }
+  constructor(private adminservice:AdminService,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,7 @@ export class AdminAddDepartmentComponent implements OnInit {
     this.adminservice.addDepartment(this.department).subscribe(
       data => {
     })
+    //this.route.navigate(['/admin/admin-deptlist'])
   }
 
   checkDeptName(){

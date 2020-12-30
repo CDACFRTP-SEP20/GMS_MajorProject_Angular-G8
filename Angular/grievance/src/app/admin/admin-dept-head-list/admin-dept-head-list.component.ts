@@ -26,8 +26,9 @@ export class AdminDeptHeadListComponent implements OnInit {
   }
 
   deleteDeptHead(deptHeadId: string,index:number) {
+    console.log("delete depthead")
     this.deptHeadNumber=index
-    this.adminservice.deleteDeptHead(deptHeadId).subscribe(data => { })
+    this.adminservice.deleteDeptHead1(deptHeadId).subscribe(data => { })
     this.deptHeadList.splice(this.deptHeadNumber, 1);
   }
 }

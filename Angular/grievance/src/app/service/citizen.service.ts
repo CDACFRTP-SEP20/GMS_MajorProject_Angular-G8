@@ -21,9 +21,7 @@ export class CitizenService {
     });
   }
 
-  // getComplainStatus(): Observable<any> {
-  //   return this.http.get('http://localhost:8787/citizen/viewStatus?cid=1')
-  // }
+
   public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
     return this.http.post("http://localhost:8787/registerCitizen",citizenDTO, {responseType: 'text' });
 

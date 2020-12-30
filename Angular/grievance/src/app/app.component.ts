@@ -12,18 +12,6 @@ export class AppComponent implements OnInit{
 
   constructor(private router:Router){}
   ngOnInit(){
-    this.changenav()
   }
-  changenav(){
-    if(localStorage.getItem('role') === "ROLE_CITIZEN"){
-      this.router.navigate(['citizen'])
-    }
-    if(localStorage.getItem('role')=== "ROLE_ADMIN"){
-      this.router.navigate(['admin-adddepthead'])
-      //this.router.navigate(['admin'])
-    }
-    if(localStorage.getItem('role') === "ROLE_DEPARTMENT"){
-      this.router.navigate(['department'])
-    }
-  }
+ 
 }
