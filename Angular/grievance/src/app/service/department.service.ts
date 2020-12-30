@@ -33,8 +33,8 @@ export class DepartmentService {
 
     return this.http.get(`http://localhost:8787/department/reopenComplain/${deptId}`);
   }
-  getComplainList(deptId: any): Observable<any> {
-    return this.http.get(`http://localhost:8787/department/complain/${deptId}`);
+  getComplainList(deptId: any,status:any): Observable<any> {
+    return this.http.get(`http://localhost:8787/department/complain/${deptId}/${status}`);
   }
 
   getreminderComplain(deptId: any): Observable<any> {
@@ -65,7 +65,6 @@ export class DepartmentService {
   }
 
   getDepartmentHeadDetail(deptId: any): Observable<any> {
-    console.log('in service')
     return this.http.post<any>("http://localhost:8787/department/departmentHeadDetail", { deptId });
   }
 

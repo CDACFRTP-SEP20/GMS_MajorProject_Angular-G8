@@ -58,6 +58,7 @@ const routes: Routes = [
       { path: 'admin-complaintlist', component: AdminComplaintComponent },
       { path: 'admin-deptwisecomplaintlist', component: DeptiseComplaintComponent },
       { path: 'admin-statuscomplaintlist', component: StatuswiseComplaintComponent },
+      { path: 'admin-complaintreport', component: ComplaintReportComponent },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
 
     ]
