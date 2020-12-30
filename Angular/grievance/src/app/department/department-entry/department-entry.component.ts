@@ -39,14 +39,14 @@ export class DepartmentEntryComponent implements OnInit {
                 datasets: [{
                   label: 'Total Complaints',
                   backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
+                    "#f8933b",
+                    "#4edab4",
+                    "#1b9edb"
                   ],
                   hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
+                    "#f8933b",
+                    "#4edab4",
+                    "#1b9edb"
                   ],
                   borderColor: "#FF6384",
                   borderWidth: 2,

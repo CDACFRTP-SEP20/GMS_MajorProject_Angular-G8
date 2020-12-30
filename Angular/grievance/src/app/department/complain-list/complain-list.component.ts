@@ -6,6 +6,7 @@ import { pipe } from 'rxjs';
 import { map, filter, tap } from 'rxjs/operators';
 import { Department } from 'src/app/models/department';
 import { GlobalErrorHandlerService } from 'src/app/service/global-error-handler.service';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class ComplainListComponent implements OnInit {
   remarkNumber!: number;
   totalRecords: number
   page: number = 1
-  errorMsg: any
+  errorMsg: string='';
   showModal: boolean;
   file: any
   name: any
@@ -37,7 +38,7 @@ export class ComplainListComponent implements OnInit {
   increaseCount(): number {
     return this.index + (this.page - 1) * 10
   }
-  constructor(private departmentService: DepartmentService, private router: Router, private errorHandler: GlobalErrorHandlerService) {
+  constructor(private departmentService: DepartmentService, private router: Router, private userService:UserService) {
     
   }
 
@@ -56,7 +57,9 @@ export class ComplainListComponent implements OnInit {
             this.complains = data
             this.totalRecords = data.length
           }
+          
         )
+
       })
    
   }

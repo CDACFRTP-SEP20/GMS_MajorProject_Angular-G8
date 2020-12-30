@@ -16,3 +16,10 @@
     height: 40vw;
     overflow-y: scroll
 }
+.fa{
+    color:darkgreen;
+    cursor: pointer;
+}
+.bi{
+    cursor: pointer;
+}
