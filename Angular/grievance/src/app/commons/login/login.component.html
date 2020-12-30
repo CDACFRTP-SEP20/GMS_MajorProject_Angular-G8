@@ -29,7 +29,11 @@
         <label><input type="checkbox" name="remember" (click)="isChecked()"> Remember me</label>
       </div>    
       <button type="submit" class="btn btn-info pl-4 pr-4" [disabled]="un?.invalid">Login</button>
-        <span class="ml-5"> <a routerLink="/forgetpassword">Forget Password ?</a></span>
+        <span class="ml-5" *ngIf="lockstatus"> <a routerLink="/forgetpassword">Forget Password ?</a></span>
+        <span class="ml-2 " *ngIf="!lockstatus">
+          <span class="locked">Your Account is locked </span>
+          <span class="unlock"> <a routerLink="/activateAccount">Activate Account</a></span>
+        </span>
     </form>
   </div>
 </div>

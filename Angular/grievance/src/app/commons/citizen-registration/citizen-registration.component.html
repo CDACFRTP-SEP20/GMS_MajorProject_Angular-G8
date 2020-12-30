@@ -1,127 +1,224 @@
-
-<div class="maindiv">
-        <!-- <div class="registerlogo">
-                <img src="https://www.iconspng.com/images/memo-pictogram/memo-pictogram.jpg" alt="">
-              </div> -->
-    <div class="container form">
-        <span class="font-weight-bolder text-center header">
-            <legend>Regsiter here!</legend>
-        </span>
-
-
-        <form [formGroup]="registerForm" (ngSubmit)="registerCitizen()">
-
+<!-- 
+<div class="container">
+        <div class="header">
+            <h1>Add New Department Head</h1>
+        </div>
+        <form method="POST" #RegisterForm="ngForm" (ngSubmit)="registerCitizen()">
+            <div>
+                <label for="Citizen name">Citizen Name</label>
+            </div>
             <div class="form-group">
-                <label for="name">Name:</label>
-                <div class="input-container">
-                    <i class="fa fa-user icon"></i>
-                    <input type="text"
-                        [ngClass]="{'is-invalid': (registerForm.controls.name.touched || submitted) && (registerForm.controls.name.errors?.required ||registerForm.controls.name.errors),
-                    'is-valid': ((registerForm.controls.name.touched ) && !registerForm.controls.name.errors?.required && !registerForm.controls.name.errors)}"
-                        formControlName="name" class="form-control " placeholder="Enter name" name="name">
-                    &nbsp;
-                    <div class="invalid-feedback">
-                        name is required, minlength is 3 and only characters are allowed.
-                    </div>
-                </div>
+                <i class="fa fa-user icon"></i>
+                <input type="text" class="form-control"
+                placeholder="Enter Citizen name "
+                name="citizenname"
+                required
+                [(ngModel)]=" citizen.name"
+                minlength="5"
+                #citizenDTOname="ngModel"
+                [class.is-invalid]="citizenDTOname.invalid && citizenDTOname.touched">
+            </div>
+            <div>
+                <small class="text-danger" [class.d-none]="citizenDTOname.valid || citizenDTOname.untouched">Employee Name is required</small>
             </div>
 
-
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <div class="input-container">
-                    <i class="fa fa-user icon"></i>
-                    <input type="text"
-                        [ngClass]="{'is-invalid': (registerForm.controls.username.touched || submitted) && (registerForm.controls.username.errors?.required ||registerForm.controls.username.errors),
-                    'is-valid': ((registerForm.controls.username.touched ) && !registerForm.controls.username.errors?.required && !registerForm.controls.username.errors)}"
-                        formControlName="username" class="form-control" placeholder="Enter Username" name="username">
-                    &nbsp;
-                    <div class="invalid-feedback">
-                        username is required with minlength is 3.
-                    </div>
+            <div>
+                    <label for="Citizen name">Enter Username</label>
                 </div>
-            </div>
-
-
             <div class="form-group">
-                <label for="pwd">Password:</label>
-                <div class="input-container">
-                    <i class="fa fa-key icon"></i>
-                    <input [type]="fieldTextType ? 'text' : 'password'"
-                        [ngClass]="{'is-invalid': (registerForm.controls.password.touched || submitted) && (registerForm.controls.password.errors?.required ||registerForm.controls.password.errors),
-                    'is-valid': ((registerForm.controls.password.touched ) && !registerForm.controls.password.errors?.required && !registerForm.controls.password.errors)}"
-                        formControlName="password" class="form-control" placeholder="Enter password" name="password">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa" [ngClass]="{
-                                      'fa-eye-slash': !fieldTextType,
-                                      'fa-eye': fieldTextType
-                                    }" (click)="toggleFieldTextType()"></i>
-                        </span>
-                    </div>
-                    &nbsp;
-                    <div class="invalid-feedback">
-                        password is required with minlegth 6.
-                        character.
-                    </div>
+                    <input type="text" class="form-control"
+                        placeholder="Enter Username" 
+                        name="username"
+                        required
+                        [(ngModel)]="citizen.username"
+                        #username="ngModel"
+                        (change)="checkUsername()">
                 </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <div class="input-container">
-                    <i class="fa fa-address-card icon"></i>
-                    <input type="text"
-                        [ngClass]="{'is-invalid': (registerForm.controls.address.touched || submitted) && (registerForm.controls.address.errors?.required ||registerForm.controls.address.errors),
-                    'is-valid': ((registerForm.controls.address.touched ) && !registerForm.controls.address.errors?.required && !registerForm.controls.address.errors)}"
-                        formControlName="address" class="form-control" placeholder="Enter address" name="address">
-                    &nbsp;
-                    <div class="invalid-feedback">
-                        address is required.
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="email">EmailID:</label>
-                <div class="input-container">
-                    <i class="fa fa-at icon"></i>
-                    <input type="email"
-                        [ngClass]="{'is-invalid': (registerForm.controls.email.touched || submitted) && (registerForm.controls.email.errors?.required ||registerForm.controls.email.errors),
-                    'is-valid': ((registerForm.controls.email.touched ) && !registerForm.controls.email.errors?.required && !registerForm.controls.email.errors)}"
-                        formControlName="email" class="form-control" placeholder="Enter email address"
-                        name="email">
-                    &nbsp;
-                    <div class="invalid-feedback">
-                        email is required.
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" data-toggle="modal" data-target="#exampleModal">Sign up</button> &nbsp;
-                  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+               <div >
+                   <span class="text-danger" *ngIf="!validUsername && username.touched  ">Username Already Exists</span>
+               </div>
         
-        <div class="modal-body">
-          You have successfully registered!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="transfer()" >Okay</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+               <div>
+                    <label for="Citizen name">Enter Password</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control"
+                        placeholder="Enter Password" 
+                        name="password"
+                        required
+                        [(ngModel)]="citizen.password"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$"
+                        #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched">
+                    </div>
+                    <div *ngIf="password.errors && (password.invalid && password.untouched)">
+                        <small class="text-danger" *ngIf="password.errors.pattern">Minimum len 5 and must contains letter(both upper and lower) and number</small>
+                    </div>
 
-                <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+
+            <div>
+                <label for="Citizen name">Enter Email</label>
             </div>
-
+            <div class="form-group">
+                <input type="text" class="form-control"
+                placeholder="Enter Email"
+                name="email"
+                pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
+                [(ngModel)]="citizen.email"
+                #email="ngModel"
+                [class.is-invalid]="email.invalid && email.untouched"
+                (change)="checkEmail()">
+            </div>
+            <div>
+                <small class="text-danger" *ngIf="email.touched && email.valid" >Email is required</small>
+                <small class="text-danger"  *ngIf="!validEmail && email.touched" >Email is Already Exists</small>
+            </div>
+    
+            <div>
+                    <label for="Citizen name">Enter Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"
+                    placeholder="Enter Address"
+                    name="address"
+                    [(ngModel)]="citizen.address"
+                    #address="ngModel"
+                    [class.is-invalid]="address.invalid && address.untouched">
+                </div>
+            
+            <button type="submit"  [disabled]="!validUsername" class="btn btn-success">Register</button>
         </form>
     </div>
-</div>
+     -->
+     <div class="maindiv">
+            <!-- <div class="registerlogo">
+                        <img src="https://www.iconspng.com/images/memo-pictogram/memo-pictogram.jpg" alt="">
+                      </div> -->
+            <div class="container form">
+                <span class="font-weight-bolder text-center header">
+                    <legend>Regsiter here!</legend>
+                </span>
+        
+        
+                <form [formGroup]="registerForm" (ngSubmit)="registerCitizen()">
+        
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <div class="input-container">
+                            <i class="fa fa-user icon"></i>
+                            <input type="text"
+                                [ngClass]="{'is-invalid': (registerForm.controls.name.touched || submitted) && (registerForm.controls.name.errors?.required ||registerForm.controls.name.errors),
+                            'is-valid': ((registerForm.controls.name.touched ) && !registerForm.controls.name.errors?.required && !registerForm.controls.name.errors)}"
+                                formControlName="name" class="form-control " placeholder="Enter name" name="name">
+                            &nbsp;
+                        </div>
+                        <div class="text-danger" *ngIf="registerForm.controls.name.touched && registerForm.controls.name.invalid">
+                             Minlength is 3 and only Characters are allowed.
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                            <label for="username">Username:</label>
+                            <div class="input-container">
+                                <i class="fa fa-user icon"></i>
+                                <input type="text"
+                                    [ngClass]="{'is-invalid': (registerForm.controls.username.touched || submitted) && (registerForm.controls.username.errors?.required ||registerForm.controls.username.errors),
+                                'is-valid': ((registerForm.controls.username.touched ) && !registerForm.controls.username.errors?.required && !registerForm.controls.username.errors) && !(validUsername && registerForm.controls.username.touched) }"
+                                    formControlName="username" class="form-control" placeholder="Enter Username" name="username"
+                                    (change)="checkUsername()">
+                                &nbsp;
+                                <div class="text-danger" *ngIf="validUsername && registerForm.controls.username.touched ">
+                                    Username Already Exists
+                                </div>
+                                <div class="invalid-feedback" *ngIf="!(validUsername && registerForm.controls.username.touched)">
+                                    username is required with minlength 3.
+                                </div>
+                            </div>
+                        </div>
+            
+        
+        
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <div class="input-container">
+                            <i class="fa fa-key icon"></i>
+                            <input [type]="fieldTextType ? 'text' : 'password'"
+                                [ngClass]="{'is-invalid': (registerForm.controls.password.touched || submitted) && (registerForm.controls.password.errors?.required ||registerForm.controls.password.errors),
+                            'is-valid': ((registerForm.controls.password.touched ) && !registerForm.controls.password.errors?.required && !registerForm.controls.password.errors)}"
+                                formControlName="password" class="form-control" placeholder="Enter password" name="password">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa" [ngClass]="{
+                                              'fa-eye-slash': !fieldTextType,
+                                              'fa-eye': fieldTextType
+                                            }" (click)="toggleFieldTextType()"></i>
+                                </span>
+                            </div>
+                            &nbsp;
+                        </div>
+                        <div class="text-danger" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+                            password is required with minlegth 6 character.
+                        </div>
+                    </div>
+        
+        
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <div class="input-container">
+                            <i class="fa fa-address-card icon"></i>
+                            <input type="text"
+                                [ngClass]="{'is-invalid': (registerForm.controls.address.touched || submitted) && (registerForm.controls.address.errors?.required ||registerForm.controls.address.errors),
+                            'is-valid': ((registerForm.controls.address.touched ) && !registerForm.controls.address.errors?.required && !registerForm.controls.address.errors)}"
+                                formControlName="address" class="form-control" placeholder="Enter address" name="address">
+                            &nbsp;
+                        </div>
+                        <div class="text-danger" *ngIf="registerForm.controls.address.touched && registerForm.controls.address.invalid">
+                            address is required.
+                        </div>
+                    </div>
+        
+        
+                    <div class="form-group">
+                        <label for="email">EmailID:</label>
+                        <div class="input-container">
+                            <i class="fa fa-at icon"></i>
+                            <input type="email"
+                                [ngClass]="{'is-invalid': (registerForm.controls.email.touched || submitted) && (registerForm.controls.email.errors?.required ||registerForm.controls.email.errors),
+                            'is-valid': ((registerForm.controls.email.touched ) && !registerForm.controls.email.errors?.required && !registerForm.controls.email.errors)}"
+                                formControlName="email" class="form-control" placeholder="Enter email address" name="email">
+                            &nbsp;
+                        </div>
+                        <div class="text-danger" *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+                                email is required.
+                        </div>
+                    </div>
+        
+        
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" data-toggle="modal"
+                            data-target="#exampleModal">Sign up</button> &nbsp;
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+        
+                                    <div class="modal-body">
+                                        You have successfully registered!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            (click)="transfer()">Okay</button>
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+        

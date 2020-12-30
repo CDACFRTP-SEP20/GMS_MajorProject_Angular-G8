@@ -10,11 +10,12 @@ export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private _userservice : UserService) { }
   
     handleError(error: Error) {
+      console.log("=====")
       this.errormesage=error
-        console.log(' error handling with global error handler... ', error)
+        console.log(' error handling with global error handler... '+ error)
 
         console.log("====="+this.errormesage)
-        //alert(error)    //need to display to end users
+       // alert(error+this.errormesage)    //need to display to end users
         this._userservice.errormessage.next(error)
 
     }

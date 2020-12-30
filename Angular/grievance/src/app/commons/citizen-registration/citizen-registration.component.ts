@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CitizenDTO } from 'src/app/models/citizen-dto';
 import { CitizenService } from 'src/app/service/citizen.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-citizen-registration',
@@ -13,8 +14,10 @@ export class CitizenRegistrationComponent implements OnInit {
   submitted = false;
   registerForm: FormGroup;
   fieldTextType: boolean;
-
-  constructor(private citizenService: CitizenService,
+  validUsername:boolean = false;
+  citizen: CitizenDTO = new CitizenDTO();
+  validEmail:boolean;
+  constructor(private citizenService: CitizenService,private userService:UserService,
     private router: Router,
     private fb: FormBuilder) {
       this.createForm();
@@ -27,7 +30,7 @@ export class CitizenRegistrationComponent implements OnInit {
 
   createForm(){
     this.registerForm = this.fb.group({
-      name: ['', [Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z]*(?:\s+[a-zA-Z][a-zA-Z]+)?$")]],
+      name: ['', [Validators.required,Validators.minLength(3),Validators.pattern("^[a-zA-Z\\s]*$")]],
       username: ['', [Validators.required,Validators.minLength(3)]],
       password: ['', [Validators.required,Validators.minLength(6)]], 
       address: ['', Validators.required],
@@ -45,15 +48,9 @@ export class CitizenRegistrationComponent implements OnInit {
 
   registerCitizen() {
     this.submitted = true;
-    let citizen: any = this.registerForm.value;
-    let citizenDTO = new CitizenDTO();
-    citizenDTO.name = citizen.name;
-    citizenDTO.username = citizen.username;
-    citizenDTO.password = citizen.password;
-    citizenDTO.address = citizen.address;
-    citizenDTO.email = citizen.email;
+    
 
-    this.citizenService.registerCitizen(citizenDTO).subscribe(
+    this.citizenService.registerCitizen(this.citizen).subscribe(
       data => {
         console.log(data)
           },
@@ -63,6 +60,14 @@ export class CitizenRegistrationComponent implements OnInit {
   transfer(){
     this.router.navigate(['login']);
   }
+  checkUsername(){
+    this.userService.checkUsername(this.registerForm.get('username').value).subscribe(data => { 
+      this.validUsername = data;
+      console.log(this.validUsername);
+      
+    });
+  }
+
 }
 
 

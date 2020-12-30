@@ -44,3 +44,10 @@ label{
    
     background-image: url("https://cdn.hipwallpaper.com/m/52/49/29nhJr.png");
 }
+
+.locked{
+  color: red
+}
+.unlock{
+  font-size: large
+}

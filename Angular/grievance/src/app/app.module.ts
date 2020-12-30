@@ -50,6 +50,7 @@ import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profi
 import { CitizenChangePasswordComponent } from './citizen/citizen-change-password/citizen-change-password.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { LanguageModule } from './language/language.module';
+import { ActivateAccountComponent } from './commons/activate-account/activate-account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +91,7 @@ import { LanguageModule } from './language/language.module';
     CitizenChangePasswordComponent,
     PasswordValidatorDirective,
     SearchPipe,
+    ActivateAccountComponent,
   ],
   imports: [
     BrowserModule,

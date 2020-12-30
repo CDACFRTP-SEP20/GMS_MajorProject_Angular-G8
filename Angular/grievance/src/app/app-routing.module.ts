@@ -34,6 +34,7 @@ import { CitizenProfileComponent } from './citizen/citizen-profile/citizen-profi
 import { AuthGuard } from './service/auth.guard';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { ComplaintReportComponent } from './admin/complaint-report/complaint-report.component';
+import { ActivateAccountComponent } from './commons/activate-account/activate-account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'forgetpassword', component: ForgetpasswordComponent },
+  { path: 'forgetpassword', component: ForgetpasswordComponent }, 
+  { path: 'activateAccount', component: ActivateAccountComponent },
   { path: 'register', component: CitizenRegistrationComponent },
   { path: 'citizen', component: CitizenComponent },
 

@@ -184,10 +184,13 @@ button:hover{
 }
 .news{
     width: 100%;
-    height:550px;
+    height:52vw;
     overflow-y: scroll;
 }
-
+.newsimage{
+    width: 100%;
+    height: 250px;
+}
 /* contact  */
 .contact{
     /* background-color: #dbdada; */

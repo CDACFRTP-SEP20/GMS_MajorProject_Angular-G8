@@ -29,7 +29,7 @@ export class AdminAddDeptHeadComponent implements OnInit {
   
   registerDepartmentHead() {
     this.adminservice.registerDepartmentHead(this.depthead).subscribe(data => {  });
-    this.route.navigate(['/admin-deptheadlist'])
+    this.route.navigate(['/admin/admin-deptheadlist'])
 
   }
 

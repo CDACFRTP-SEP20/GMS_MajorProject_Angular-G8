@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AdminService } from 'src/app/service/admin.service';
 import { Department } from 'src/app/models/department';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './admin-department-list.component.html',
   styleUrls: ['./admin-department-list.component.css']
 })
-export class AdminDepartmentListComponent implements OnInit {
+export class AdminDepartmentListComponent implements OnInit ,OnChanges{
    
   // deptList:Observable<Department>
  
@@ -23,6 +23,9 @@ export class AdminDepartmentListComponent implements OnInit {
 
   deptList:Department[]
   constructor(private adminservice:AdminService ,private _userservice:UserService) {
+    
+  }
+  ngOnInit(): void {
     this.adminservice.getDepartmentList().subscribe(data =>{
       this.deptList = data}
     )
@@ -31,8 +34,8 @@ export class AdminDepartmentListComponent implements OnInit {
       this.errormessage=error
     })
   }
-  ngOnInit(): void {
-    
+  ngOnChanges(){
+    this.ngOnInit()
   }
   
   deleteDepartment(deptId:any,index:number){

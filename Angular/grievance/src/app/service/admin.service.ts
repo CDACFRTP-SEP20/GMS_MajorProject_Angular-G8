@@ -60,8 +60,8 @@ export class AdminService {
     return this.http.get(`http://localhost:8787/admin/checkemail/${email}`);
   }
 
-  deleteDeptHead(deptHeadId: string):Observable<any>{
-    return this.http.get(`http://localhost:8787/admin/deletedepertmenthead/${deptHeadId}`)
+  deleteDeptHead1(deptHeadId: string):Observable<any>{
+    return this.http.delete(`http://localhost:8787/admin/deletedepertmenthead/${deptHeadId}`)
   }
   
   deleteDepartment(deptId: string):Observable<any>{

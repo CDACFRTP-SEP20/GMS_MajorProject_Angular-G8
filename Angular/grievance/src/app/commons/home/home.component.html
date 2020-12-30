@@ -12,7 +12,7 @@
                         </span>
 
                   </div>
-                  <button class="btn btn-info">  {{'home.register' | translate}} </button>
+                  <button class="btn btn-info" (click)=" onRegisterClick()">  {{'home.register' | translate}} </button>
             </div>
 
       </div>
@@ -117,7 +117,7 @@
             <div class="row">
                 <div class="col-md-4 col-lg-3 my-3 d-flex align-items-stretch" *ngFor="let item of news">
                     <div class="card">
-                        <img src="{{item.urlToImage}}" alt="" class="card-img-top img-fluid img-thumbnail">
+                        <img src="{{item.urlToImage}}" alt="" class="card-img-top img-fluid img-thumbnail newsimage">
                         <div class="card-body">
                             <div class="card-title text-capitalize">
                                 <h5>{{item.title}}</h5>
@@ -126,8 +126,8 @@
                                 {{ (item.description | slice:0:100 ) +'..' }}
                             </p>
                             <div class="d-flex justify-content-left mt-3">
-                                <p class="badge badge-secondary mr-3">{{item.publishedAt}}</p>
-                                <p class="badge badge-secondary ">{{item.source.name}}</p>
+                                <p class="badge badge-secondary mr-3 p-2">{{item.publishedAt}}</p>
+                                <p class="badge badge-secondary p-2">{{item.source.name}}</p>
                             </div>
                         </div>
                     </div>
