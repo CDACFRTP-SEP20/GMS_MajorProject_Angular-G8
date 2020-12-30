@@ -43,7 +43,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'register', component: CitizenRegistrationComponent },
-  { path: 'citizen', component: CitizenComponent },
 
    { path: 'admin', component: AdminHomeComponent,
 
@@ -69,7 +68,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: "ROLE_CITIZEN" },
     children: [
-      { path: '', component: CitizenProfileComponent },      
+      { path: '', component: CitizenComplaintStatusComponent },      
       { path: 'citizen-profile', component: CitizenProfileComponent },
       { path: 'citizen-complaint', component: CitizenComplaintComponent },
       { path: 'citizen-complaint-register-form', component: CitizenComplaintRegisterFormComponent },

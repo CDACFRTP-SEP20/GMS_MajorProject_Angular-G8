@@ -1,3 +1,6 @@
+<h2 class="text-success" *ngIf="errorMsg != ''">{{errorMsg}}</h2>
+<h2 class="text-warning" *ngIf="reopenErrorMsg != ''">{{reopenErrorMsg}}</h2>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -55,7 +58,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">Confirm Remind!{{status.compId}}</div>
+              <div class="modal-body">Confirm Remind!</div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -66,8 +69,9 @@
                 </button>
                 <button
                   type="button"
-                  (click)="reminder(status.compId)"
+                  (click)="reminder(status.compId,i)"
                   class="btn btn-success"
+                  data-dismiss="modal"
                 >
                   Remind
                 </button>
@@ -111,7 +115,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                Are you sure want to Reopen?{{ status.compId }}
+                Are you sure want to Reopen?
               </div>
               <div class="modal-footer">
                 <button
@@ -125,6 +129,7 @@
                   (click)="reopen(status.compId)"
                   type="button"
                   class="btn btn-warning"
+                  data-dismiss="modal"
                 >
                   Reopen
                 </button>
