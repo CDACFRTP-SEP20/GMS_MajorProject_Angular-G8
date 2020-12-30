@@ -44,8 +44,20 @@ h5 span{
     padding-top: 10%;
     text-align: center;
     margin: -18px;
-    background-color: #45494e;
+   
 
+}
+.theme-1{
+    background-color: #45494e;
+}
+.theme-2{
+    background-color: #22a3b9;
+}
+.theme-3{
+    background-color: #2f997d;
+}
+.theme-4{
+    background-color: #ec5858;
 }
 .logo{
     width: 40%;

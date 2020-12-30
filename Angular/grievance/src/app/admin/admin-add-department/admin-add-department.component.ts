@@ -21,6 +21,7 @@ export class AdminAddDepartmentComponent implements OnInit {
   addDepartment(){
     this.adminservice.addDepartment(this.department).subscribe(
       data => {
+        console.log("add dept")
     })
     //this.route.navigate(['/admin/admin-deptlist'])
   }

@@ -1,14 +1,24 @@
 .card-deck{
     margin-top: 40px;
-    margin-left: 20px;
-     width: 80%;  
+    margin-left: 4%;
+    
      margin-bottom: 20px
 }
 
 
 .card{
     box-shadow: 0 2px 5px grey; 
-   
+    width: 200px;
+    height: 250px;
+    text-align: center;
+    margin-top: 5%;
+}
+.card:hover{
+    transform: scale(1.02)
+}
+.card img{
+    width: 50%;
+    margin-top: 2%;
 }
 
 .card-title{

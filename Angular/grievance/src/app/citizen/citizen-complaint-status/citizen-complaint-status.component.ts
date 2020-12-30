@@ -18,12 +18,17 @@ export class CitizenComplaintStatusComponent implements OnInit {
   citizenId =  localStorage.getItem('citizenId');
   errorMsg:string = ''
   reopenErrorMsg:string = ''
+  index:number=1
+  page: number = 1
+  totalRecords: number
 
   //without async pipe
   complainStatus:Array<ComplaintStatusDto> = []
 
   
- 
+  increaseCount(): number {
+    return this.index + (this.page - 1) * 10
+  }
   constructor(private citizenService : CitizenService, private router : Router,private userService:UserService) {
     this.citizenService.getComplainStatus(this.citizenId).subscribe(
       res => this.complainStatus = res

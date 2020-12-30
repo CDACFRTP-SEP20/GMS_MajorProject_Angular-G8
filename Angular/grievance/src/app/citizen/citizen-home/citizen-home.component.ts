@@ -10,12 +10,14 @@ export class CitizenHomeComponent implements OnInit {
 
   citizenId:string
   constructor(private citizenService : CitizenService) { 
+    console.log("inside ctor")
     this.citizenService.getCitizenId(citizenService.getUsername()).subscribe(
       id=>{
-        this.citizenId=id
-        console.log("id"+ id)
+        console.log("inside id call///////////////")
+        this.citizenId=id.citizenId
+        console.log("id "+ id.citizenId)
         localStorage.setItem('citizenId', this.citizenId);
-        console.log(this.citizenId)
+        console.log("citizen id"+this.citizenId)
 
       }
      

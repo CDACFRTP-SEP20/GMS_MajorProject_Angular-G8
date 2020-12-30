@@ -35,6 +35,7 @@ import { AuthGuard } from './service/auth.guard';
 import { DepartmentEntryComponent } from './department/department-entry/department-entry.component';
 import { ComplaintReportComponent } from './admin/complaint-report/complaint-report.component';
 import { ActivateAccountComponent } from './commons/activate-account/activate-account.component';
+import { CitizenChangePasswordComponent } from './citizen/citizen-change-password/citizen-change-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -74,6 +75,7 @@ const routes: Routes = [
       { path: 'citizen-profile', component: CitizenProfileComponent },
       { path: 'citizen-complaint', component: CitizenComplaintComponent },
       { path: 'citizen-complaint-register-form', component: CitizenComplaintRegisterFormComponent },
+      { path: 'citizen-change-password', component: CitizenChangePasswordComponent },
       { path: 'citizen-complaint-status', component: CitizenComplaintStatusComponent },
       { path: 'citizen-comment', component: CitizenCommentComponent },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }

@@ -34,7 +34,9 @@ export class UserService {
   checkUsername(username: any): Observable<any>{
     return this.http.get(`http://localhost:8787/checkusername/${username}`);
   }
-
+  checkEmail(email: any): Observable<any>{
+    return this.http.get(`http://localhost:8787/checkemail/${email}`);
+  }
 
 }
  
