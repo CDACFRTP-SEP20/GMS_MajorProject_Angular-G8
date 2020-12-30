@@ -1,6 +1,6 @@
 export class Comment {
-    commentId :any
-    currentDate : any
-    commentTxt: any
-    replyComment: any
+  citizenId: any;
+  commentId: any;
+  compId: any;
+  commentTxt: any;
 }

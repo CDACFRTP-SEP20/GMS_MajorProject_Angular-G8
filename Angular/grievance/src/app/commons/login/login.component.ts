@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error =>{
-        this.errorMessage = 'Login Failure'
+        this.errorMessage = 'Bad Credential enter Correct Credential'
       }
     )
   }
@@ -42,4 +42,12 @@ export class LoginComponent implements OnInit {
   admin(){
     this.router.navigate(['admin'])
   }
+  isChecked(){
+    //store userData details and jwt token in local storage to keep user logged in between page refreshes
+      localStorage.setItem('1','username')
+      localStorage.setItem('2','role')
+      localStorage.setItem('3','token')
+      //localStorage.setItem('currentUser', JSON.stringify({ token: 1, name: username }));
+      localStorage.getItem('1')
+    }
 }

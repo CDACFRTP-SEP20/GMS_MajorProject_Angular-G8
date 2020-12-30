@@ -1,33 +1,50 @@
-<div *ngFor="let comment of commentDTO; let i = index">
+<div *ngFor="let comment of compStatus; let i = index">
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>U*er*A*ME</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-title>{{ comment.citizenId.name}}</mat-card-title>
+      <mat-card-subtitle>{{comment.compId}}</mat-card-subtitle>
     </mat-card-header>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <mat-card-content>
       <p>
-        {{ comment.comment }}
+        {{comment.description}}
       </p>
+     
+      <div>
+        <img style="width:180px" src="../assets/complain-Images/{{comment.file}}" alt="complain Image">
+      </div>
     </mat-card-content>
     <mat-card-actions>
-      <button class="button button1" (click)="countLike(i)">
-        Like {{ comment.isLiked }}
+      <button class="button button1" (click)="countLike(i,comment.compId)">
+        Like {{comment.like}}
       </button>
-      <button class="button button3" >
-        Dislike{{ dcount }}
+      <button class="button button3">Dislike{{ dcount }}</button>
+      <button class="button button4" (click)="this.showCommentIndex = i">
+        COMMENT
       </button>
-
-      <button class="button button4" (click)="this.showCommentIndex=i">COMMENT</button>
     </mat-card-actions>
-    <form *ngIf="showCommentIndex==i" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <form
+      *ngIf="showCommentIndex == i"
+      [formGroup]="commentForm"
+      (ngSubmit)="onSubmit(i, comment.compId)"
+    >
+      <div
+        *ngFor="let comm of commentDTO"
+        class="col-12 col-sm-12 comment-container"
+      >
+        <p *ngIf="comment.compId == comm.compId.compId">
+          {{ comm.comment }}
+        </p>
+      </div>
       <div
         *ngFor="let comments of commentInfo"
         class="col-12 col-sm-12 comment-container"
       >
-        <p>{{ comments.currentDate | date: "dd/MM/yyyy" }}</p>
-        <p>{{ comments.commentTxt }}</p>
+        <!-- <p *ngIf="comments.commentId == i">
+          {{ comments.currentDate | date: "dd/MM/yyyy" }}
+        </p> -->
+        <p *ngIf="comments.commentId == i">{{ comments.commentTxt }}</p>
       </div>
       <div class="form-group">
         <textarea

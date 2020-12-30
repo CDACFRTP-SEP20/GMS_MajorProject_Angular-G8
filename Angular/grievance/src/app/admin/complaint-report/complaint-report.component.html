@@ -1,1 +1,37 @@
-<p>complaint-report works!</p>
+<section class="container">
+    <div class="header">
+        <h1>LIST OF ALL COMPLAINTS</h1>
+        <div>
+            <button class="btn" (click)="getAllComplaints()">All Complaints</button>
+            <button class="btn" (click)="getComplaintsByStatus('solved')">Solved Complaints</button>
+            <button class="btn" (click)="getComplaintsByStatus('pending')">Pending Complaints</button>
+        </div>
+
+    </div>
+    <div class="complaint">
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th scope="col">Complaint Id</th>
+                    <th scope="col">Citizen Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col" class="desc">Description</th>
+                    <th scope="col">Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let complaint of allComplaints">
+                    <td scope="row">{{complaint.compId}}</td>
+                    <td>{{complaint.name}}</td>
+                    <td>{{complaint.deptName}}</td>
+                    <td class="desc">{{complaint.description}} </td>
+                    <td>{{complaint.status}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
