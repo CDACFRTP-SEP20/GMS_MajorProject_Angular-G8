@@ -17,5 +17,9 @@
     justify-content: center
 }
 .fa{
-    color:darkgreen
+    color:darkgreen;
+    cursor: pointer;
+}
+.bi{
+    cursor: pointer;
 }

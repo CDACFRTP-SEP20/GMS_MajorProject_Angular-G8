@@ -2,7 +2,7 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ comment.citizenId.name}}</mat-card-title>
+      <mat-card-title>{{ comment.citizenId}}</mat-card-title>
       <mat-card-subtitle>{{comment.compId}}</mat-card-subtitle>
     </mat-card-header>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
@@ -16,10 +16,10 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button class="button button1" (click)="countLike(i,comment.compId)">
+      <button class="button button1" (click)="like(i,comment.compId)">
         Like {{comment.like}}
       </button>
-      <button class="button button3">Dislike{{ dcount }}</button>
+      <button class="button button3" (click)="dislike(i,comment.compId)">Dislike {{ comment.disLike }}</button>
       <button class="button button4" (click)="this.showCommentIndex = i">
         COMMENT
       </button>
@@ -33,7 +33,11 @@
         *ngFor="let comm of commentDTO"
         class="col-12 col-sm-12 comment-container"
       >
-        <!-- <p *ngIf="comment.compId == comm.compId.compId">
+
+      <p  class="font-weight-bold text-uppercase" *ngIf="comment.compId == comm.compId.compId">
+        {{ comm.citizenId.name }}
+      </p>
+        <p *ngIf="comment.compId == comm.compId.compId">
           {{ comm.comment }}
         </p> -->
       </div>
@@ -41,9 +45,9 @@
         *ngFor="let comments of commentInfo"
         class="col-12 col-sm-12 comment-container"
       >
-        <!-- <p *ngIf="comments.commentId == i">
-          {{ comments.currentDate | date: "dd/MM/yyyy" }}
-        </p> -->
+        <p class="font-weight-bold text-uppercase" *ngIf="comments.commentId == i">
+          {{ comment.citizenId }}
+        </p>
         <p *ngIf="comments.commentId == i">{{ comments.commentTxt }}</p>
       </div>
       <div class="form-group">

@@ -1,6 +1,6 @@
 export class LikeDislikeDTO {
-  dislike: number=0;
-  like: number=0;
+  dislike: any;
+  like: any;
   compId: string;
   citizenId: string;
 }
