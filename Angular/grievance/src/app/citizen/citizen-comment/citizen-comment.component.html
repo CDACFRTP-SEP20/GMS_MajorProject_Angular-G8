@@ -1,4 +1,9 @@
-<div *ngFor="let comment of compStatus; let i = index">
+<div *ngFor="let comment of compStatus  | paginate:{
+  id:'list',
+  itemsPerPage:10,
+  currentPage:page,
+  totalItems:totalRecords
+};let i = index">
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
@@ -12,7 +17,7 @@
       </p>
      
       <div>
-        <img style="width:180px" src="../assets/complain-Images/{{comment.file}}" alt="complain Image">
+        <img style="width:180px" src="../assets/compImage/{{comment.file}}" alt="complain Image">
       </div>
     </mat-card-content>
     <mat-card-actions>
@@ -65,3 +70,6 @@
     </form>
   </mat-card>
 </div>
+<div class="pagination">
+    <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
+  </div>

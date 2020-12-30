@@ -3,6 +3,7 @@ import { Department } from 'src/app/models/department';
 import { Departmenthead } from 'src/app/models/departmenthead';
 import { DepartmentService } from 'src/app/service/department.service';
 import { ProfileComponent} from '../profile/profile.component';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -12,7 +13,8 @@ export class SidenavComponent implements OnInit {
 
   headDetail:Departmenthead=new Departmenthead()
   deptId:any
-  constructor(private departmentService: DepartmentService) {
+  theme:any
+  constructor(private departmentService: DepartmentService,private _userService:UserService) {
     this.departmentService.getDeptId(this.departmentService.getUsername()).subscribe(
       id=>{
         this.deptId=id.deptId
@@ -25,7 +27,14 @@ export class SidenavComponent implements OnInit {
     )
   }
 
-  ngOnInit(): void {
-  }
+ //theme:any=localStorage.getItem('theme')
 
+ 
+
+ ngOnInit(): void {
+   this._userService.theme.subscribe(data=>{
+     this.theme=data
+   })
+   console.log(this.theme)
+ }
 }

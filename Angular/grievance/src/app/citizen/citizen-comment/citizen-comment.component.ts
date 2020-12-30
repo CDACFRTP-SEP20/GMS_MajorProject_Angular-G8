@@ -29,6 +29,9 @@ export class CitizenCommentComponent implements OnInit {
   submitted: Boolean = false;
   showCommentIndex: number;
   index: number = 1;
+  page: number = 1
+  totalRecords: number
+
 
   constructor(
     private formBuilder: FormBuilder,

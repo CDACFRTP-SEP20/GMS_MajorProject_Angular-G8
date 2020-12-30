@@ -60,7 +60,7 @@ export class DepartmentService {
   }
 
   changePassword(username: any, oldPassword: any, newPassword: any): Observable<any> {
-    return this.http.post<any>("http://localhost:8787/department/changePassword", { username, oldPassword, newPassword });
+    return this.http.post<any>("http://localhost:8787/citizen/changePassword", { username, oldPassword, newPassword });
 
   }
 

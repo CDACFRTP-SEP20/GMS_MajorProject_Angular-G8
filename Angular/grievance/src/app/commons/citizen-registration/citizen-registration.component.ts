@@ -4,6 +4,7 @@ import { CitizenDTO } from 'src/app/models/citizen-dto';
 import { CitizenService } from 'src/app/service/citizen.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
   selector: 'app-citizen-registration',
@@ -17,7 +18,7 @@ export class CitizenRegistrationComponent implements OnInit {
   validUsername:boolean = false;
   citizen: CitizenDTO = new CitizenDTO();
   validEmail:boolean;
-  constructor(private citizenService: CitizenService,private userService:UserService,
+  constructor(private citizenService: CitizenService,private userService:UserService, private adminservice: AdminService,
     private router: Router,
     private fb: FormBuilder) {
       this.createForm();
@@ -48,15 +49,22 @@ export class CitizenRegistrationComponent implements OnInit {
 
   registerCitizen() {
     this.submitted = true;
-    
+    let citizen: any = this.registerForm.value;
+    let citizenDTO = new CitizenDTO();
+    citizenDTO.name = citizen.name;
+    citizenDTO.username = citizen.username;
+    citizenDTO.password = citizen.password;
+    citizenDTO.address = citizen.address;
+    citizenDTO.email = citizen.email;
 
-    this.citizenService.registerCitizen(this.citizen).subscribe(
+    this.citizenService.registerCitizen(citizenDTO).subscribe(
       data => {
         console.log(data)
           },
       error => console.log(error)
     )
   }
+
   transfer(){
     this.router.navigate(['login']);
   }
@@ -66,6 +74,12 @@ export class CitizenRegistrationComponent implements OnInit {
       console.log(this.validUsername);
       
     });
+  }
+  checkEmail(){
+    this.userService.checkEmail(this.citizen.email).subscribe(data => {
+      this.validEmail= data;
+      console.log(this.validEmail);
+    })
   }
 
 }

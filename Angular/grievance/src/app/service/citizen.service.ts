@@ -23,7 +23,7 @@ export class CitizenService {
 
 
   public registerCitizen(citizenDTO:CitizenDTO):Observable<any>{
-    return this.http.post("http://localhost:8787/registerCitizen",citizenDTO, {responseType: 'text' });
+    return this.http.post("http://localhost:8787/registerCitizen",citizenDTO);
 
   }
 
@@ -44,7 +44,7 @@ export class CitizenService {
   }
 
   getCitizenId(username: any): Observable<any> {
-    return this.http.get(`http://localhost:8787/citizen/citizenId/${username}`);
+    return this.http.get<any>(`http://localhost:8787/citizen/citizenId/${username}`);
   }
   reminder(compId: any): Observable<any> {
     return this.http.get(`http://localhost:8787/citizen/reminder/${compId}`);
