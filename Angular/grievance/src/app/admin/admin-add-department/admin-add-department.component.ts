@@ -10,27 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-add-department.component.css']
 })
 export class AdminAddDepartmentComponent implements OnInit {
- 
-  validDeptname:boolean = false;
-  department:Department = new Department();
-  constructor(private adminservice:AdminService,private route:Router) { }
+
+  validDeptname: boolean = false;
+  department: Department = new Department();
+  constructor(private adminservice: AdminService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  addDepartment(){
+  addDepartment() {
     this.adminservice.addDepartment(this.department).subscribe(
       data => {
-        console.log("add dept")
-    })
+      })
     //this.route.navigate(['/admin/admin-deptlist'])
   }
 
-  checkDeptName(){
-    this.adminservice.checkDeptName(this.department.departmentName).subscribe(data=>{
+  checkDeptName() {
+    this.adminservice.checkDeptName(this.department.departmentName).subscribe(data => {
       this.validDeptname = data;
     })
   }
-
-
 }

@@ -17,7 +17,6 @@ export class NavbarComponent implements OnInit {
   constructor(private router:Router,public authService: AuthenticationService,private userService:UserService,private _langtranslate:LanguageService,public translate:TranslateService) {
     
     this._langtranslate.selectedlang.subscribe(res=>{
-      console.log("res = "+res)
       this.selectedlang1=res
     })
 
@@ -28,17 +27,14 @@ export class NavbarComponent implements OnInit {
     this.browserlang=translate.getDefaultLang()
     this.languagechanged()
     this._langtranslate.selectedlang.next(this.browserlang)
-    console.log("service "+this._langtranslate.selectedlang)
    }
    languagechanged(){
     this.translate.use(this.browserlang.match(/hindi|en/) ? this.browserlang:'en') 
   }
   changelang(lang:any){
-    console.log(lang)
     // this.activeclass=lang
     this._langtranslate.selectedlang.next(lang)
     this.translate.use(lang)
-    console.log(this._langtranslate.selectedlang)
   }
   ngOnInit(): void {
   }
@@ -47,15 +43,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login'])
   }
   dashboard(){
-    let role = sessionStorage.getItem('username')
+    let role = sessionStorage.getItem('userrole')
     console.log(role)
-    if(role == "admin"){
+    if(role == "ROLE_ADMIN"){
       this.router.navigate(['/admin'])
     }
-    if(role === "citizen"){
+    if(role === "ROLE_CITIZEN"){
       this.router.navigate(['/citizen'])
     }
-    if(role === "department"){
+    if(role === "ROLE_DEPARTMENT"){
       this.router.navigate(['/department'])
     }
   }

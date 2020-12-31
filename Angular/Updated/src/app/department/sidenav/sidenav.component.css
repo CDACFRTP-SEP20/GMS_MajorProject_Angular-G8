@@ -1,0 +1,101 @@
+.example-container {
+    width: 100%;
+    height: 46vw;
+    background-color: #fff;
+    
+
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+   height: 50px;
+     
+  }
+h5{
+    color: #fff;
+    margin-left: 12%;
+    margin-top: 15%;
+    padding: 6px 10px 
+}
+h5 span{
+    margin-left: 10%
+}
+ h5:hover{
+     background-color: rgb(160, 158, 158)
+ }
+  .example-sidenav {
+    padding: 0px;
+    width: 300px;
+    
+  }
+  .hamber{
+      width: 40px;
+     color: #000
+      
+  }
+  a{
+    color: #f8fbfc;
+    text-decoration: none;
+   
+}
+.background{    
+  
+    padding-bottom: 36%;
+    padding-top: 10%;
+    text-align: center;
+    margin: -18px;
+   
+
+}
+.theme-1{
+    background-color: #45494e;
+}
+.theme-2{
+    background-color: #22a3b9;
+}
+.theme-3{
+    background-color: #2f997d;
+}
+.theme-4{
+    background-color: #ec5858;
+}
+.logo{
+    width: 40%;
+}
+
+
+.profile{
+    padding-top: 20px;
+}
+.profile img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px white;
+}
+.profile h2 {
+    color:#fff;
+}
+.line {
+    height:1px;
+    width:60%;
+    color:gray;
+    background-color:white;
+
+}
+.link{
+  
+    width:90%;  
+  
+    text-align: left
+}
+
+.menulist{
+    font-size: 17px;
+}
+.navigation a {
+    padding:0;  
+    font-size: 20px;
+    text-decoration: none
+
+}

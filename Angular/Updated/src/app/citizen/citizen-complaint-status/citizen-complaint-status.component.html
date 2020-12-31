@@ -1,0 +1,152 @@
+<h2 class="text-success" *ngIf="errorMsg != ''">{{errorMsg}}</h2>
+<h2 class="text-warning" *ngIf="reopenErrorMsg != ''">{{reopenErrorMsg}}</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">Complaint Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Complaint Status</th>
+      <th scope="col">Remark</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let status of complainStatus | paginate:{
+      id:'list',
+      itemsPerPage:10,
+      currentPage:page,
+      totalItems:totalRecords
+    }; index as i">
+
+      <th scope="row">{{increaseCount()+i}}</th>
+      <td>{{ status.compId }}</td>
+      <td>{{ status.citizenName }}</td>
+      <td>{{ status.date }}</td>
+      <td>{{ status.status }}</td>
+      <td>{{ status.remark }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          [attr.data-target]="'#myModal' + status.compId"
+          
+        >
+          <i class="fa fa-1x fa-bell" aria-hidden="true"></i>
+          <!-- Button trigger modal -->
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          
+          tabindex="-1"
+          [attr.id]="'myModal' + status.compId"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                  Reminder
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Confirm Remind!</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  (click)="reminder(status.compId,i)"
+                  class="btn btn-success"
+                  data-dismiss="modal"
+                >
+                  Remind
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      &nbsp;
+      <td>
+        <button
+          type="button"
+          class="btn btn-outline-warning"
+          data-toggle="modal"
+          [attr.data-target]="'#myModal1' + status.compId"
+        >
+          Reopen
+        </button>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          [attr.id]="'myModal1' + status.compId"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                  Reopen
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure want to Reopen?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  (click)="reopen(status.compId)"
+                  type="button"
+                  class="btn btn-warning"
+                  data-dismiss="modal"
+                >
+                  Reopen
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="pagination">
+    <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
+  </div>

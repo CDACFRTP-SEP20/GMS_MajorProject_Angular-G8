@@ -1,75 +1,61 @@
-<div *ngFor="let comment of compStatus  | paginate:{
-  id:'list',
-  itemsPerPage:10,
-  currentPage:page,
-  totalItems:totalRecords
-};let i = index">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ comment.citizenId}}</mat-card-title>
-      <mat-card-subtitle>{{comment.compId}}</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-    <mat-card-content>
-      <p>
-        {{comment.description}}
-      </p>
-     
-      <div>
-        <img style="width:180px" src="../assets/compImage/{{comment.file}}" alt="complain Image">
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button class="button button1" (click)="like(i,comment.compId)">
-        Like {{comment.like}}
-      </button>
-      <button class="button button3" (click)="dislike(i,comment.compId)">Dislike {{ comment.disLike }}</button>
-      <button class="button button4" (click)="this.showCommentIndex = i">
-        COMMENT
-      </button>
-    </mat-card-actions>
-    <form
-      *ngIf="showCommentIndex == i"
-      [formGroup]="commentForm"
-      (ngSubmit)="onSubmit(i, comment.compId)"
-    >
-      <div
-        *ngFor="let comm of commentDTO"
-        class="col-12 col-sm-12 comment-container"
-      >
-
-      <p  class="font-weight-bold text-uppercase" *ngIf="comment.compId == comm.compId.compId">
-        {{ comm.citizenId.name }}
-      </p>
-        <p *ngIf="comment.compId == comm.compId.compId">
-          {{ comm.comment }}
-        </p> -->
-      </div>
-      <div
-        *ngFor="let comments of commentInfo"
-        class="col-12 col-sm-12 comment-container"
-      >
-        <p class="font-weight-bold text-uppercase" *ngIf="comments.commentId == i">
-          {{ comment.citizenId }}
-        </p>
-        <p *ngIf="comments.commentId == i">{{ comments.commentTxt }}</p>
-      </div>
-      <div class="form-group">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment"
-          formControlName="comment"
-          [(ngModel)]="commentTxt"
-        >
-        </textarea>
-      </div>
-      <div class="form-group">
-        <button class="button button2">Post Comment</button>
-      </div>
-    </form>
-  </mat-card>
+<div class="container1">
+    <div  *ngFor="let comment of compStatus  | paginate:{
+      id:'list',
+      itemsPerPage:10,
+      currentPage:page,
+      totalItems:totalRecords
+    };let i = index">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ comment.citizenId}}</mat-card-title>
+          <mat-card-subtitle>{{comment.compId}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{comment.description}}
+          </p>
+    
+          <div>
+            <img style="width:180px" src="../assets/compImage/{{comment.file}}" alt="complain Image">
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="button button1" (click)="like(i,comment.compId)">
+            Like {{comment.like}}
+          </button>
+          <button class="button button3" (click)="dislike(i,comment.compId)">Dislike {{ comment.disLike }}</button>
+          <button class="button button4" (click)="this.showCommentIndex = i">
+            COMMENT
+          </button>
+        </mat-card-actions>
+        <form *ngIf="showCommentIndex == i" [formGroup]="commentForm" (ngSubmit)="onSubmit(i, comment.compId)">
+          <div *ngFor="let comm of commentDTO" class="col-12 col-sm-12 comment-container">
+    
+            <!-- <p class="font-weight-bold text-uppercase" *ngIf="comment.compId == comm.compId.compId">
+              {{ username}}
+            </p> -->
+            <p *ngIf="comment.compId == comm.compId.compId">
+              {{ comm.comment }}
+            </p> 
+          </div>
+          <div *ngFor="let comments of commentInfo" class="col-12 col-sm-12 comment-container">
+            <!-- <p class="font-weight-bold text-uppercase" *ngIf="comments.commentId == i">
+              {{ username }}
+            </p> -->
+            <p *ngIf="comments.commentId == i">{{ comments.commentTxt }}</p>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Leave a comment" formControlName="comment" [(ngModel)]="commentTxt">
+            </textarea>
+          </div>
+          <div class="form-group">
+            <button class="button button2">Post Comment</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+    <div class="pagination">
+      <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
+    </div>
 </div>
-<div class="pagination">
-    <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
-  </div>

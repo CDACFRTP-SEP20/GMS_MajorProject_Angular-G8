@@ -1,0 +1,52 @@
+<div class="container1">
+
+        <div class="tasklist">
+                <div class="task" style="background-color: #f35b5b">
+                        <h2>Total Complaints </h2>
+                        <h1>{{totalComplain()}}</h1>
+                </div>
+                <div class="task" style="background-color: #f8933b">
+                        <h2>Solved Complaints</h2>
+                        <h1>{{count[0]}}</h1>
+                </div>
+                <div class="task" style="background-color: #4edab4">
+                        <h2>Pending Complaints</h2>
+                        <h1>{{count[1]}}</h1>
+                </div>
+                <div class="task" style="background-color: #1b9edb">
+                        <h2>Reopened Complaints</h2>
+                        <h1>{{count[2]}}</h1>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-6 ">
+                        <div class="main">
+                                <div class="sub">
+                                        <div class="col"><img src="../assets/departmentHomeImages/resolve.png" alt="">
+                                        </div>
+                                        <div class="col"></div>
+                                </div>
+
+                                <div class="sub">
+                                        <img src="../assets/departmentHomeImages/complaint.jfif" alt="">
+
+                                </div>
+                                <div class="sub">
+                                        <img src="../assets/departmentHomeImages/transfer.jfif" alt="">
+                                </div>
+                                <div class="sub">
+                                        <img src="../assets/departmentHomeImages/reports.jfif" alt="">
+                                </div>
+
+                        </div>
+
+                </div>
+                <div class="col-lg-5 col-sm-3 col- user">
+                        <div class="chart">
+                                <canvas id="mychart" width="400" height="300"></canvas>
+                        </div>
+
+                </div>
+
+        </div>
+</div>

@@ -1,0 +1,13 @@
+.container{
+    margin: 20px;
+}
+.container button{
+    margin:0 0 5% 2%;
+    background-color: #1ecae9;
+}
+.chart{
+    display: block;
+    width: 500px;
+    height: 500px;
+    
+}

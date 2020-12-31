@@ -1,0 +1,53 @@
+.loginlogo{
+  width: 100%;
+ text-align: center;
+}
+.loginlogo img{
+  width: 120px;
+}
+.container{
+  width: 50%;
+ 
+}
+.form{  
+   width: 60%;
+    padding:4%; 
+     position: relative;
+     top:10%;
+    /* border:1px solid black; */
+  
+    background-color: rgb(240, 240, 240);
+   border-radius: 20px;
+}
+input{
+  background-color:rgb(255, 255, 255);
+}
+h1{
+  font-weight: bold;
+  
+}
+
+label{
+  font-size:large;
+ 
+}
+.maindiv{
+  align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 40.4vw;
+    margin-top:-1.1%;
+    position: relative;
+    top:0;
+   
+    background-image: url("https://cdn.hipwallpaper.com/m/52/49/29nhJr.png");
+}
+
+.locked{
+  color: red
+}
+.unlock{
+  font-size: large
+}

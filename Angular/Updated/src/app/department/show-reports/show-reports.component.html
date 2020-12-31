@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 *ngIf="errormessage != ''">{{errormessage}}</h2>
+<table class="table table-striped mt-5">
+  <thead>
+    <tr class="heading">
+      <th scope="col">S.No</th>
+      <th scope="col">Complain ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Remark</th>
+      <th scope="col">Date</th>
+      <th scope="col">Likes</th>
+      <th scope="col">Dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let complain of complains | paginate:{
+      id:'list',
+      itemsPerPage:10,
+      currentPage:page,
+      totalItems:totalRecords
+    }; let i=index">
+      <th scope="row">{{increaseCount()+i}}</th>
+      <td>{{complain.compId}}</td>
+      <td>{{complain.name}}</td>
+      <td style="width: 30%;">{{complain.description}}</td>
+      <td>{{complain.remark}}</td>
+      <td>{{complain.date}}</td>
+      <td>{{complain.like}}</td>
+      <td>{{complain.disLike}}</td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="pagination">
+  <pagination-controls id="list" [maxSize]="5" [directionLinks]="true" (pageChange)="page=$event"></pagination-controls>
+</div>
+</div>

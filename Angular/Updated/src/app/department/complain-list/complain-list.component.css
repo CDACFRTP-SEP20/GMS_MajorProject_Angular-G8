@@ -1,0 +1,25 @@
+.container{
+    height: 40vw;
+    overflow-y: scroll
+}
+
+.table{
+    border: 1px solid grey;
+    font-size: 18px;  
+}
+.modal{
+    background: rgba(0, 0, 0, .5)
+}
+.heading{
+    background-color:cadetblue;
+}
+.pagination{
+    justify-content: center
+}
+.fa{
+    color:darkgreen;
+    cursor: pointer;
+}
+.bi{
+    cursor: pointer;
+}

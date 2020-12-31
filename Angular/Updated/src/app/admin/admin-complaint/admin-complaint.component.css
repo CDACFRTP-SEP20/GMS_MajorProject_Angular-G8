@@ -1,0 +1,46 @@
+.left{
+    width: 65%;
+    padding: 5%;    
+    box-shadow:  0 2px 3px grey;
+
+}
+.chart{
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin-top: 40px;
+   
+}
+.monthlychart{
+    
+}
+ul{
+    list-style: none;  
+    margin-left: 0px
+}
+li{
+    display: inline;   
+    margin: 10px;
+    padding: 5px 9px;
+    color:#000;
+    font-weight: 500;
+    font-size: larger;
+    border-radius: 5px;
+}
+
+.solved{
+    background-color: #FF6384;
+}
+.unsolved{
+    background-color: #36A2EB;
+}
+.reopend{
+    background-color: #FFCE56;
+
+}
+.details{
+    height: 50px;
+    width: 200px;
+    background-color: #FF6384;
+    font-size: large;
+}

@@ -17,34 +17,31 @@ export class AdminAddDeptHeadComponent implements OnInit {
 
   //depthead: Departmenthead()
   depthead: Departmenthead = new Departmenthead();
-  validUsername:boolean = false;
-  validEmail:boolean = false;
+  validUsername: boolean = false;
+  validEmail: boolean = false;
   constructor(
     private http: HttpClient,
     private adminservice: AdminService,
-    private route:Router) { }
+    private route: Router) { }
 
   ngOnInit(): void {
   }
-  
+
   registerDepartmentHead() {
-    this.adminservice.registerDepartmentHead(this.depthead).subscribe(data => {  });
+    this.adminservice.registerDepartmentHead(this.depthead).subscribe(data => { });
     this.route.navigate(['/admin/admin-deptheadlist'])
 
   }
 
-  checkUsername(){
-    this.adminservice.checkUsername(this.depthead.username).subscribe(data => { 
+  checkUsername() {
+    this.adminservice.checkUsername(this.depthead.username).subscribe(data => {
       this.validUsername = data;
-      console.log(this.validUsername);
-      
     });
   }
 
-  checkEmail(){
+  checkEmail() {
     this.adminservice.checkEmail(this.depthead.email).subscribe(data => {
-      this.validEmail= data;
-      console.log(this.validEmail);
+      this.validEmail = data;
     })
   }
 

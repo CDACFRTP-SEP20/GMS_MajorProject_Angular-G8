@@ -1,0 +1,28 @@
+<button class="btn btn-danger mt-3 mr-3" (click)="changePass()">Change Password</button>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card text-center border-secondary">
+            <div class="card-header">
+                <img src="../assets/departmentHomeImages/UserLogo.png" alt="LoGo">
+                <div class="row justify-content-center">
+                    <h2>{{headDetail.name | uppercase }}</h2>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h2>ID</h2>
+                    <h2>Username</h2>
+                    <h2>Department Name</h2>
+                    <h2>Mobile No</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 text-muted">
+                    <h2>{{headDetail.deptHeadId}}</h2>
+                    <h2>{{username}}</h2>
+                    <h2>{{headDetail.departmentName}}</h2>
+                    <h2>{{headDetail.phone}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

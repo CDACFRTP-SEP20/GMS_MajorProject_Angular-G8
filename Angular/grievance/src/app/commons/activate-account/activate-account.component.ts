@@ -25,11 +25,8 @@ export class ActivateAccountComponent implements OnInit {
   ngOnInit(): void {
   }
   sendOTP(){
-    console.log("inside send otp"+this.users.email)
     this._userservice.sendOTP(this.users.email).subscribe(data=>{
       this.checkotp=data
-     console.log(this.checkotp)
-
     })
     this.otpstatus=true
     this.confirmstatus=true
@@ -49,7 +46,6 @@ export class ActivateAccountComponent implements OnInit {
   
   }
   resetPassword(){
-      console.log(this.users)
       this._userservice.unlockAccount(this.users).subscribe(data=>{
       })
   }

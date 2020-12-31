@@ -1,0 +1,18 @@
+.image{
+    width: 20%;
+    height: 20%;
+}
+.table{
+    border: 1px solid grey;
+    font-size: 18px;
+}
+.pagination{
+    justify-content: center
+}
+.container{
+    height: 40vw;
+    overflow-y: scroll
+}
+.heading{
+    background-color:cadetblue;
+}
